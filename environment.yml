@@ -1,0 +1,12 @@
+name: python-at-urban
+dependencies:
+    - Markdown==2.6.11
+    - jupyter
+    - ipython
+    - nbconvert
+    - beautifulsoup4
+    - pandas
+    - numpy
+    - pip:
+        - ghp-import
+        - pelican
