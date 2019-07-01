@@ -34,4 +34,4 @@ PLUGINS = [
 IGNORE_FILES = ['.ipynb_checkpoints']
 
 # THEME SETTINGS
-THEME = './simple/'
+THEME = './theme/'

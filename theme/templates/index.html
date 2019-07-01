@@ -4,7 +4,24 @@
 
 {% block content %}
 <div class="container index">
-
+  <div>
+    <h2></h2>
+    <p>Welcome to the Urban Institute Python Users Group website. This website 
+        contains resources for using Python at the Urban Institute for general 
+        programming, data analysis, and more.</p>
+    <p>Please don’t hesitate to contact 
+        Kyle Ueyama (<a href="mailto:kueyama@urban.org">kueyama@urban.org</a>) 
+        with any thoughts or questions about Python at the Urban Institute.</p>
+    </div>
+    <div>
+    <h3>Mailing List</h3>
+    <p>Please fill out the following list to receive email updates from the 
+      Urban Institute Python Users Group.</p>
+    <center>
+    <iframe width="600" height="500" frameborder="0" src="https://app.smartsheet.com/b/form/209d20b35be54be89c74fed3dc99c692">
+    </iframe>
+    </center>
+    </div>
   {% for article in articles_page.object_list %}
   <article>
     <header>
