@@ -417,6 +417,7 @@ article .meta a.comments_btn:hover {
                   <a class="navbar-brand" href="index.html" title="Home" id="title">Python at Urban</a>
                   <a class="navbar-brand" href="installation-guide.html" id="title">Installation</a>
                   <a class="navbar-brand" href="intro-to-python.html" id="title">Intro to Python</a>
+                  <a class="navbar-brand" href="intro-to-pandas.html" id="title">Intro to Pandas</a>
                 </div>
                 <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation" id="theNavbar">
 		    <ul class="nav navbar-nav navbar-right">
@@ -1593,26 +1594,31 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3> Python 2 or 3? </h3><p>There are two versions of python - Python 2 and Python 3. Unless you are working on a project that already requires you to use Python 2, or need libraries that are available only in Python 2, then you are <strong>strongly</strong> encouraged to install Python 3. There will be no further support or maintenance for Python 2 past 2019. For more detail on the differences between Python 2 and 3 look at: <a href="https://wiki.python.org/moin/Python2orPython3">https://wiki.python.org/moin/Python2orPython3</a>.</p>
-<h3> Using Anaconda </h3><p>If you want to use Python as a data scientist, we strongly recommend using Anaconda. This will simplify dealing with things like privileges, environments and packages.</p>
-<p>Anaconda is a Python distribution that includes a Python interpreter, a number of Python packages (including pandas, numpy, and scipy), and tools like editors. For download links, go to <a href="https://www.anaconda.com/distribution/#download-section">https://www.anaconda.com/distribution/#download-section</a>. Select Windows, MacOS, or Linux, then select a Python version, and click Download.</p>
+<h3> Python 2 or 3? </h3><p><a href="https://wiki.python.org/moin/Python2orPython3"><strong>Python 2.x is legacy, Python 3.x is the present and future of the language.</strong></a></p>
+<p>There are two versions of Python - Python 2 and Python 3. Unless you have inherited an old project that requires you to use Python 2, or need libraries that are available only in Python 2, then you should install and use Python 3 exclusively. There will be no further support or maintenance for Python 2 past 2019.</p>
+<h3> Using Anaconda </h3><p>Use Anaconda if you want to use Python for data science. This will simplify dealing with things like privileges, environments and packages.</p>
+<p>Anaconda is a Python distribution that includes a Python interpreter, a number of Python packages (including pandas, numpy, and scipy), and tools like editors. To install, go to the <a href="https://www.anaconda.com/distribution/#download-section">Anaconda Download page.</a> Select Windows, MacOS, or Linux, then select a Python version, and click Download.</p>
 <p>On opening Anaconda, you will be brought to the Navigator page from which you can launch various applications in order to run your code, including Jupyter Notebook and Spyder.</p>
-<p>Jupyter Notebook is similar to R Markdown, where you can edit blocks of code along with markdown. It allows you to create and share documents that contain live code, equations, visualizations and narrative text.</p>
-<p>Spyder is an environment for running python, similar to RStudio for R. It offers editing, analysis, and debugging.</p>
-<h3> Packages for Data Science </h3><p>Numpy is a powerful python library that allows users to create ndarrays (multi-dimensional array objects) and perform functions that can operate on multiple entries of an ndarray without loops.</p>
-<p>Pandas is a library built on top of Numpy which allows for users to create numerial tables and time series data structures. Both packages are important for performing data science operations.</p>
-<p>More will be discussed about these packages later on...</p>
-<h3> Installing Python Directly</h3><p>You can also install Python directly onto your machine rather than using Anaconda. To check if you already have Python installed on your computer, run <code>python --version</code> from your command line. 
-If you already have Python on your machine, the response should contain the version that you have installed.</p>
-<p>See the Python downloads page at <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a> for the most up to date Mac, Linux, and Windows versions of Python 2 and Python 3. They are available via the yellow download buttons on that page. Once the installer is in your downloads, open the installer and follow the steps onscreen to complete the installation.</p>
-<h4> Using Virtual Environments </h4><p>If you are worried about running into version issues between multiple projects that rely on different python versions or different packages versions, you might want to try using a Python Virtual Environment. A virtual environment is a way to create an isolated space so you can, for example, run Python 2.7 for one project and Python 3.7 for another on the same computer. Here are directions for creating a Python Virtual Environment: <a href="https://www.pythonforbeginners.com/basics/how-to-use-python-virtualenv/">https://www.pythonforbeginners.com/basics/how-to-use-python-virtualenv/</a></p>
+<p>Jupyter Notebook is similar to R Markdown, where you can edit and run blocks of code along with markdown text. It allows you to create and share documents that contain live code, equations, visualizations and narrative text.</p>
+<p>Spyder is an environment for running Python, similar to RStudio for R. It offers editing, analysis, and debugging.</p>
+<h3> Installing Packages </h3><p>Anaconda comes with a package management system called <code>conda</code>. To install a package, open your command prompt and run</p>
+<p><code>conda install {package-name}</code></p>
+<p>Note that this must be done from the command line and <strong>not</strong> the Python session (in contrast to package management in R).</p>
+<p>Base Python has its own package management tool called <code>pip</code>. If a package is not available with <code>conda install</code>, you can try running</p>
+<p><code>pip install {package-name}</code></p>
+<p>You should always try running <code>conda install</code> first, as this will do a better job of resolving package dependency issues.</p>
+<h3> Packages for Data Science </h3><p><a href="https://www.numpy.org/">Numpy</a> is a powerful Python library that allows users to create ndarrays (multi-dimensional array objects) and perform functions that can operate on multiple entries of an ndarray without loops.</p>
+<p><a href="https://pandas.pydata.org/">Pandas</a> is a library built on top of Numpy which allows for users to create numerial tables and time series data structures. Both packages are important for performing data science operations.</p>
+<p>More will be discussed about these packages later on.</p>
+<h4> Using Virtual Environments </h4><p>If you are worried about running into version issues between multiple projects that rely on different python versions or different versions of packages, you might want to try using virtual environments. A virtual environment is a way to create an isolated space so you can, for example, run Python 2.7 for one project and Python 3.7 for another on the same computer. <code>conda</code> includes robust support for creating and managing different environments. For more detail, see the <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html.">conda documentation</a></p>
 <h4> Choosing an IDE </h4><p>There are a number of different integrated development environments (IDEs) for Python. Some popular ones include:</p>
 <ul>
-<li>Spyder comes installed with Anaconda, and is most similar to RStudio for R. </li>
-<li>Jupyter also comes with Anaconda, and is most similar to RMarkdown.</li>
-<li>PyCharm is another popular Python IDE. The free version offers syntax highlighting, access to plugins, and web development support.</li>
-<li>Eclipse offers support for a variety of different languages. To use it with Python, add the PyDev plugin.</li>
+<li><a href="https://www.spyder-ide.org/">Spyder</a> comes installed with Anaconda, and is most similar to RStudio for R. </li>
+<li><a href="https://jupyter.org/">Jupyter</a> also comes with Anaconda, and is most similar to RMarkdown.</li>
+<li><a href="https://www.jetbrains.com/pycharm/">PyCharm</a> is another popular Python IDE. The free version offers syntax highlighting, access to plugins, and web development support.</li>
+<li><a href="https://www.eclipse.org/ide/">Eclipse</a> offers support for a variety of different languages. To use it with Python, add the PyDev plugin.</li>
 </ul>
+<h3> Installing Python Directly</h3><p>You can also install Python directly onto your machine rather than using Anaconda. See the Python <a href="https://www.python.org/downloads/">downloads page</a> for the most up to date Mac, Linux, and Windows versions of Python 2 and Python 3. They are available via the yellow download buttons on that page. Once the installer is in your downloads, open the installer and follow the steps onscreen to complete the installation.</p>
 </div>
 </div>
 </div>
