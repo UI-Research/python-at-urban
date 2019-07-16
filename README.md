@@ -2,4 +2,4 @@
 
 `conda env create -f environment.yml`
 `activate python-at-urban`
-`pelican content`
+`pelican content -o docs/`
