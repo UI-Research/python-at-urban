@@ -6,7 +6,7 @@
         <meta name="author" content="Urban Institute Python Users Group">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <title>Installation Guide | Python at Urban</title>
+        <title>Intro to Pandas | Python at Urban</title>
 
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -93,7 +93,7 @@
 }
 
 #title:active {
-  color: #1696d2;  
+  color: #1696d2;
   background-color: #ffffff;
 }
 
@@ -412,7 +412,7 @@ article .meta a.comments_btn:hover {
 		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#theNavbar">
 		    <span class="icon-bar"></span>
 		    <span class="icon-bar"></span>
-		    <span class="icon-bar"></span> 
+		    <span class="icon-bar"></span>
 		  </button>
                   <a class="navbar-brand" href="index.html" title="Home" id="title">Python at Urban</a>
                   <a class="navbar-brand" href="installation-guide.html" id="title">Installation</a>
@@ -432,7 +432,7 @@ article .meta a.comments_btn:hover {
 
     <article>
         <header>
-            <h1>Installation Guide</h1>
+            <h1>Python User Group</h1>
         </header>
 
         <div class="article_content">
@@ -1157,8 +1157,8 @@ div.output_area {
 div.output_area .MathJax_Display {
   text-align: left !important;
 }
-div.output_area 
-div.output_area 
+div.output_area
+div.output_area
 div.output_area img,
 div.output_area svg {
   max-width: 100%;
@@ -1388,7 +1388,7 @@ div.output_unrecognized a:hover {
 .rendered_html * + .alert {
   margin-top: 1em;
 }
-[dir="rtl"] 
+[dir="rtl"]
 div.text_cell {
   /* Old browsers */
   display: -webkit-box;
@@ -1438,10 +1438,10 @@ h6:hover .anchor-link {
 .text_cell.rendered .input_area {
   display: none;
 }
-.text_cell.rendered 
+.text_cell.rendered
 .text_cell.rendered .rendered_html tr,
 .text_cell.rendered .rendered_html th,
-.text_cell.rendered 
+.text_cell.rendered
 .text_cell.unrendered .text_cell_render {
   display: none;
 }
@@ -1588,43 +1588,56 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Installing-Python">Installing Python<a class="anchor-link" href="#Installing-Python">¶</a></h2>
+<h1 id="Python-User-Group-Technical-Support-Capabilities">Technical Support Capabilities<a class="anchor-link" href="#Python-User-Group-Technical-Support-Capabilities">&#182;</a></h1><p>The Python User Group has allocated time for technical support for Python Users throughout the Urban Institute. If you would like to know more about these capabilities or request our support, please contact Vivian Zheng, Michelle Menezes, or Kyle Ueyama on the Tech and Data Team.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3> Python 2 or 3? </h3><p><a href="https://wiki.python.org/moin/Python2orPython3"><strong>Python 2.x is legacy, Python 3.x is the present and future of the language.</strong></a></p>
-<p>There are two versions of Python - Python 2 and Python 3. Unless you have inherited an old project that requires you to use Python 2, or need libraries that are available only in Python 2, then you should install and use Python 3 exclusively. There will be no further support or maintenance for Python 2 past 2019.</p>
-<h3> Using Anaconda </h3><p>Use Anaconda if you want to use Python for data science. This will simplify dealing with things like privileges, environments and packages.</p>
-<p>Anaconda is a Python distribution that includes a Python interpreter, a number of Python packages (including pandas, numpy, and scipy), and tools like editors. To install, go to the <a href="https://www.anaconda.com/distribution/#download-section">Anaconda Download page.</a> Select Windows, MacOS, or Linux, then select a Python version, and click Download.</p>
-<p>On opening Anaconda, you will be brought to the Navigator page from which you can launch various applications in order to run your code, including Jupyter Notebook and Spyder.</p>
-<p>Jupyter Notebook is similar to R Markdown, where you can edit and run blocks of code along with markdown text. It allows you to create and share documents that contain live code, equations, visualizations and narrative text.</p>
-<p>Spyder is an environment for running Python, similar to RStudio for R. It offers editing, analysis, and debugging.</p>
-<h3> Installing Packages </h3><p>Anaconda comes with a package management system called <code>conda</code>. To install a package, open your command prompt and run</p>
-<p><code>conda install {package-name}</code></p>
-<p>Note that this must be done from the command line and <strong>not</strong> the Python session (in contrast to package management in R).</p>
-<p>Base Python has its own package management tool called <code>pip</code>. If a package is not available with <code>conda install</code>, you can try running</p>
-<p><code>pip install {package-name}</code></p>
-<p>You should always try running <code>conda install</code> first, as this will do a better job of resolving package dependency issues.</p>
-<h3> Packages for Data Science </h3><p><a href="https://www.numpy.org/">Numpy</a> is a powerful Python library that allows users to create ndarrays (multi-dimensional array objects) and perform functions that can operate on multiple entries of an ndarray without loops.</p>
-<p><a href="https://pandas.pydata.org/">Pandas</a> is a library built on top of Numpy which allows for users to create numerial tables and time series data structures. Both packages are important for performing data science operations.</p>
-<p>More will be discussed about these packages later on.</p>
-<h4> Using Virtual Environments </h4><p>If you are worried about running into version issues between multiple projects that rely on different python versions or different versions of packages, you might want to try using virtual environments. A virtual environment is a way to create an isolated space so you can, for example, run Python 2.7 for one project and Python 3.7 for another on the same computer. <code>conda</code> includes robust support for creating and managing different environments. For more detail, see the <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html.">conda documentation</a></p>
-<h4> Choosing an IDE </h4><p>There are a number of different integrated development environments (IDEs) for Python. Some popular ones include:</p>
+<h2 id="Task-Automation">Task Automation<a class="anchor-link" href="#Task-Automation">&#182;</a></h2><p>Python's basic libraries allow automation involving many useful functionalities including:</p>
 <ul>
-<li><a href="https://www.spyder-ide.org/">Spyder</a> comes installed with Anaconda, and is most similar to RStudio for R. </li>
-<li><a href="https://jupyter.org/">Jupyter</a> also comes with Anaconda, and is most similar to RMarkdown.</li>
-<li><a href="https://www.jetbrains.com/pycharm/">PyCharm</a> is another popular Python IDE. The free version offers syntax highlighting, access to plugins, and web development support.</li>
-<li><a href="https://www.eclipse.org/ide/">Eclipse</a> offers support for a variety of different languages. To use it with Python, add the PyDev plugin.</li>
+<li>Operating system commands, including creating and removing directories and files</li>
+<li>Modifying files</li>
+<li>Sending email notifications to users</li>
+<li>API calls</li>
+<li>Web scraping</li>
+<li>Interaction with cloud infrastructure including Amazon Web Services</li>
 </ul>
-<h3> Installing Python Directly</h3><p>You can also install Python directly onto your machine rather than using Anaconda. See the Python <a href="https://www.python.org/downloads/">downloads page</a> for the most up to date Mac, Linux, and Windows versions of Python 2 and Python 3. They are available via the yellow download buttons on that page. Once the installer is in your downloads, open the installer and follow the steps onscreen to complete the installation.</p>
+<p>The Python User Group can help you to determine the best way to incorporate these functionalities into your desired task, including which libraries to use, the best way to structure your code, and more.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Code-Review">Code Review<a class="anchor-link" href="#Code-Review">&#182;</a></h2><p>The Python user group can help you review your Python code in terms of:</p>
+<ul>
+<li>Code logic</li>
+<li>Code style</li>
+<li>Replication of results</li>
+<li>Code architecture and readability</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Proposal-Assistance">Proposal Assistance<a class="anchor-link" href="#Proposal-Assistance">&#182;</a></h2><p>The Python user group can help incorporate Python into your proposal, including:</p>
+<ul>
+<li>Advising how Python can be incorporated into your project</li>
+<li>Assisting with technical writing</li>
+</ul>
+
 </div>
 </div>
 </div>
 
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+            <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
