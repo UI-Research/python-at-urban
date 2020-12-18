@@ -6,7 +6,7 @@
         <meta name="author" content="Urban Institute Python Users Group">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <title>Installation Guide | Python at Urban</title>
+        <title>Intro to Pandas | Python at Urban</title>
 
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -93,7 +93,7 @@
 }
 
 #title:active {
-  color: #1696d2;  
+  color: #1696d2;
   background-color: #ffffff;
 }
 
@@ -412,7 +412,7 @@ article .meta a.comments_btn:hover {
 		  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#theNavbar">
 		    <span class="icon-bar"></span>
 		    <span class="icon-bar"></span>
-		    <span class="icon-bar"></span> 
+		    <span class="icon-bar"></span>
 		  </button>
                   <a class="navbar-brand" href="index.html" title="Home" id="title">Python at Urban</a>
                   <a class="navbar-brand" href="installation-guide.html" id="title">Installation</a>
@@ -432,7 +432,7 @@ article .meta a.comments_btn:hover {
 
     <article>
         <header>
-            <h1>Installation Guide</h1>
+            <h1>Intro to Boto3 & AWS</h1>
         </header>
 
         <div class="article_content">
@@ -1157,8 +1157,8 @@ div.output_area {
 div.output_area .MathJax_Display {
   text-align: left !important;
 }
-div.output_area 
-div.output_area 
+div.output_area
+div.output_area
 div.output_area img,
 div.output_area svg {
   max-width: 100%;
@@ -1388,7 +1388,7 @@ div.output_unrecognized a:hover {
 .rendered_html * + .alert {
   margin-top: 1em;
 }
-[dir="rtl"] 
+[dir="rtl"]
 div.text_cell {
   /* Old browsers */
   display: -webkit-box;
@@ -1438,10 +1438,10 @@ h6:hover .anchor-link {
 .text_cell.rendered .input_area {
   display: none;
 }
-.text_cell.rendered 
+.text_cell.rendered
 .text_cell.rendered .rendered_html tr,
 .text_cell.rendered .rendered_html th,
-.text_cell.rendered 
+.text_cell.rendered
 .text_cell.unrendered .text_cell_render {
   display: none;
 }
@@ -1588,43 +1588,157 @@ h6:hover .anchor-link {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Installing-Python">Installing Python<a class="anchor-link" href="#Installing-Python">¶</a></h2>
+<h1 id="Using-Python-to-aid-your-AWS-Workflow">Using Python to aid your AWS Workflow<a class="anchor-link" href="#Using-Python-to-aid-your-AWS-Workflow">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3> Python 2 or 3? </h3><p><a href="https://wiki.python.org/moin/Python2orPython3"><strong>Python 2.x is legacy, Python 3.x is the present and future of the language.</strong></a></p>
-<p>There are two versions of Python - Python 2 and Python 3. Unless you have inherited an old project that requires you to use Python 2, or need libraries that are available only in Python 2, then you should install and use Python 3 exclusively. There will be no further support or maintenance for Python 2 past 2019.</p>
-<h3> Using Anaconda </h3><p>Use Anaconda if you want to use Python for data science. This will simplify dealing with things like privileges, environments and packages.</p>
-<p>Anaconda is a Python distribution that includes a Python interpreter, a number of Python packages (including pandas, numpy, and scipy), and tools like editors. To install, go to the <a href="https://www.anaconda.com/distribution/#download-section">Anaconda Download page.</a> Select Windows, MacOS, or Linux, then select a Python version, and click Download.</p>
-<p>On opening Anaconda, you will be brought to the Navigator page from which you can launch various applications in order to run your code, including Jupyter Notebook and Spyder.</p>
-<p>Jupyter Notebook is similar to R Markdown, where you can edit and run blocks of code along with markdown text. It allows you to create and share documents that contain live code, equations, visualizations and narrative text.</p>
-<p>Spyder is an environment for running Python, similar to RStudio for R. It offers editing, analysis, and debugging.</p>
-<h3> Installing Packages </h3><p>Anaconda comes with a package management system called <code>conda</code>. To install a package, open your command prompt and run</p>
-<p><code>conda install {package-name}</code></p>
-<p>Note that this must be done from the command line and <strong>not</strong> the Python session (in contrast to package management in R).</p>
-<p>Base Python has its own package management tool called <code>pip</code>. If a package is not available with <code>conda install</code>, you can try running</p>
-<p><code>pip install {package-name}</code></p>
-<p>You should always try running <code>conda install</code> first, as this will do a better job of resolving package dependency issues.</p>
-<h3> Packages for Data Science </h3><p><a href="https://www.numpy.org/">Numpy</a> is a powerful Python library that allows users to create ndarrays (multi-dimensional array objects) and perform functions that can operate on multiple entries of an ndarray without loops.</p>
-<p><a href="https://pandas.pydata.org/">Pandas</a> is a library built on top of Numpy which allows for users to create numerial tables and time series data structures. Both packages are important for performing data science operations.</p>
-<p>More will be discussed about these packages later on.</p>
-<h4> Using Virtual Environments </h4><p>If you are worried about running into version issues between multiple projects that rely on different python versions or different versions of packages, you might want to try using virtual environments. A virtual environment is a way to create an isolated space so you can, for example, run Python 2.7 for one project and Python 3.7 for another on the same computer. <code>conda</code> includes robust support for creating and managing different environments. For more detail, see the <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html.">conda documentation</a></p>
-<h4> Choosing an IDE </h4><p>There are a number of different integrated development environments (IDEs) for Python. Some popular ones include:</p>
+<p>From data storage to computing, Amazon Web Services is a scalable and and cost effective alternative to on premesis options. This guide demonstrates how Urban Institute researchers can use Python in conjunction with Amazon Services S3 and EC2 to create a cloud based workflow.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="S3">S3<a class="anchor-link" href="#S3">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Boto3 is the Amazon Web Services SDK for Python with an easy to use, well documented <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/index.html">API</a>. It allows one to write Python code that interacts with AWS. In this guide we will explore specifically how Boto3 can be used to interact with AWS S3, Simple Storage Service.</p>
+<p>S3 can be used to store big data for a relatively small price. It is essentially a file storage system, consisting of buckets, which are analagous to folders. You can use Boto3 to place files into buckets and download files that are stored in buckets, among other actions. In the context of a research model or script, this means you can store and read in input files from S3 and write output files to S3.</p>
+<h3 id="Setting-up">Setting up<a class="anchor-link" href="#Setting-up">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Getting started with Boto3 involves installing Boto3 and authenticating yourself using your AWS credentials as described in this quickstart <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html">guide</a>. The most secure way to do so is by setting up your credentials file using the Amazon Command Line Interface. In order to do this, you will need your own access key and access key ID. In order to set up a role with the permissions you need, you should contact the tech team.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Running-Boto3-Commands">Running Boto3 Commands<a class="anchor-link" href="#Running-Boto3-Commands">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Using Boto3, there are multiple classes that will allow interaction with S3. In this guide we will use the Resource class, which is a high level, object oriented interface to AWS.</p>
+<p>First, we will instantiate a service resource which represents the Amazon S3 service.</p>
+<p>In order to view all of the buckets that are associated with your AWS S3 account, you can run the below code. If your desired bucket is not there, contact the tech team to adjust the permissions associated with you account.</p>
+
+<pre><code>import boto3
+s3 = boto3.resource('s3')
+for bucket in s3.buckets.all():
+    print(bucket.name)</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Next you can instantiate a bucket resource representing your desired bucket. This will allow you to interact with the bucket. The code below demonstrates using an instantiated bucket to download a file from S3:</p>
+
+<pre><code>mybucket = s3.Bucket('mybucket')
+mybucket.download_file('example.txt', '/tmp/example.txt')</code></pre>
+<p>And upload a file to S3:</p>
+
+<pre><code>mybucket.upload_file('/tmp/example.txt', 'example.txt')</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For a full list of operations you can perform on your bucket, refer to this <a href="https://boto3.amazonaws.com/v1/documentation/api/1.9.96/reference/services/s3.html#bucket">documentation</a>. Keep in mind that your  will need to have specific permission associated with your account to perform any action.</p>
+<h3 id="S3-Triggers">S3 Triggers<a class="anchor-link" href="#S3-Triggers">&#182;</a></h3><p>S3 triggers can be used to initiate AWS events relating to other services. A trigger can be set so that if an object enters a bucket, an action occurs. Actions can include:</p>
 <ul>
-<li><a href="https://www.spyder-ide.org/">Spyder</a> comes installed with Anaconda, and is most similar to RStudio for R. </li>
-<li><a href="https://jupyter.org/">Jupyter</a> also comes with Anaconda, and is most similar to RMarkdown.</li>
-<li><a href="https://www.jetbrains.com/pycharm/">PyCharm</a> is another popular Python IDE. The free version offers syntax highlighting, access to plugins, and web development support.</li>
-<li><a href="https://www.eclipse.org/ide/">Eclipse</a> offers support for a variety of different languages. To use it with Python, add the PyDev plugin.</li>
-</ul>
-<h3> Installing Python Directly</h3><p>You can also install Python directly onto your machine rather than using Anaconda. See the Python <a href="https://www.python.org/downloads/">downloads page</a> for the most up to date Mac, Linux, and Windows versions of Python 2 and Python 3. They are available via the yellow download buttons on that page. Once the installer is in your downloads, open the installer and follow the steps onscreen to complete the installation.</p>
+<li>An email is sent to a user</li>
+<li>An EC2 instance spins up and runs a script</li>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="EC2">EC2<a class="anchor-link" href="#EC2">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>EC2 is an amazon service which provides compute capacity in the cloud. Rather than running your models and scripts on Urban on premesis servers, you can run them on EC2 which provides customizable compute capacity, memory, and more.</p>
+<h3 id="Using-tech-tools-to-spin-up-an-EC2-instance">Using tech-tools to spin up an EC2 instance<a class="anchor-link" href="#Using-tech-tools-to-spin-up-an-EC2-instance">&#182;</a></h3><p>The tech team at Urban has designed a tool for researchers to easily create and terminate EC2 instances. This tool is hosted on the tech-tools site via the Urban Institute intranet page.</p>
+<p>To begin, under the <em>Research Platforms</em> dropdown on the tech-tools site, select <em>Start or Stop EC2 instance</em>. In order to spin up your EC2 instance, you will be able to select whiich instance type you would like based on your specific needs and submit the form.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/tech-tools.png" alt="title"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>After your instance has spun up, you will receive an email which contains links that point your browser to Jupyter or Rstudio on your instance. You can also use your instance's IP to SSH into it. When you are finished with the instance, you can terminate it, and you will be charged only for the amount of time that it was running.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Putting-it-all-together">Putting it all together<a class="anchor-link" href="#Putting-it-all-together">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>S3 and EC2 can be used to create a workflow entirely hosted in the cloud. The tech-tools site simplifies the process of working with EC2, abstracting many details of the creation and termination away from the user. In terms of more complex workflows using EC2 and other services, the Technology and Data team can partner with your team for design and implementation. An example workflow fpr a Python data processing script is detailed below.</p>
+<p>As mentioned earlier, a rule can be set so that the placement of a file into an S3 bucket triggers the creation of an EC2 instance. This workflow begins with an input data file being placed into an input S3 bucket via Boto3. This triggers an EC2 instance to spin up, obtain the input file, and run the data processing script. At the end of the run, the output file is written to the output S3 bucket, and the EC2 instance automatically terminates. Additionally, a rule is set on the output bucket to trigger a notification of the user when a file is placed into it.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="img/aws-workflow.png" alt="title"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This and similar workflows have been employed by the Urban Institute Tech and Data team to run data processing scripts and research models, including the TPC Tax Calculator and the Social Genome Model. Both of the models use Boto3 to place and retrieve objects in S3, and are run on EC2 instances triggered by s3 input files. </p>
+
 </div>
 </div>
 </div>
 
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+            <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
@@ -1716,3 +1830,4 @@ pre code {
 -->
     </body>
 </html>
+
