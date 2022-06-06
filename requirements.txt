@@ -1,0 +1,5 @@
+jupyter-book==0.13.0
+pandas
+numpy
+boto3
+openpyxl
