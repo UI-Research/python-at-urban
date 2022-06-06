@@ -360,28 +360,6 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#d-data-types">
      D. Data Types
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#integer-int">
-       Integer (int)
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#floating-point-float">
-       Floating Point (float)
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#strings">
-       Strings
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#boolean-bool">
-       Boolean (bool)
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#e-logical-expressions">
@@ -581,28 +559,6 @@ title="Print to PDF"
     <a class="reference internal nav-link" href="#d-data-types">
      D. Data Types
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#integer-int">
-       Integer (int)
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#floating-point-float">
-       Floating Point (float)
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#strings">
-       Strings
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#boolean-bool">
-       Boolean (bool)
-      </a>
-     </li>
-    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#e-logical-expressions">
@@ -753,11 +709,11 @@ title="Print to PDF"
 <h2>1. Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">#</a></h2>
 <p>There are number of ways of running Python. This guide was written using Jupyter Notebook. To start, open the folder where Anaconda is installed and click “Jupyter Notebook”. This will open local instance of Jupyter server in your browser (if not, point your browser to <a class="reference external" href="http://localhost:8888">http://localhost:8888</a>).</p>
 <p>To start a new Python notebook, go to the right hand side, click “New”, and then select “Python 3”.</p>
-<p><img alt="" src="../_images/jupyter-01.PNG" /></p>
-<p>You can enter your code at the “In” cell of a notebook. Clicking <code class="docutils literal notranslate"><span class="pre">Run</span></code> or typing <code class="docutils literal notranslate"><span class="pre">Shift</span></code> + <code class="docutils literal notranslate"><span class="pre">Enter</span></code> will evaluate the code and send the results to the corresponding “Out” block.</p>
+<p><img alt="" src="content/img/jupyter-01.png" /></p>
+<p>You can enter your code at the “In” cell of a notebook. Cells can be used to just run one individual line of code or operation, or they can hold many lines of code at once. Clicking <code class="docutils literal notranslate"><span class="pre">Run</span></code> or typing <code class="docutils literal notranslate"><span class="pre">Shift</span></code> + <code class="docutils literal notranslate"><span class="pre">Enter</span></code> will evaluate the code and send the results to the corresponding “Out” block.</p>
 <p>To add a new cell, you can click <code class="docutils literal notranslate"><span class="pre">Insert</span></code> and then <code class="docutils literal notranslate"><span class="pre">Insert</span> <span class="pre">Cell</span> <span class="pre">Above</span></code> or <code class="docutils literal notranslate"><span class="pre">Insert</span> <span class="pre">Cell</span> <span class="pre">Below</span></code>. Alternatively, when an entire cell is highlighted (click outside the gray box where your cursor appears), you can enter <code class="docutils literal notranslate"><span class="pre">A</span></code> to insert a new cell above the current one or <code class="docutils literal notranslate"><span class="pre">B</span></code> to insert a new cell below the current one.</p>
 <p>Finally, to delete a cell, you can click on <code class="docutils literal notranslate"><span class="pre">Edit</span></code> and then <code class="docutils literal notranslate"><span class="pre">Delete</span> <span class="pre">Cells</span></code>. Again, when a cell is highlighted with no cursor visible, you can also enter <code class="docutils literal notranslate"><span class="pre">D</span></code>+<code class="docutils literal notranslate"><span class="pre">D</span></code> to do the same thing.</p>
-<p><img alt="" src="../_images/jupyter-02.PNG" /></p>
+<p><img alt="" src="content/img/jupyter-02.png" /></p>
 </section>
 <section id="some-introductory-tips">
 <h2>2. Some Introductory Tips<a class="headerlink" href="#some-introductory-tips" title="Permalink to this headline">#</a></h2>
@@ -965,9 +921,7 @@ title="Print to PDF"
 <section id="d-data-types">
 <h3>D. Data Types<a class="headerlink" href="#d-data-types" title="Permalink to this headline">#</a></h3>
 <p>There are four basic data types in Python: integers, floating point numbers, strings, and booleans. We can check a variable’s data type with the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function.</p>
-<section id="integer-int">
-<h4>Integer (int)<a class="headerlink" href="#integer-int" title="Permalink to this headline">#</a></h4>
-<p>Integers are used to store whole numbers.</p>
+<p><strong>1.) Integer, or int</strong> - used to store whole numbers</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
@@ -981,10 +935,7 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="floating-point-float">
-<h4>Floating Point (float)<a class="headerlink" href="#floating-point-float" title="Permalink to this headline">#</a></h4>
-<p>Floats are used to store numbers with decimal values.</p>
+<p><strong>2.) Floating Point, or float</strong> - used to store numbers with decimal values</p>
 <p>The basic math operations above can be used with any numeric variables, that is, both <code class="docutils literal notranslate"><span class="pre">floats</span></code> and <code class="docutils literal notranslate"><span class="pre">ints</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1011,11 +962,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="strings">
-<h4>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">#</a></h4>
-<p>Strings are used to store text variables.</p>
-<p>String values are enclosed between either single (<code class="docutils literal notranslate"><span class="pre">'</span></code>) or double quotes (<code class="docutils literal notranslate"><span class="pre">&quot;</span></code>). The sequence of characters in a string can be letters, numbers, special characters, or white space (space, tab, newline).</p>
+<p><strong>3.) Strings</strong> - used to store text variables</p>
+<p>String values are enclosed between either single (’) or double quotes (“). The sequence of characters in a string can be letters, numbers, special characters, or white space (space, tab, newline).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">astring</span> <span class="o">=</span> <span class="s1">&#39;Hello World!&#39;</span>
@@ -1049,10 +997,7 @@ That span multiple lines
 </div>
 </div>
 </div>
-</section>
-<section id="boolean-bool">
-<h4>Boolean (bool)<a class="headerlink" href="#boolean-bool" title="Permalink to this headline">#</a></h4>
-<p>Booleans are used to store True or False values.</p>
+<p><strong>4.) Boolean, or bool</strong> - used to store True or False values</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="kc">True</span>
@@ -1066,7 +1011,6 @@ That span multiple lines
 </div>
 </div>
 </div>
-</section>
 </section>
 <section id="e-logical-expressions">
 <h3>E. Logical Expressions<a class="headerlink" href="#e-logical-expressions" title="Permalink to this headline">#</a></h3>
@@ -1844,7 +1788,7 @@ b is 4
 </div>
 <section id="dictionary-comprehension">
 <h4>Dictionary Comprehension<a class="headerlink" href="#dictionary-comprehension" title="Permalink to this headline">#</a></h4>
-<p>You can use similar syntax to create a dictionary as well.</p>
+<p>You can use similar synthax to create a dictionary as well.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
@@ -2005,7 +1949,7 @@ $<span class="math notranslate nohighlight">\(f(x, y, z) = x^3 + y^2 + z\)</span
 </div>
 </div>
 </div>
-<p>Modules can be given nicknames upon import so that we don’t have to type out their full name every time we use a function. Certain modules have generally-agreed upon nicknaming conventions (e.g. numpy -&gt; np, pandas -&gt; pd), but you can pick any name you want.</p>
+<p>Modules can be given nicknames upon import so that we don’t have to type out their full name everytime we use a function. Certain modules have generally-agreed upon nicknaming conventions (e.g. numpy -&gt; np, pandas -&gt; pd), but you can pick any name you want.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
