@@ -1,0 +1,549 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>AWS &amp; Python &#8212; Python Users Group</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/main.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ipynb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Technical Support" href="technical-support.html" />
+    <link rel="prev" title="Intro to Pandas" href="intro-to-pandas.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/ui-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Users Group</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Python Users Group
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="why-python.html">
+   Why Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installing Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro-to-python.html">
+   Intro to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro-to-pandas.html">
+   Intro to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   AWS &amp; Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="technical-support.html">
+   Technical Support
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="resources.html">
+   Resources
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/UI-Research/python-at-urban/master?urlpath=tree/docs/content/python-aws.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/content/python-aws.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#s3">
+   S3
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up">
+     Setting up
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-boto3-commands">
+     Running Boto3 Commands
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#s3-triggers">
+     S3 Triggers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ec2">
+   EC2
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-tech-tools-to-spin-up-an-ec2-instance">
+     Using tech-tools to spin up an EC2 instance
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#putting-it-all-together">
+   Putting it all together
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>AWS & Python</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#s3">
+   S3
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setting-up">
+     Setting up
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#running-boto3-commands">
+     Running Boto3 Commands
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#s3-triggers">
+     S3 Triggers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ec2">
+   EC2
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#using-tech-tools-to-spin-up-an-ec2-instance">
+     Using tech-tools to spin up an EC2 instance
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#putting-it-all-together">
+   Putting it all together
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="aws-python">
+<h1>AWS &amp; Python<a class="headerlink" href="#aws-python" title="Permalink to this headline">#</a></h1>
+<p>From data storage to computing, Amazon Web Services (AWS) is a scalable and and cost effective alternative to on premise options. This guide demonstrates how Urban Institute researchers can use Python in conjunction with Amazon Services S3 and EC2 to create a cloud based workflow.</p>
+<section id="s3">
+<h2>S3<a class="headerlink" href="#s3" title="Permalink to this headline">#</a></h2>
+<p>Boto3 is the AWS SDK for Python with an easy to use, well documented <a class="reference external" href="https://boto3.amazonaws.com/v1/documentation/api/latest/index.html">API</a>. It allows one to write Python code that interacts with AWS. In this guide we will explore specifically how Boto3 can be used to interact with AWS S3, Simple Storage Service.</p>
+<p>S3 can be used to store big data for a relatively small price. It is essentially a file storage system, consisting of buckets, which are analogous to folders. You can use Boto3 to place files into buckets and download files that are stored in buckets, among other actions. In the context of a research model or script, this means you can store and read in input files from S3 and write output files to S3.</p>
+<section id="setting-up">
+<h3>Setting up<a class="headerlink" href="#setting-up" title="Permalink to this headline">#</a></h3>
+<p>Getting started with Boto3 involves installing Boto3 and authenticating yourself using your AWS credentials as described in this quickstart <a class="reference external" href="https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html">guide</a>. The most secure way to do so is by setting up your credentials file using the Amazon Command Line Interface (CLI). In order to do this, you will need your own access key and secret access key. In order to set up a role with the permissions you need, you should contact the tech team.</p>
+</section>
+<section id="running-boto3-commands">
+<h3>Running Boto3 Commands<a class="headerlink" href="#running-boto3-commands" title="Permalink to this headline">#</a></h3>
+<p>Using Boto3, there are multiple classes that will allow interaction with S3. In this guide we will use the <code class="docutils literal notranslate"><span class="pre">resource</span></code> class, which is a high level, object oriented interface to AWS.</p>
+<p>First, we will instantiate a service resource which represents the Amazon S3 service.</p>
+<p>In order to view all of the buckets that are associated with your AWS S3 account, you can run the below code. If your desired bucket is not there, contact the tech team to adjust the permissions associated with you account.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">buckets</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">bucket</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next you can instantiate a bucket resource representing your desired bucket. This will allow you to interact with the bucket. The code below demonstrates using an instantiated bucket to download a file from S3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mybucket</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;mybucket&#39;</span><span class="p">)</span>
+<span class="n">mybucket</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="s1">&#39;example.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;/tmp/example.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And upload a file to S3:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mybucket</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span><span class="s1">&#39;/tmp/example.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;example.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For a full list of operations you can perform on your bucket, refer to this <a class="reference external" href="https://boto3.amazonaws.com/v1/documentation/api/1.9.96/reference/services/s3.html#bucket">documentation</a>. Keep in mind that your  will need to have specific permission associated with your account to perform any action.</p>
+</section>
+<section id="s3-triggers">
+<h3>S3 Triggers<a class="headerlink" href="#s3-triggers" title="Permalink to this headline">#</a></h3>
+<p>S3 can be used to trigger AWS events relating to other services. For example an S3 bucket can be configured so that when a file is placed into it:</p>
+<ul class="simple">
+<li><p>An email is sent to a user</p></li>
+<li><p>An EC2 instance spins up and runs a script which takes in that file as input</p></li>
+</ul>
+<p>Contact the tech team if you would like to set up a trigger for your S3 bucket.</p>
+</section>
+</section>
+<section id="ec2">
+<h2>EC2<a class="headerlink" href="#ec2" title="Permalink to this headline">#</a></h2>
+<p>EC2 is an Amazon service which provides compute capacity in the cloud. Rather than running your models and scripts on Urban on premise servers, you can run them on EC2 which provides customizable compute capacity, memory, and more.</p>
+<section id="using-tech-tools-to-spin-up-an-ec2-instance">
+<h3>Using tech-tools to spin up an EC2 instance<a class="headerlink" href="#using-tech-tools-to-spin-up-an-ec2-instance" title="Permalink to this headline">#</a></h3>
+<p>The tech team at Urban has designed a tool for researchers to easily create and terminate EC2 instances. This tool is hosted on the tech-tools site via the Urban Institute intranet page.</p>
+<p>To begin, under the “Research Platforms” dropdown on the tech-tools site, select “Start or Stop EC2 instance.” In order to spin up your EC2 instance, you will be able to select which instance type you would like based on your specific needs and submit the form.</p>
+<p><img alt="title" src="../_images/tech-tools.png" /></p>
+<p>After your instance has spun up, you will receive an email which contains links that point your browser to Jupyter or RStudio on your instance. Note: You must be within Urban’s IP range to access those links from your browser (e.g. through a virtual desktop if you are working remotely).</p>
+<p>You can also use your instance’s IP to SSH into it. When you are finished with the instance, you can terminate it, and you will be charged only for the amount of time that it was running.</p>
+</section>
+</section>
+<section id="putting-it-all-together">
+<h2>Putting it all together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline">#</a></h2>
+<p>S3 and EC2 can be used to create a workflow entirely hosted in the cloud. The tech-tools site simplifies the process of working with EC2, abstracting many details of the creation and termination away from the user. In terms of more complex workflows using EC2 and other services, the tech team can partner with your team for design and implementation. in order to create more complex workflows. An example workflow for a Python data processing script is detailed below.</p>
+<p>As mentioned earlier, a rule can be set so that the placement of a file into an S3 bucket triggers the creation of an EC2 instance. This workflow begins with an input data file being placed into an input S3 bucket via Boto3. This triggers an EC2 instance to spin up, obtain the input file, and run the data processing script. At the end of the run, the output file is written to the output S3 bucket, and the EC2 instance automatically terminates. Additionally, a rule is set on the output bucket to trigger a notification of the user when a file is placed into it.</p>
+<p><img alt="title" src="../_images/aws-workflow.png" /></p>
+<p>This and similar workflows have been employed by the Urban Institute tech team to run data processing scripts and research models, including the TPC Tax Calculator and the Social Genome Model. Both of the models use Boto3 to place and retrieve objects in S3, and the Social Genome Model leverages Python’s compatibility with EC2.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="intro-to-pandas.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Intro to Pandas</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="technical-support.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Technical Support</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

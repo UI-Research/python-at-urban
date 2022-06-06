@@ -1,0 +1,13 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: content/index 
+chapters:
+- file: content/why-python
+- file: content/installation
+- file: content/intro-to-python
+- file: content/intro-to-pandas
+- file: content/python-aws 
+- file: content/technical-support
+- file: content/resources

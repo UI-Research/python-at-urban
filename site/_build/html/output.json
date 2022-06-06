@@ -1,0 +1,37 @@
+{"filename": "content/intro-to-python.ipynb", "lineno": 30002, "status": "broken", "code": 0, "uri": "http://localhost:8888", "info": "HTTPConnectionPool(host='localhost', port=8888): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f81970a07f0>: Failed to establish a new connection: [Errno 61] Connection refused'))"}
+{"filename": "content/resources.md", "lineno": 15, "status": "working", "code": 0, "uri": "https://automatetheboringstuff.com/", "info": ""}
+{"filename": "content/python-aws.ipynb", "lineno": 40002, "status": "working", "code": 0, "uri": "https://boto3.amazonaws.com/v1/documentation/api/latest/index.html", "info": ""}
+{"filename": "content/python-aws.ipynb", "lineno": 50002, "status": "working", "code": 0, "uri": "https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html", "info": ""}
+{"filename": "content/resources.md", "lineno": 7, "status": "working", "code": 0, "uri": "https://cheatsheets.quantecon.org/stats-cheatsheet.html", "info": ""}
+{"filename": "content/installation.md", "lineno": 47, "status": "working", "code": 0, "uri": "https://code.visualstudio.com/", "info": ""}
+{"filename": "content/installation.md", "lineno": 39, "status": "working", "code": 0, "uri": "https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html", "info": ""}
+{"filename": "content/resources.md", "lineno": 8, "status": "working", "code": 0, "uri": "https://data36.com/pandas-tutorial-1-basics-reading-data-files-dataframes-data-selection/", "info": ""}
+{"filename": "content/resources.md", "lineno": 12, "status": "working", "code": 0, "uri": "https://dataconomy.com/2015/03/14-best-python-pandas-features/", "info": ""}
+{"filename": "content/python-aws.ipynb", "lineno": 90002, "status": "working", "code": 0, "uri": "https://boto3.amazonaws.com/v1/documentation/api/1.9.96/reference/services/s3.html#bucket", "info": ""}
+{"filename": "content/installation.md", "lineno": 46, "status": "working", "code": 0, "uri": "https://jupyter.org/", "info": ""}
+{"filename": "content/installation.md", "lineno": 15, "status": "working", "code": 0, "uri": "https://github.com/UI-Research/python-resources/blob/main/notebooks/anaconda-installation.ipynb", "info": ""}
+{"filename": "content/intro-to-pandas.ipynb", "lineno": 20010, "status": "working", "code": 0, "uri": "https://pandas.pydata.org/docs/", "info": ""}
+{"filename": "content/resources.md", "lineno": 4, "status": "working", "code": 0, "uri": "https://openclassrooms.com/en/courses/2304731-learn-python-basics-for-data-analysis/6009061-code-using-a-jupyter-notebook", "info": ""}
+{"filename": "content/why-python.md", "lineno": 5, "status": "working", "code": 0, "uri": "https://plotly.com/python/", "info": ""}
+{"filename": "content/resources.md", "lineno": 11, "status": "working", "code": 0, "uri": "https://realpython.com/python-pandas-tricks/", "info": ""}
+{"filename": "content/why-python.md", "lineno": 5, "status": "working", "code": 0, "uri": "https://aws.amazon.com/sdk-for-python/", "info": ""}
+{"filename": "content/why-python.md", "lineno": 7, "status": "working", "code": 0, "uri": "https://rpy2.github.io/", "info": ""}
+{"filename": "content/why-python.md", "lineno": 7, "status": "working", "code": 0, "uri": "https://rstudio.github.io/reticulate/", "info": ""}
+{"filename": "content/why-python.md", "lineno": 5, "status": "working", "code": 0, "uri": "https://seaborn.pydata.org/", "info": ""}
+{"filename": "content/why-python.md", "lineno": 5, "status": "working", "code": 0, "uri": "https://scikit-learn.org/stable/", "info": ""}
+{"filename": "content/resources.md", "lineno": 10, "status": "working", "code": 0, "uri": "https://paulovasconcellos.com.br/28-useful-pandas-functions-you-might-not-know-de42c59db085", "info": ""}
+{"filename": "content/why-python.md", "lineno": 5, "status": "working", "code": 0, "uri": "https://spark.apache.org/docs/latest/api/python/", "info": ""}
+{"filename": "content/installation.md", "lineno": 5, "status": "working", "code": 0, "uri": "https://wiki.python.org/moin/Python2orPython3", "info": ""}
+{"filename": "content/resources.md", "lineno": 6, "status": "redirected", "code": 302, "uri": "https://nbviewer.jupyter.org/github/QuantEcon/QuantEcon.notebooks/blob/master/pandas_and_matplotlib.ipynb", "info": "https://nbviewer.org/github/QuantEcon/QuantEcon.notebooks/blob/master/pandas_and_matplotlib.ipynb"}
+{"filename": "content/resources.md", "lineno": 5, "status": "redirected", "code": 302, "uri": "https://nbviewer.jupyter.org/github/QuantEcon/QuantEcon.notebooks/blob/master/sci_python_quickstart.ipynb", "info": "https://nbviewer.org/github/QuantEcon/QuantEcon.notebooks/blob/master/sci_python_quickstart.ipynb"}
+{"filename": "content/installation.md", "lineno": 21, "status": "redirected", "code": 301, "uri": "https://urbanorg.box.com/s/3raiuvsykulh290884xkogduzbdhi371", "info": "https://urbanorg.app.box.com/s/3raiuvsykulh290884xkogduzbdhi371"}
+{"filename": "content/why-python.md", "lineno": 11, "status": "redirected", "code": 302, "uri": "https://urbanorg.app.box.com/folder/162248420670", "info": "https://urbanorg.account.box.com/login?redirect_url=%2Ffolder%2F162248420670"}
+{"filename": "content/why-python.md", "lineno": 5, "status": "working", "code": 0, "uri": "https://www.nltk.org/", "info": ""}
+{"filename": "content/why-python.md", "lineno": 5, "status": "working", "code": 0, "uri": "https://www.crummy.com/software/BeautifulSoup/", "info": ""}
+{"filename": "content/installation.md", "lineno": 52, "status": "working", "code": 0, "uri": "https://www.python.org/downloads/", "info": ""}
+{"filename": "content/index.md", "lineno": 14, "status": "unchecked", "code": 0, "uri": "mailto:etyagi@urban.org", "info": ""}
+{"filename": "content/index.md", "lineno": 14, "status": "unchecked", "code": 0, "uri": "mailto:mmenezes@urban.org", "info": ""}
+{"filename": "content/installation.md", "lineno": 45, "status": "working", "code": 0, "uri": "https://www.spyder-ide.org/", "info": ""}
+{"filename": "content/installation.md", "lineno": 48, "status": "working", "code": 0, "uri": "https://www.jetbrains.com/pycharm/", "info": ""}
+{"filename": "content/installation.md", "lineno": 13, "status": "broken", "code": 0, "uri": "https://www.anaconda.com/distribution/#download-section", "info": "Anchor 'download-section' not found"}
+{"filename": "content/resources.md", "lineno": 9, "status": "working", "code": 0, "uri": "https://www.analyticsvidhya.com/blog/2016/01/12-pandas-techniques-python-data-manipulation/", "info": ""}
