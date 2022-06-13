@@ -9,15 +9,15 @@
 
 # To start a new Python notebook, go to the right hand side, click "New", and then select "Python 3".
 
-# ![](img/jupyter-01.PNG)
+# ![](img/jupyter-01.png)
 
-# You can enter your code at the "In" cell of a notebook. Clicking `Run` or typing `Shift` + `Enter` will evaluate the code and send the results to the corresponding "Out" block. 
+# You can enter your code at the "In" cell of a notebook. Cells can be used to just run one individual line of code or operation, or they can hold many lines of code at once. Clicking `Run` or typing `Shift` + `Enter` will evaluate the code and send the results to the corresponding "Out" block. 
 # 
 # To add a new cell, you can click `Insert` and then `Insert Cell Above` or `Insert Cell Below`. Alternatively, when an entire cell is highlighted (click outside the gray box where your cursor appears), you can enter `A` to insert a new cell above the current one or `B` to insert a new cell below the current one.
 # 
 # Finally, to delete a cell, you can click on `Edit` and then `Delete Cells`. Again, when a cell is highlighted with no cursor visible, you can also enter `D`+`D` to do the same thing.
 
-# ![](img/jupyter-02.PNG)
+# ![](img/jupyter-02.png)
 
 # ## 2. Some Introductory Tips
 # ### A. Commenting Code
@@ -143,8 +143,7 @@ print(b)
 # ### D. Data Types
 # There are four basic data types in Python: integers, floating point numbers, strings, and booleans. We can check a variable's data type with the `type()` function.
 
-# #### Integer (int) 
-# Integers are used to store whole numbers. 
+# **1.) Integer, or int** - used to store whole numbers
 
 # In[12]:
 
@@ -153,8 +152,7 @@ x = 10
 type(x)
 
 
-# #### Floating Point (float) 
-# Floats are used to store numbers with decimal values. 
+# **2.) Floating Point, or float** - used to store numbers with decimal values
 # 
 # The basic math operations above can be used with any numeric variables, that is, both `floats` and `ints`
 
@@ -171,10 +169,9 @@ type(y)
 x + y
 
 
-# #### Strings 
-# Strings are used to store text variables. 
+# **3.) Strings** - used to store text variables
 # 
-# String values are enclosed between either single (`'`) or double quotes (`"`). The sequence of characters in a string can be letters, numbers, special characters, or white space (space, tab, newline).
+# String values are enclosed between either single (') or double quotes ("). The sequence of characters in a string can be letters, numbers, special characters, or white space (space, tab, newline).
 
 # In[15]:
 
@@ -196,8 +193,7 @@ That span multiple lines
 print(long_string)
 
 
-# #### Boolean (bool)
-# Booleans are used to store True or False values. 
+# **4.) Boolean, or bool** - used to store True or False values
 
 # In[17]:
 
@@ -674,7 +670,7 @@ s_words
 
 # #### Dictionary Comprehension
 
-# You can use similar syntax to create a dictionary as well. 
+# You can use similar synthax to create a dictionary as well. 
 
 # In[60]:
 
@@ -779,7 +775,7 @@ import numpy
 numpy.arange(10)
 
 
-# Modules can be given nicknames upon import so that we don't have to type out their full name every time we use a function. Certain modules have generally-agreed upon nicknaming conventions (e.g. numpy -> np, pandas -> pd), but you can pick any name you want.
+# Modules can be given nicknames upon import so that we don't have to type out their full name everytime we use a function. Certain modules have generally-agreed upon nicknaming conventions (e.g. numpy -> np, pandas -> pd), but you can pick any name you want.
 
 # In[ ]:
 
