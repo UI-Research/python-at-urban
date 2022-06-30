@@ -1,24 +1,23 @@
 ---
-title: "Reticulate Demo PUG Lunch Lab"
-output: html_document
-date: "6.17.2022"
+title: "Reticulate Demo"
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
 
+## Introduction
+
+`reticulate` lets R and Python communicate with each other's environments.
+
+```{r, message=FALSE}
 # if not installed:
 # install.packages('reticulate')
 
 library(reticulate)
 library(tidyverse)
-
-
 ```
-
-# Introduction
-
-`reticulate` lets R and Python communicate with each other's environments.
 
 ```{r}
 # create R object
@@ -32,7 +31,7 @@ hello = "Hello World! -Python"
 print(hello)
 ```
 
-# Setting up `reticulate`
+## Setting up `reticulate`
 
 In order for Python to talk to R, it needs to find the R environment and "translate" the objects there. R also needs to know where to find Python from its global environment.
 
@@ -49,7 +48,7 @@ use_condaenv("reticulate_demo")
 ```
 
 
-Note: you can create an environment using your normal workflow (i.e. commandline) as well.
+Note: you can create an environment using your normal workflow (i.e. command line) as well.
 
 
 R also needs access to any Python modules you are calling. You can import any Python module, but it must be installed first. We will use our `conda` environment again, but you can read about other options for installing Python modules via `reticulate` [here](https://rstudio.github.io/reticulate/articles/python_packages.html).
@@ -63,14 +62,14 @@ conda_install(
 )
 ```
 
-Note: you can install packages into your environment using your normal workflow (i.e. commandline) as well.
+Note: you can install packages into your environment using your normal workflow (i.e. command line) as well.
 
 
-# Options for Working with Python in R
+## Options for Working with Python in R
 
 The `reticulate` engine provides 4 options for working with Python in R.
 
-## Option 1: R Markdown
+### Option 1: R Markdown
 
 `reticulate` allows Python and R to interact via R Markdown chunks.
 
@@ -80,8 +79,7 @@ hello <- "Hello World! -R"
 print(hello)
 ```
 
-To use Python in RMarkdown, just create a Python chunk. You can add a shortcut to create Python chunks 
-in RStudio. (Tools > Modify Keyboard Shortcuts)
+To use Python in RMarkdown, just create a Python chunk, rather than an R chunk. You can add a shortcut to create Python chunks in RStudio. (Tools > Modify Keyboard Shortcuts)
 
 ```{python}
 # create Python object
@@ -130,9 +128,9 @@ print(r.hello)
 ```
 
 
-## Option 2: Python in the IDE
+### Option 2: Python in the IDE
 
-### Option 2a: Sourcing Python Scripts
+#### Option 2a: Sourcing Python Scripts
 
 ```{r}
 source_python('reticulate_demo.py')
@@ -146,11 +144,11 @@ add(5, 10)
 
 Newer versions of RStudio can show Python objects in the Environment pane.
 
-### Option 2b: Running Python via RStudio
+#### Option 2b: Running Python via RStudio
 
 ctrl+enter or cmd+enter executes Python code in RStudio. This option can still access R and Python objects that were created in your environment previously. Run `exit` or `quit` to leave the Python interpreter.
 
-## Option 3: Python REPL
+### Option 3: Python REPL
 
 Python REPL (read, evaluate, print, loop) initiates a console where you can view output interactively. This option can still access R and Python objects that were created in your environment previously (i.e. `print(r.hello)`. Run `exit` or `quit` to leave the console.
 
@@ -158,16 +156,15 @@ Python REPL (read, evaluate, print, loop) initiates a console where you can view
 repl_python()
 ```
 
-## Option 4: Python in R Code
+### Option 4: Python in R Code
 
 All of the `r` chunks in this notebook can be run as standalone R code, and will access the Python environment in the same way.
 
-# Working with Data Types
+## Working with Data Types
 
 When calling into Python, R data types are automatically converted to their equivalent Python types. When values are returned from Python to R they are converted back to R types.
 
-![](C:/Users/mpickens/Box/00_mine/presentations/reticulate/type-conversions.png)
-
+![](img/type-conversions.png)
 
 Data types that are not on the list cannot be converted to the other environment.
 
@@ -243,11 +240,7 @@ For example:
 - Python uses 0-based indices rather than 1-based indices (R). You must use a 0-based index with an L (to indicate value is an integer) to access the first value of a collection in Python.
 
 
+## Useful Resources
 
-# Useful Resources
-
-[Cheat Sheet](https://ugoproto.github.io/ugo_r_doc/pdf/reticulate.pdf)
-
-[Documentation](https://rstudio.github.io/reticulate/index.html)
-
-Future topics: helper functions, more detailed workflow, troubleshooting data type issues...
+* [Cheat Sheet](https://ugoproto.github.io/ugo_r_doc/pdf/reticulate.pdf)
+* [Documentation](https://rstudio.github.io/reticulate/index.html)

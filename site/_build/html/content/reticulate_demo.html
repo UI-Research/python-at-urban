@@ -1,0 +1,776 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Reticulate Demo &#8212; Python Users Group</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/main.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ipynb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/ui-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Users Group</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Python Users Group
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="why-python.html">
+   Why Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installing Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro-to-python.html">
+   Intro to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro-to-pandas.html">
+   Intro to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python-aws.html">
+   AWS &amp; Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="technical-support.html">
+   Technical Support
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="resources.html">
+   Resources
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/content/reticulate_demo.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-up-reticulate">
+   Setting up
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     reticulate
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#options-for-working-with-python-in-r">
+   Options for Working with Python in R
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#option-1-r-markdown">
+     Option 1: R Markdown
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#option-2-python-in-the-ide">
+     Option 2: Python in the IDE
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#option-2a-sourcing-python-scripts">
+       Option 2a: Sourcing Python Scripts
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#option-2b-running-python-via-rstudio">
+       Option 2b: Running Python via RStudio
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#option-3-python-repl">
+     Option 3: Python REPL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#option-4-python-in-r-code">
+     Option 4: Python in R Code
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#working-with-data-types">
+   Working with Data Types
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#useful-resources">
+   Useful Resources
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Reticulate Demo</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setting-up-reticulate">
+   Setting up
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     reticulate
+    </span>
+   </code>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#options-for-working-with-python-in-r">
+   Options for Working with Python in R
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#option-1-r-markdown">
+     Option 1: R Markdown
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#option-2-python-in-the-ide">
+     Option 2: Python in the IDE
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#option-2a-sourcing-python-scripts">
+       Option 2a: Sourcing Python Scripts
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#option-2b-running-python-via-rstudio">
+       Option 2b: Running Python via RStudio
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#option-3-python-repl">
+     Option 3: Python REPL
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#option-4-python-in-r-code">
+     Option 4: Python in R Code
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#working-with-data-types">
+   Working with Data Types
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#useful-resources">
+   Useful Resources
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="reticulate-demo">
+<h1>Reticulate Demo<a class="headerlink" href="#reticulate-demo" title="Permalink to this headline">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">reticulate</span></code> lets R and Python communicate with each other’s
+environments.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># if not installed:</span>
+<span class="c1"># install.packages(&#39;reticulate&#39;)</span>
+
+<span class="nf">library</span><span class="p">(</span><span class="n">reticulate</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># create R object</span>
+<span class="n">hello</span> <span class="o">&lt;-</span> <span class="s">&quot;Hello World! -R&quot;</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">hello</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>## [1] &quot;Hello World! -R&quot;
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create Python object</span>
+<span class="n">hello</span> <span class="o">=</span> <span class="s2">&quot;Hello World! -Python&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hello</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>## Hello World! -Python
+</pre></div>
+</div>
+</section>
+<section id="setting-up-reticulate">
+<h2>Setting up <code class="docutils literal notranslate"><span class="pre">reticulate</span></code><a class="headerlink" href="#setting-up-reticulate" title="Permalink to this headline">#</a></h2>
+<p>In order for Python to talk to R, it needs to find the R environment and
+“translate” the objects there. R also needs to know where to find Python
+from its global environment.</p>
+<p>We start by telling R which version of Python to use and setting up a
+Python environment.</p>
+<p>We will do this with a <code class="docutils literal notranslate"><span class="pre">conda</span></code> environment, but we can also point it to
+our <code class="docutils literal notranslate"><span class="pre">PATH</span></code> (path to the folder where you have Python installed) or set
+up a different type virtual environment. For more information on how
+<code class="docutils literal notranslate"><span class="pre">reticulate</span></code> prioritizes identifying the Python version/environment,
+check the documentation
+<a class="reference external" href="https://rstudio.github.io/reticulate/articles/versions.html">here</a>.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># create conda environment for demo (run if does not already exist on your machine)</span>
+<span class="nf">conda_create</span><span class="p">(</span><span class="n">envname</span> <span class="o">=</span> <span class="s">&quot;reticulate_demo&quot;</span><span class="p">,</span> <span class="n">packages</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;scikit-learn&quot;</span><span class="p">,</span> <span class="s">&quot;pandas&quot;</span><span class="p">,</span> <span class="s">&quot;matplotlib&quot;</span><span class="p">,</span> <span class="s">&quot;numpy&quot;</span><span class="p">,</span> <span class="s">&quot;seaborn&quot;</span><span class="p">))</span>
+
+<span class="c1"># tell reticulate to use this environment</span>
+<span class="nf">use_condaenv</span><span class="p">(</span><span class="s">&quot;reticulate_demo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note: you can create an environment using your normal workflow
+(i.e. command line) as well.</p>
+<p>R also needs access to any Python modules you are calling. You can
+import any Python module, but it must be installed first. We will use
+our <code class="docutils literal notranslate"><span class="pre">conda</span></code> environment again, but you can read about other options for
+installing Python modules via <code class="docutils literal notranslate"><span class="pre">reticulate</span></code>
+<a class="reference external" href="https://rstudio.github.io/reticulate/articles/python_packages.html">here</a>.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># install with conda</span>
+<span class="nf">conda_install</span><span class="p">(</span>
+  <span class="n">packages</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;scikit-learn&quot;</span><span class="p">,</span> <span class="s">&quot;pandas&quot;</span><span class="p">,</span> <span class="s">&quot;matplotlib&quot;</span><span class="p">,</span> <span class="s">&quot;numpy&quot;</span><span class="p">,</span> <span class="s">&quot;seaborn&quot;</span><span class="p">),</span>
+  <span class="n">envname</span> <span class="o">=</span> <span class="s">&quot;reticulate_demo&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Note: you can install packages into your environment using your normal
+workflow (i.e. command line) as well.</p>
+</section>
+<section id="options-for-working-with-python-in-r">
+<h2>Options for Working with Python in R<a class="headerlink" href="#options-for-working-with-python-in-r" title="Permalink to this headline">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">reticulate</span></code> engine provides 4 options for working with Python in R.</p>
+<section id="option-1-r-markdown">
+<h3>Option 1: R Markdown<a class="headerlink" href="#option-1-r-markdown" title="Permalink to this headline">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">reticulate</span></code> allows Python and R to interact via R Markdown chunks.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># create R object</span>
+<span class="n">hello</span> <span class="o">&lt;-</span> <span class="s">&quot;Hello World! -R&quot;</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">hello</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>## [1] &quot;Hello World! -R&quot;
+</pre></div>
+</div>
+<p>To use Python in RMarkdown, just create a Python chunk, rather than an R
+chunk. You can add a shortcut to create Python chunks in RStudio. (Tools
+&gt; Modify Keyboard Shortcuts)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># create Python object</span>
+<span class="n">hello</span> <span class="o">=</span> <span class="s2">&quot;Hello World! -Python&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">hello</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>## Hello World! -Python
+</pre></div>
+</div>
+<p>Note: you can print any Python output via R Markdown (i.e. graphical
+output from <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>), not just text.</p>
+<p>Variables/state are shared between Python chunks, but not R chunks. That
+means that the variables you generate with these <code class="docutils literal notranslate"><span class="pre">python</span></code> code chunks
+are not stored in your R environment, they are in the Python
+environment. If you check to see if a variable created with a python
+code chunk exists in R, it will return that it doesn’t.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">test_object</span> <span class="o">=</span> <span class="s2">&quot;Python&quot;</span> <span class="o">+</span> <span class="s2">&quot;Rocks&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_object</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>## PythonRocks
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">exists</span><span class="p">(</span><span class="s">&quot;test_object&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>## [1] FALSE
+</pre></div>
+</div>
+<p>Access Python objects using R with the <code class="docutils literal notranslate"><span class="pre">py</span></code> object (exported by
+<code class="docutils literal notranslate"><span class="pre">reticulate</span></code>) and the <code class="docutils literal notranslate"><span class="pre">$</span></code> operator.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">py</span><span class="o">$</span><span class="n">hello</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>## [1] &quot;Hello World! -Python&quot;
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">py</span><span class="o">$</span><span class="n">test_object</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>## [1] &quot;PythonRocks&quot;
+</pre></div>
+</div>
+<p>Access objects created with R chunks using Python chunks with the <code class="docutils literal notranslate"><span class="pre">r</span></code>
+object.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">hello</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>## Hello World! -R
+</pre></div>
+</div>
+<p>Chunk options work for Python chunks in the same way they do for R.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># will not evaluate in knitted document</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">hello</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="option-2-python-in-the-ide">
+<h3>Option 2: Python in the IDE<a class="headerlink" href="#option-2-python-in-the-ide" title="Permalink to this headline">#</a></h3>
+<section id="option-2a-sourcing-python-scripts">
+<h4>Option 2a: Sourcing Python Scripts<a class="headerlink" href="#option-2a-sourcing-python-scripts" title="Permalink to this headline">#</a></h4>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">source_python</span><span class="p">(</span><span class="s">&#39;reticulate_demo.py&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># using function from .py script</span>
+<span class="nf">add</span><span class="p">(</span><span class="m">5</span><span class="p">,</span> <span class="m">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>## [1] 15
+</pre></div>
+</div>
+<p>Newer versions of RStudio can show Python objects in the Environment
+pane.</p>
+</section>
+<section id="option-2b-running-python-via-rstudio">
+<h4>Option 2b: Running Python via RStudio<a class="headerlink" href="#option-2b-running-python-via-rstudio" title="Permalink to this headline">#</a></h4>
+<p>ctrl+enter or cmd+enter executes Python code in RStudio. This option can
+still access R and Python objects that were created in your environment
+previously. Run <code class="docutils literal notranslate"><span class="pre">exit</span></code> or <code class="docutils literal notranslate"><span class="pre">quit</span></code> to leave the Python interpreter.</p>
+</section>
+</section>
+<section id="option-3-python-repl">
+<h3>Option 3: Python REPL<a class="headerlink" href="#option-3-python-repl" title="Permalink to this headline">#</a></h3>
+<p>Python REPL (read, evaluate, print, loop) initiates a console where you
+can view output interactively. This option can still access R and Python
+objects that were created in your environment previously
+(i.e. <code class="docutils literal notranslate"><span class="pre">print(r.hello)</span></code>. Run <code class="docutils literal notranslate"><span class="pre">exit</span></code> or <code class="docutils literal notranslate"><span class="pre">quit</span></code> to leave the console.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">repl_python</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="option-4-python-in-r-code">
+<h3>Option 4: Python in R Code<a class="headerlink" href="#option-4-python-in-r-code" title="Permalink to this headline">#</a></h3>
+<p>All of the <code class="docutils literal notranslate"><span class="pre">r</span></code> chunks in this notebook can be run as standalone R code,
+and will access the Python environment in the same way.</p>
+</section>
+</section>
+<section id="working-with-data-types">
+<h2>Working with Data Types<a class="headerlink" href="#working-with-data-types" title="Permalink to this headline">#</a></h2>
+<p>When calling into Python, R data types are automatically converted to
+their equivalent Python types. When values are returned from Python to R
+they are converted back to R types.</p>
+<p><img alt="" src="../_images/type-conversions.png" /></p>
+<p>Data types that are not on the list cannot be converted to the other
+environment.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># import python modules (note: must be previously installed)</span>
+<span class="n">np</span> <span class="o">&lt;-</span> <span class="nf">import</span><span class="p">(</span><span class="s">&#39;numpy&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">reticulate</span></code> translates results of Python operations into R
+objects.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># create numpy array</span>
+<span class="c1"># by default, reticulate translates results into R objects</span>
+<span class="n">np_array</span> <span class="o">&lt;-</span> <span class="n">np</span><span class="o">$</span><span class="nf">array</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">))</span>
+<span class="n">np_array</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>## [1] 1 2 3 4
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">np_array</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>## [1] &quot;array&quot;
+</pre></div>
+</div>
+<p>What if we tell <code class="docutils literal notranslate"><span class="pre">reticulate</span></code> not to translate the results?</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">np2</span> <span class="o">&lt;-</span> <span class="nf">import</span><span class="p">(</span><span class="s">&#39;numpy&#39;</span><span class="p">,</span> <span class="n">convert</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># create numpy array</span>
+<span class="n">np_array_notconverted</span> <span class="o">&lt;-</span> <span class="n">np2</span><span class="o">$</span><span class="nf">array</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">))</span>
+<span class="n">np_array_notconverted</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>## [1 2 3 4]
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">class</span><span class="p">(</span><span class="n">np_array_notconverted</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>## [1] &quot;numpy.ndarray&quot;         &quot;python.builtin.object&quot;
+</pre></div>
+</div>
+<p>You can convert a python object to R explicitly with <code class="docutils literal notranslate"><span class="pre">py_to_r()</span></code>.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">np_array_converted</span> <span class="o">&lt;-</span> <span class="nf">py_to_r</span><span class="p">(</span><span class="n">np_array_notconverted</span><span class="p">)</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">np_array_converted</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>## [1] &quot;array&quot;
+</pre></div>
+</div>
+<p>Another way to run Python code is with the <code class="docutils literal notranslate"><span class="pre">py_run_string</span></code> function.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">py_run_string</span><span class="p">(</span><span class="s">&quot;import pandas as pd&quot;</span><span class="p">)</span>
+<span class="nf">py_run_string</span><span class="p">(</span><span class="s">&quot;data = [10,20,30]&quot;</span><span class="p">)</span>
+<span class="nf">py_run_string</span><span class="p">(</span><span class="s">&quot;pd_df = pd.DataFrame(data, columns = [&#39;Numbers&#39;])&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">py</span><span class="o">$</span><span class="n">pd_df</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>##   Numbers
+## 1      10
+## 2      20
+## 3      30
+</pre></div>
+</div>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># R has converted this automatically</span>
+<span class="nf">class</span><span class="p">(</span><span class="n">py</span><span class="o">$</span><span class="n">pd_df</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>## [1] &quot;data.frame&quot;
+</pre></div>
+</div>
+<p>Type conversion can cause problems if the Python API expects a given
+datatype and the R input does not behave as expected.</p>
+<p>For example:</p>
+<ul class="simple">
+<li><p>If a Python API requires a list and you pass a single element R
+vector it will be converted to a Python scalar. To overcome this
+simply use the R <code class="docutils literal notranslate"><span class="pre">list()</span></code> function explicitly.</p></li>
+<li><p>You may need to use the <code class="docutils literal notranslate"><span class="pre">tuple()</span></code> and <code class="docutils literal notranslate"><span class="pre">dict()</span></code> functions when a
+Python API requires a tuple or dictionary that are more complex than
+the standard input</p></li>
+<li><p>R and Python have different default numeric types. If you write 42
+in R it is considered a floating point number whereas 42 in Python
+is considered an integer. When a Python API expects an integer, use
+the L suffix within R.</p></li>
+<li><p>Python uses 0-based indices rather than 1-based indices (R). You
+must use a 0-based index with an L (to indicate value is an integer)
+to access the first value of a collection in Python.</p></li>
+</ul>
+</section>
+<section id="useful-resources">
+<h2>Useful Resources<a class="headerlink" href="#useful-resources" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ugoproto.github.io/ugo_r_doc/pdf/reticulate.pdf">Cheat
+Sheet</a></p></li>
+<li><p><a class="reference external" href="https://rstudio.github.io/reticulate/index.html">Documentation</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
