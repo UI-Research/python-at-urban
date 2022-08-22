@@ -13,6 +13,7 @@ See the [Jupyter Book documentation](https://jupyterbook.org/en/stable/intro.htm
     ├── _static             <- Update CSS here
     ├── _toc.yml            <- Update Jupyter Book table of contents here 
     ├── content             <- Update content here 
+└── misc-resources          <- Resources intentionally excluded from the site! 
 ```
 
 ## Add or Update Content 
