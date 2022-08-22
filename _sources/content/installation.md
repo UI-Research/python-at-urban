@@ -12,7 +12,7 @@ We strongly recommend using Anaconda if you want to use Python for data science.
 
 Anaconda is a Python distribution that includes a Python interpreter, a number of Python packages (including pandas, numpy, and scipy), and tools like editors. To install, go to the [Anaconda Download page](https://www.anaconda.com/distribution/#download-section). Select Windows, MacOS, or Linux, then select a Python version, and click Download.
 
-For a guided walk-through of installing and getting started with Anaconda, follow [this notebook](https://github.com/UI-Research/python-resources/blob/main/notebooks/anaconda-installation.ipynb) from a previous Python Users Group session. 
+For a guided walk-through of installing and getting started with Anaconda, follow [this notebook](https://github.com/UI-Research/python-at-urban/blob/master/misc-resources/anaconda-installation.ipynb) from a previous Python Users Group session. 
 
 On opening Anaconda, you will be brought to the Navigator page from which you can launch various applications in order to run your code, including Jupyter Notebook and Spyder. 
 
