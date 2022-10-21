@@ -1,0 +1,59 @@
+---
+title: Python Lunch Lab - Quarto Demo 
+subtitle: The Squirrel Census (NYC Open Data Portal) 
+author: "Erika Tyagi"
+date: 2022-10-21  
+format:
+  html:
+    toc: true
+    theme: urbn.scss
+---
+
+```{python}
+#| code-fold: true
+
+import pandas as pd 
+import matplotlib.pyplot as plt
+import seaborn as sns 
+
+pd.set_option('display.max_columns', 100)
+sns.set_theme(style="whitegrid")
+```
+
+# Load Data 
+
+The “2018 Central Park Squirrel Census - Squirrel Data” (or “The Squirrel Census”) is a dataset available on the [City of New York’s Open Data Portal](https://opendata.cityofnewyork.us/). Here’s the description of the dataset pulled from the portal:
+
+> [The Squirrel Census](https://www.thesquirrelcensus.com/) is a multimedia science, design, and storytelling project focusing on the Eastern gray (Sciurus carolinensis). They count squirrels and present their findings to the public. This table contains squirrel data for each of the 3,023 sightings, including location coordinates, age, primary and secondary fur color, elevation, activities, communications, and interactions between squirrels and with humans.”  
+
+```{python}
+#| code-fold: true
+
+# Load the dataset 
+url = "https://data.cityofnewyork.us/api/views/vfnx-vebw/rows.csv"
+df = pd.read_csv(url)
+
+# View the first 3 rows 
+df.head(3)
+```
+
+# Plot Data 
+
+::: {.callout-note}
+Note that the `Foraging` variable indicates that the squirrel was seen foraging for food.
+:::
+
+```{python}
+#| label: squirrels
+#| fig-cap: "Foraging Patterns, The Squirrel Census (2018)"
+#| code-fold: true
+
+# Create simple barplot 
+sns.countplot(
+    x="Foraging", 
+    hue="Primary Fur Color", 
+    data=df 
+)
+
+plt.show()
+```
