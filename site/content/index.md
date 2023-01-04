@@ -11,4 +11,4 @@ Please fill out the following form to receive email updates about upcoming event
 Join us on Slack at #python-users. 
 
 ## Contact 
-Feel free to contact Erika Tyagi (etyagi@urban.org) or Michelle Menezes (mmenezes@urban.org) with any thoughts or questions about Python at the Urban Institute. 
+Feel free to contact Erika Tyagi (etyagi@urban.org) or Judah Axelrod (jaxelrod@urban.org) with any thoughts or questions about Python at the Urban Institute. 
