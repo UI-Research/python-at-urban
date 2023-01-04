@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Installing Python &#8212; Python Users Group</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -21,7 +20,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -39,7 +38,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -372,23 +371,23 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="installing-python">
+  <div class="tex2jax_ignore mathjax_ignore section" id="installing-python">
 <h1>Installing Python<a class="headerlink" href="#installing-python" title="Permalink to this headline">#</a></h1>
-<section id="python-2-or-3">
+<div class="section" id="python-2-or-3">
 <h2>Python 2 or 3?<a class="headerlink" href="#python-2-or-3" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://wiki.python.org/moin/Python2orPython3"><strong>Python 2.x is legacy, Python 3.x is the present and future of the language.</strong></a></p>
 <p>There are two versions of Python - Python 2 and Python 3. Unless you have inherited an old project that requires you to use Python 2, or need libraries that are available only in Python 2, then you should install and use Python 3 exclusively.</p>
-</section>
-<section id="using-anaconda">
+</div>
+<div class="section" id="using-anaconda">
 <h2>Using Anaconda<a class="headerlink" href="#using-anaconda" title="Permalink to this headline">#</a></h2>
 <p>We strongly recommend using Anaconda if you want to use Python for data science. This will simplify dealing with things like privileges, environments and packages.</p>
 <p>Anaconda is a Python distribution that includes a Python interpreter, a number of Python packages (including pandas, numpy, and scipy), and tools like editors. To install, go to the <a class="reference external" href="https://www.anaconda.com/distribution/#download-section">Anaconda Download page</a>. Select Windows, MacOS, or Linux, then select a Python version, and click Download.</p>
-<p>For a guided walk-through of installing and getting started with Anaconda, follow <a class="reference external" href="https://github.com/UI-Research/python-resources/blob/main/notebooks/anaconda-installation.ipynb">this notebook</a> from a previous Python Users Group session.</p>
+<p>For a guided walk-through of installing and getting started with Anaconda, follow <a class="reference external" href="https://github.com/UI-Research/python-at-urban/blob/master/misc-resources/anaconda-installation.ipynb">this notebook</a> from a previous Python Users Group session.</p>
 <p>On opening Anaconda, you will be brought to the Navigator page from which you can launch various applications in order to run your code, including Jupyter Notebook and Spyder.</p>
 <p>Jupyter Notebook is similar to R Markdown, where you can edit and run blocks of code along with markdown text. It allows you to create and share documents that contain live code, equations, visualizations and narrative text.</p>
 <p>Spyder is an environment for running Python, similar to RStudio for R. It offers editing, analysis, and debugging. For tips on using Spyder, see <a class="reference external" href="https://urbanorg.box.com/s/3raiuvsykulh290884xkogduzbdhi371">these resources</a> from a previous Python Users Group session.</p>
-</section>
-<section id="installing-packages">
+</div>
+<div class="section" id="installing-packages">
 <h2>Installing Packages<a class="headerlink" href="#installing-packages" title="Permalink to this headline">#</a></h2>
 <p>Anaconda comes with a package management system called <code class="docutils literal notranslate"><span class="pre">conda</span></code>. To install a package, open your command prompt and run</p>
 <p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">{package-name}</span></code></p>
@@ -396,12 +395,12 @@ title="Print to PDF"
 <p>Base Python has its own package management tool called <code class="docutils literal notranslate"><span class="pre">pip</span></code>. If a package is not available with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code>, you can try running</p>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">{package-name}</span></code></p>
 <p>You should always try running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> first, as this will do a better job of resolving package dependency issues.</p>
-</section>
-<section id="using-virtual-environments">
+</div>
+<div class="section" id="using-virtual-environments">
 <h2>Using Virtual Environments<a class="headerlink" href="#using-virtual-environments" title="Permalink to this headline">#</a></h2>
 <p>To avoid running into version issues between multiple projects that rely on different Python versions or different versions of packages, you might want to try using virtual environments. A virtual environment is a way to create an isolated space so you can, for example, run Python 2.7 for one project and Python 3.7 for another on the same computer. <code class="docutils literal notranslate"><span class="pre">conda</span></code> includes robust support for creating and managing different environments. For more detail, see the <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">conda documentation</a>.</p>
-</section>
-<section id="choosing-an-ide">
+</div>
+<div class="section" id="choosing-an-ide">
 <h2>Choosing an IDE<a class="headerlink" href="#choosing-an-ide" title="Permalink to this headline">#</a></h2>
 <p>There are a number of different integrated development environments (IDEs) for Python. Some popular ones include:</p>
 <ul class="simple">
@@ -410,12 +409,12 @@ title="Print to PDF"
 <li><p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> includes support for debugging, syntax highlighting, code completion, and more. It also offers thousands of extensions (including Python-specific extensions).</p></li>
 <li><p><a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm</a> is another popular Python IDE. The free version offers syntax highlighting, access to plugins, and web development support.</p></li>
 </ul>
-</section>
-<section id="installing-python-directly">
+</div>
+<div class="section" id="installing-python-directly">
 <h2>Installing Python Directly<a class="headerlink" href="#installing-python-directly" title="Permalink to this headline">#</a></h2>
 <p>You can also install Python directly onto your machine rather than using Anaconda. See the Python <a class="reference external" href="https://www.python.org/downloads/">downloads page</a> for the most up to date Mac, Linux, and Windows versions of Python.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

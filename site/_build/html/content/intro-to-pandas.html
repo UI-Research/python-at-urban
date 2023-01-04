@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Intro to Pandas &#8212; Python Users Group</title>
     
   <!-- Loaded before other Sphinx assets -->
@@ -21,7 +20,7 @@
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -39,7 +38,7 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -735,7 +734,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="intro-to-pandas">
+  <div class="tex2jax_ignore mathjax_ignore section" id="intro-to-pandas">
 <h1>Intro to Pandas<a class="headerlink" href="#intro-to-pandas" title="Permalink to this headline">#</a></h1>
 <p>While built-in Python functions suffice for general programming, data analysis requires additional functions and objects. Pandas is a popular data analysis package that is simple to use the moment you start Python.</p>
 <p>The primary reason Pandas is popular for data science and analysis is that it introduces three useful objects that mirror similar data structures from other statistical packages and don’t add complexity to the simple Pythonic syntax. These objects are:</p>
@@ -745,9 +744,9 @@ title="Print to PDF"
 <li><p>The Index</p></li>
 </ol>
 <p>This guide is not meant to be comprehensive, the most comprehensive documentation for Pandas is found <a class="reference external" href="https://pandas.pydata.org/docs/">here</a>. The purpose of this guide is to inform a potential user of the functionality of Pandas and a general overview of how to accomplish basic data analysis tools.</p>
-<section id="getting-started">
+<div class="section" id="getting-started">
 <h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">#</a></h2>
-<section id="importing-pandas">
+<div class="section" id="importing-pandas">
 <h3>Importing Pandas<a class="headerlink" href="#importing-pandas" title="Permalink to this headline">#</a></h3>
 <p>Since Pandas is not native to Python, you will have to install it. Fortunately, Pandas has grown so much in popularity, that most downloads (including Anaconda) will contain Pandas, but you will still have to load the package. This code will do the trick:</p>
 <div class="cell docutils container">
@@ -773,8 +772,8 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</section>
-<section id="dataframe">
+</div>
+<div class="section" id="dataframe">
 <h3>DataFrame<a class="headerlink" href="#dataframe" title="Permalink to this headline">#</a></h3>
 <p>The DataFrame object is one of the main contributions of Pandas. The DataFrame is a 2-dimensional labeled structure with columns and rows. The columns and the rows represent one dimension each. The DataFrame is analogous to the R and Stata DataFrame and the Excel spreadsheet. Or put in more technical terms, the DataFrame is a tabular data structure. The code below defines a DataFrame and then prints it out to view:</p>
 <div class="cell docutils container">
@@ -852,8 +851,8 @@ Name: one, dtype: float64
 </div>
 </div>
 <p>The values on the left represent the Index we saw earlier. Notice: A column’s type is itself a Pandas object, the Series. More on this object below.</p>
-</section>
-<section id="series">
+</div>
+<div class="section" id="series">
 <h3>Series<a class="headerlink" href="#series" title="Permalink to this headline">#</a></h3>
 <p>A Series is one-dimensional indexed array that can contain any Python data type. To create a Series you use the function:</p>
 <div class="cell docutils container">
@@ -899,8 +898,8 @@ dtype: int64
 </div>
 </div>
 </div>
-</section>
-<section id="index">
+</div>
+<div class="section" id="index">
 <h3>Index<a class="headerlink" href="#index" title="Permalink to this headline">#</a></h3>
 <p>Both the Series and the DataFrame have an Index that signifies order and allows for referencing specific points. The Index itself is an object.</p>
 <div class="cell docutils container">
@@ -916,14 +915,14 @@ dtype: int64
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="importing-data">
+</div>
+</div>
+<div class="section" id="importing-data">
 <h2>Importing Data<a class="headerlink" href="#importing-data" title="Permalink to this headline">#</a></h2>
 <p>Pandas has the ability to read and export multiple data format types: be it a CSV, DTA, SAS file, JSON file, SQL and many more. Almost all data reading will be in the format:</p>
 <p><code class="docutils literal notranslate"><span class="pre">pd.read_(NAME</span> <span class="pre">OF</span> <span class="pre">DATA</span> <span class="pre">FORMAT)('FILE_NAME')</span></code></p>
 <p>Let’s take a look at a few examples.</p>
-<section id="stata-files-dta">
+<div class="section" id="stata-files-dta">
 <h3>Stata Files (DTA)<a class="headerlink" href="#stata-files-dta" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1113,8 +1112,8 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="excel-files-xlsx">
+</div>
+<div class="section" id="excel-files-xlsx">
 <h3>Excel Files (XLSX)<a class="headerlink" href="#excel-files-xlsx" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1224,16 +1223,16 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="other-data-types">
+</div>
+<div class="section" id="other-data-types">
 <h3>Other Data Types<a class="headerlink" href="#other-data-types" title="Permalink to this headline">#</a></h3>
 <p>Similar variants for uploading exists for each common data type - CSV, SAS, and so on.</p>
-</section>
-</section>
-<section id="exporting-data">
+</div>
+</div>
+<div class="section" id="exporting-data">
 <h2>Exporting Data<a class="headerlink" href="#exporting-data" title="Permalink to this headline">#</a></h2>
 <p>Exporting data is very simple as well and follows a pattern similar to exporting.</p>
-<section id="csv">
+<div class="section" id="csv">
 <h3>CSV<a class="headerlink" href="#csv" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1242,12 +1241,12 @@ dtype: int64
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="converting-data">
+</div>
+</div>
+<div class="section" id="converting-data">
 <h2>Converting Data<a class="headerlink" href="#converting-data" title="Permalink to this headline">#</a></h2>
 <p>Now that we know how to load in data, it will be useful to examine ways to convert already existing data structures into DataFrames.</p>
-<section id="list">
+<div class="section" id="list">
 <h3>List<a class="headerlink" href="#list" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1323,8 +1322,8 @@ dtype: int64
 2	7	8	9
 </pre></div>
 </div>
-</section>
-<section id="dictionary">
+</div>
+<div class="section" id="dictionary">
 <h3>Dictionary<a class="headerlink" href="#dictionary" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1381,8 +1380,8 @@ dtype: int64
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="numpy-array">
+</div>
+<div class="section" id="numpy-array">
 <h3>Numpy Array<a class="headerlink" href="#numpy-array" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1454,9 +1453,9 @@ dtype: int64
 </div></div></div>
 </div>
 <p>Now that we know how to load in our DataFrame, we will try to view and manipulate our data before our analysis is run.</p>
-</section>
-</section>
-<section id="viewing-data">
+</div>
+</div>
+<div class="section" id="viewing-data">
 <h2>Viewing Data<a class="headerlink" href="#viewing-data" title="Permalink to this headline">#</a></h2>
 <p>We know that we can view our data by simply printing the dataframe, but what if our data is too large?</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">.head()</span></code> function prints out the first 5 rows (inside the parentheticals you can specify the first N observations you want to see).</p>
@@ -1805,10 +1804,10 @@ dtype: object
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="subsetting-data">
+</div>
+<div class="section" id="subsetting-data">
 <h2>Subsetting Data<a class="headerlink" href="#subsetting-data" title="Permalink to this headline">#</a></h2>
-<section id="slicing-the-data-by-rows">
+<div class="section" id="slicing-the-data-by-rows">
 <h3>Slicing the data by rows<a class="headerlink" href="#slicing-the-data-by-rows" title="Permalink to this headline">#</a></h3>
 <p>We can do traditional slicing through the index <code class="docutils literal notranslate"><span class="pre">[start,</span> <span class="pre">end]</span></code>. This will subset by rows.</p>
 <div class="cell docutils container">
@@ -1884,8 +1883,8 @@ dtype: object
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="slicing-the-data-by-columns">
+</div>
+<div class="section" id="slicing-the-data-by-columns">
 <h3>Slicing the data by columns<a class="headerlink" href="#slicing-the-data-by-columns" title="Permalink to this headline">#</a></h3>
 <p>To subset by columns, we can use <code class="docutils literal notranslate"><span class="pre">df[['columns_we_want_1',</span> <span class="pre">'columns_we_want_2']]</span></code>.</p>
 <div class="cell docutils container">
@@ -2008,8 +2007,8 @@ Index([&#39;Year&#39;, &#39;State&#39;, &#39;Table_Data&#39;, &#39;High_Value&#3
 </div>
 </div>
 <p>We have 8 variables: <code class="docutils literal notranslate"><span class="pre">Year</span></code>, <code class="docutils literal notranslate"><span class="pre">State</span></code>, <code class="docutils literal notranslate"><span class="pre">Table_Data</span></code>, <code class="docutils literal notranslate"><span class="pre">High_Value</span></code>, <code class="docutils literal notranslate"><span class="pre">Low_Value</span></code>, <code class="docutils literal notranslate"><span class="pre">CPI_Average</span></code>, <code class="docutils literal notranslate"><span class="pre">High_2018</span></code>, and <code class="docutils literal notranslate"><span class="pre">Low_2018</span></code>. Sometimes in our analysis we only want to keep certain years. For this, the traditional boolean logic mixed with Pandas slices the data into the segments we want.</p>
-</section>
-<section id="slicing-based-on-conditions">
+</div>
+<div class="section" id="slicing-based-on-conditions">
 <h3>Slicing based on conditions<a class="headerlink" href="#slicing-based-on-conditions" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2139,11 +2138,11 @@ Name: 100, dtype: object
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="manipulating-data">
+</div>
+</div>
+<div class="section" id="manipulating-data">
 <h2>Manipulating Data<a class="headerlink" href="#manipulating-data" title="Permalink to this headline">#</a></h2>
-<section id="summary-statistics">
+<div class="section" id="summary-statistics">
 <h3>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">#</a></h3>
 <p>Exporting summary stats in a different document type can help visualize results and understand data.</p>
 <div class="cell docutils container">
@@ -2180,8 +2179,8 @@ max      15.120000
 </div>
 </div>
 </div>
-</section>
-<section id="creating-a-new-variable">
+</div>
+<div class="section" id="creating-a-new-variable">
 <h3>Creating a new variable<a class="headerlink" href="#creating-a-new-variable" title="Permalink to this headline">#</a></h3>
 <p>The standard way to create a new Pandas column or replace an old one is to call the Series (whether it exists or not) on the left hand side and set it equal to the expression that expresses that value you want to create. For example:</p>
 <div class="cell docutils container">
@@ -2210,8 +2209,8 @@ max      15.120000
 </div>
 </div>
 <p>Or, we can replace an old variable in a similar way.</p>
-</section>
-<section id="replacing-a-variable">
+</div>
+<div class="section" id="replacing-a-variable">
 <h3>Replacing a variable<a class="headerlink" href="#replacing-a-variable" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2239,8 +2238,8 @@ max      15.120000
 </div>
 </div>
 <p>We can also rename variables. In this case we will rename <code class="docutils literal notranslate"><span class="pre">Year</span></code> to <code class="docutils literal notranslate"><span class="pre">Date</span></code> and <code class="docutils literal notranslate"><span class="pre">Table_Data</span></code> to <code class="docutils literal notranslate"><span class="pre">Values.</span></code></p>
-</section>
-<section id="renaming-variables">
+</div>
+<div class="section" id="renaming-variables">
 <h3>Renaming Variables<a class="headerlink" href="#renaming-variables" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2283,8 +2282,8 @@ max      15.120000
 </div>
 </div>
 </div>
-</section>
-<section id="dropping-variables">
+</div>
+<div class="section" id="dropping-variables">
 <h3>Dropping Variables<a class="headerlink" href="#dropping-variables" title="Permalink to this headline">#</a></h3>
 <p>We can also drop a variable with <code class="docutils literal notranslate"><span class="pre">df.drop()</span></code>:</p>
 <div class="cell docutils container">
@@ -2313,8 +2312,8 @@ max      15.120000
 </div>
 </div>
 </div>
-</section>
-<section id="arithmetic-operations">
+</div>
+<div class="section" id="arithmetic-operations">
 <h3>Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Permalink to this headline">#</a></h3>
 <p>Basic math operations are also easily applied in Pandas.</p>
 <div class="cell docutils container">
@@ -2344,8 +2343,8 @@ max      15.120000
 </div>
 </div>
 </div>
-</section>
-<section id="complex-operations-with-map">
+</div>
+<div class="section" id="complex-operations-with-map">
 <h3>Complex Operations with <code class="docutils literal notranslate"><span class="pre">.map()</span></code><a class="headerlink" href="#complex-operations-with-map" title="Permalink to this headline">#</a></h3>
 <p>More complex operations can be solved through the <code class="docutils literal notranslate"><span class="pre">.map()</span></code> method.</p>
 <p>In the example below, <code class="docutils literal notranslate"><span class="pre">.map()</span></code> uses a dictionary to change results, which can help keep code clean when replacing a large amount of values. Here we create an <code class="docutils literal notranslate"><span class="pre">abbrev</span></code> column for state abbreviations (we will create it and drop the variable after).</p>
@@ -2367,8 +2366,8 @@ max      15.120000
 </div>
 </div>
 </div>
-</section>
-<section id="using-functions">
+</div>
+<div class="section" id="using-functions">
 <h3>Using Functions<a class="headerlink" href="#using-functions" title="Permalink to this headline">#</a></h3>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> to apply a function to a Series. You can either specify the function or use the lambda anonymous function:</p>
 <p>Specfying a function:</p>
@@ -2403,8 +2402,8 @@ Name: Year, dtype: int64
 </div>
 </div>
 </div>
-</section>
-<section id="lambda-functions">
+</div>
+<div class="section" id="lambda-functions">
 <h3>Lambda Functions<a class="headerlink" href="#lambda-functions" title="Permalink to this headline">#</a></h3>
 <p>Lambda Functions (skipping defining a function if the function is simple enough):</p>
 <div class="cell docutils container">
@@ -2434,8 +2433,8 @@ Name: Year, dtype: int64
 </div>
 </div>
 </div>
-</section>
-<section id="missing-values">
+</div>
+<div class="section" id="missing-values">
 <h3>Missing Values<a class="headerlink" href="#missing-values" title="Permalink to this headline">#</a></h3>
 <p>Dealing with missing values is an important part of data cleaning and something to always be mindful of. Pandas codes missing values as numpy <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values.</p>
 <div class="cell docutils container">
@@ -2490,8 +2489,8 @@ False
 </div>
 </div>
 </div>
-</section>
-<section id="duplicate-values">
+</div>
+<div class="section" id="duplicate-values">
 <h3>Duplicate Values<a class="headerlink" href="#duplicate-values" title="Permalink to this headline">#</a></h3>
 <p>We can use <code class="docutils literal notranslate"><span class="pre">.drop_duplicates(keep</span> <span class="pre">=</span> <span class="pre">&quot;first&quot;)</span></code> to drop all but the first observations of duplicates.</p>
 <div class="cell docutils container">
@@ -2522,8 +2521,8 @@ False
 </div>
 </div>
 </div>
-</section>
-<section id="reshaping-data">
+</div>
+<div class="section" id="reshaping-data">
 <h3>Reshaping Data<a class="headerlink" href="#reshaping-data" title="Permalink to this headline">#</a></h3>
 <p>Data can be reshaped using a variety of Pandas functions. Going from wide to long has a built in function <code class="docutils literal notranslate"><span class="pre">wide_to_long()</span></code>. We will load in a new dataset for this:</p>
 <div class="cell docutils container">
@@ -2598,8 +2597,8 @@ Unique Family Identifier Order
 </div>
 </div>
 </div>
-</section>
-<section id="merging-data">
+</div>
+<div class="section" id="merging-data">
 <h3>Merging Data<a class="headerlink" href="#merging-data" title="Permalink to this headline">#</a></h3>
 <p>Merging data uses <code class="docutils literal notranslate"><span class="pre">pd.merge(data_1,</span> <span class="pre">data_2,</span> <span class="pre">on</span> <span class="pre">=</span> <span class="pre">identifier)</span></code>.</p>
 <div class="cell docutils container">
@@ -2816,8 +2815,8 @@ Unique Family Identifier Order
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="appending-data">
+</div>
+<div class="section" id="appending-data">
 <h3>Appending Data<a class="headerlink" href="#appending-data" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2914,8 +2913,8 @@ Unique Family Identifier Order
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="collapsing-data">
+</div>
+<div class="section" id="collapsing-data">
 <h3>Collapsing Data<a class="headerlink" href="#collapsing-data" title="Permalink to this headline">#</a></h3>
 <p>Collapsing data is accomplished by the <code class="docutils literal notranslate"><span class="pre">.groupby()</span></code> function. We will collapse by <code class="docutils literal notranslate"><span class="pre">Year</span></code>.</p>
 <div class="cell docutils container">
@@ -3010,9 +3009,9 @@ Year
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

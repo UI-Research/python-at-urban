@@ -1,6 +1,6 @@
 # Technical Support 
 
-The Python Users Group has allocated time for technical support for Python projects across the Urban Institute. If you would like to know more about these capabilities or request our support, please contact Erika Tyagi (etyagi@urban.org) or Michelle Menezes (mmenezes@urban.org). 
+The Python Users Group has allocated time for technical support for Python projects across the Urban Institute. If you would like to know more about these capabilities or request our support, please contact Erika Tyagi (etyagi@urban.org) or Judah Axelrod (jaxelrod@urban.org). 
 
 ## Task Automation
 
