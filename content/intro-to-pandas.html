@@ -2943,9 +2943,6 @@ Year
 1972        54          54      54     54  
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
 </div>
 </div>
 <p>Note: This only generates counts for each year. If we want averages, sums or any other summary statistics we have to specify that:</p>
@@ -2975,9 +2972,9 @@ Year
 1990  293.50  285.50  
 1991  358.40  350.00  
 1992  388.34  379.14  
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      High_Value  Low_Value  CPI_Average  High_2018  Low_2018  Difference  \
+
+
+      High_Value  Low_Value  CPI_Average  High_2018  Low_2018  Difference  \
 Year                                                                        
 1988    2.668182   2.595455   118.258333   5.648182  5.494364    0.072727   
 1989    2.668182   2.595455   123.966667   5.390727  5.243818    0.072727   
@@ -2992,9 +2989,9 @@ Year
 1990  5.336364  5.190909  
 1991  6.516364  6.363636  
 1992  7.060727  6.893455  
-
-
-      High_Value  Low_Value  CPI_Average  High_2018  Low_2018  Difference  \
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      High_Value  Low_Value  CPI_Average  High_2018  Low_2018  Difference  \
 Year                                                                        
 1988        3.35       3.35   118.258333       7.09      7.09         0.0   
 1989        3.35       3.35   123.966667       6.77      6.77         0.0   
@@ -3011,11 +3008,11 @@ Year
 1992     8.5    8.5  
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1806/918670227.py:1: FutureWarning: The default value of numeric_only in DataFrameGroupBy.sum is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1827/918670227.py:1: FutureWarning: The default value of numeric_only in DataFrameGroupBy.sum is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
   print(by_year.sum()[20:25])
-/tmp/ipykernel_1806/918670227.py:3: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
+/tmp/ipykernel_1827/918670227.py:3: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
   print(by_year.mean()[20:25])
-/tmp/ipykernel_1806/918670227.py:5: FutureWarning: The default value of numeric_only in DataFrameGroupBy.median is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
+/tmp/ipykernel_1827/918670227.py:5: FutureWarning: The default value of numeric_only in DataFrameGroupBy.median is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
   print(by_year.median()[20:25])
 </pre></div>
 </div>
