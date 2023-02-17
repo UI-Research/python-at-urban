@@ -317,18 +317,35 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setting-up">
-     Setting up
+    <a class="reference internal nav-link" href="#setup">
+     Setup
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#running-boto3-commands">
-     Running Boto3 Commands
+    <a class="reference internal nav-link" href="#boto3-commands">
+     Boto3 commands
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#listing-buckets-and-objects">
+       Listing buckets and objects
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#uploading-and-downloading-files">
+       Uploading and downloading files
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-pandas">
+       Using Pandas
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#s3-triggers">
-     S3 Triggers
+     S3 triggers
     </a>
    </li>
   </ul>
@@ -340,7 +357,7 @@ title="Print to PDF"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#using-tech-tools-to-spin-up-an-ec2-instance">
-     Using tech-tools to spin up an EC2 instance
+     Using Tech Tools to spin up an EC2 instance
     </a>
    </li>
   </ul>
@@ -375,18 +392,35 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#setting-up">
-     Setting up
+    <a class="reference internal nav-link" href="#setup">
+     Setup
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#running-boto3-commands">
-     Running Boto3 Commands
+    <a class="reference internal nav-link" href="#boto3-commands">
+     Boto3 commands
     </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#listing-buckets-and-objects">
+       Listing buckets and objects
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#uploading-and-downloading-files">
+       Uploading and downloading files
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#using-pandas">
+       Using Pandas
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#s3-triggers">
-     S3 Triggers
+     S3 triggers
     </a>
    </li>
   </ul>
@@ -398,7 +432,7 @@ title="Print to PDF"
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#using-tech-tools-to-spin-up-an-ec2-instance">
-     Using tech-tools to spin up an EC2 instance
+     Using Tech Tools to spin up an EC2 instance
     </a>
    </li>
   </ul>
@@ -420,65 +454,98 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="aws-python">
 <h1>AWS &amp; Python<a class="headerlink" href="#aws-python" title="Permalink to this headline">#</a></h1>
-<p>From data storage to computing, Amazon Web Services (AWS) is a scalable and and cost effective alternative to on premise options. This guide demonstrates how Urban Institute researchers can use Python in conjunction with Amazon Services S3 and EC2 to create a cloud based workflow.</p>
+<p>For data storage and computing, Amazon Web Services (AWS) can be a scalable and cost-effective alternative to on-premise options. This guide demonstrates how Urban Institute researchers can use Python in conjunction with the AWS services S3 and EC2 to create a cloud-based workflow.</p>
 <div class="section" id="s3">
 <h2>S3<a class="headerlink" href="#s3" title="Permalink to this headline">#</a></h2>
-<p>Boto3 is the AWS SDK for Python with an easy to use, well documented <a class="reference external" href="https://boto3.amazonaws.com/v1/documentation/api/latest/index.html">API</a>. It allows one to write Python code that interacts with AWS. In this guide we will explore specifically how Boto3 can be used to interact with AWS S3, Simple Storage Service.</p>
-<p>S3 can be used to store big data for a relatively small price. It is essentially a file storage system, consisting of buckets, which are analogous to folders. You can use Boto3 to place files into buckets and download files that are stored in buckets, among other actions. In the context of a research model or script, this means you can store and read in input files from S3 and write output files to S3.</p>
-<div class="section" id="setting-up">
-<h3>Setting up<a class="headerlink" href="#setting-up" title="Permalink to this headline">#</a></h3>
-<p>Getting started with Boto3 involves installing Boto3 and authenticating yourself using your AWS credentials as described in this quickstart <a class="reference external" href="https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html">guide</a>. The most secure way to do so is by setting up your credentials file using the Amazon Command Line Interface (CLI). In order to do this, you will need your own access key and secret access key. In order to set up a role with the permissions you need, you should contact the tech team.</p>
+<p>Boto3 is the official AWS SDK for Python. It provides an easy-to-use, well-documented <a class="reference external" href="https://boto3.amazonaws.com/v1/documentation/api/latest/index.html">API</a> that lets you write Python code to interact with AWS services. In this guide we will explore specifically how Boto3 can be used to interact with AWS S3, Simple Storage Service.</p>
+<p>S3 can be used to store big data files for a relatively low price. It is essentially a file storage system, consisting of buckets, which are analogous to folders. You can use Boto3 to place files (referred to as objects in S3) into buckets and download objects that are stored in buckets, among other actions. In the context of a research model or script, this means you can store and read input files from S3 and write output files back to S3.</p>
+<div class="section" id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h3>
+<p>Getting started with Boto3 involves installing Boto3 and authenticating using AWS credentials as described in this <a class="reference external" href="https://boto3.amazonaws.com/v1/documentation/api/latest/guide/quickstart.html">guide</a>. The most secure way to do so is by setting up your credentials using the Amazon Command Line Interface (CLI). To do so, you will need an access key and secret access key. To set up credentials with the permissions you need, you should contact the TECH team.</p>
 </div>
-<div class="section" id="running-boto3-commands">
-<h3>Running Boto3 Commands<a class="headerlink" href="#running-boto3-commands" title="Permalink to this headline">#</a></h3>
-<p>Using Boto3, there are multiple classes that will allow interaction with S3. In this guide we will use the <code class="docutils literal notranslate"><span class="pre">resource</span></code> class, which is a high level, object oriented interface to AWS.</p>
-<p>First, we will instantiate a service resource which represents the Amazon S3 service.</p>
-<p>In order to view all of the buckets that are associated with your AWS S3 account, you can run the below code. If your desired bucket is not there, contact the tech team to adjust the permissions associated with you account.</p>
+<div class="section" id="boto3-commands">
+<h3>Boto3 commands<a class="headerlink" href="#boto3-commands" title="Permalink to this headline">#</a></h3>
+<p>In Boto3, there are multiple classes that enable interaction with S3. In this guide, we will use the <code class="docutils literal notranslate"><span class="pre">client</span></code> class, which is a low-level, object-oriented interface to AWS.</p>
+<div class="section" id="listing-buckets-and-objects">
+<h4>Listing buckets and objects<a class="headerlink" href="#listing-buckets-and-objects" title="Permalink to this headline">#</a></h4>
+<p>To list buckets and objects in S3, you first you need to instantiate a client resource which represents the Amazon S3 service.</p>
+<p>Then, you can use the syntax below to list all of the buckets that you have access to. If your desired bucket doesn’t show up, contact the TECH team to update the permissions associated with your credentials.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">resource</span><span class="p">(</span><span class="s1">&#39;s3&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">s3</span><span class="o">.</span><span class="n">buckets</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">bucket</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s2">&quot;s3&quot;</span><span class="p">)</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">list_buckets</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">bucket</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;Buckets&quot;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">bucket</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Next you can instantiate a bucket resource representing your desired bucket. This will allow you to interact with the bucket. The code below demonstrates using an instantiated bucket to download a file from S3:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mybucket</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">Bucket</span><span class="p">(</span><span class="s1">&#39;mybucket&#39;</span><span class="p">)</span>
-<span class="n">mybucket</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="s1">&#39;example.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;/tmp/example.txt&#39;</span><span class="p">)</span>
+<p>Note that S3 uses key-value pairs to store objects, rather than a traditional file system with a hierarchy of folders. You can use <a class="reference external" href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-prefixes.html">prefixes</a> to organize files in S3 buckets, which are conceptually similar to directories or subfolders. The code below would list the name of all objects within a particular prefix that you have access to.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">list_objects_v2</span><span class="p">(</span><span class="n">Bucket</span><span class="o">=</span><span class="s2">&quot;my-bucket&quot;</span><span class="p">,</span>
+                              <span class="n">Prefix</span><span class="o">=</span><span class="s2">&quot;my-prefix&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="nb">object</span> <span class="ow">in</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;Contents&quot;</span><span class="p">]:</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">object</span><span class="p">[</span><span class="s2">&quot;Key&quot;</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>And upload a file to S3:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mybucket</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span><span class="s1">&#39;/tmp/example.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;example.txt&#39;</span><span class="p">)</span>
+</div>
+<div class="section" id="uploading-and-downloading-files">
+<h4>Uploading and downloading files<a class="headerlink" href="#uploading-and-downloading-files" title="Permalink to this headline">#</a></h4>
+<p>Boto3 also provides simple methods to upload and download files from S3. The code below would upload a file stored locally called <code class="docutils literal notranslate"><span class="pre">example.csv</span></code> to the specified bucket and prefix.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s3</span><span class="o">.</span><span class="n">upload_file</span><span class="p">(</span><span class="n">Bucket</span><span class="o">=</span><span class="s2">&quot;my-bucket&quot;</span><span class="p">,</span> 
+               <span class="n">Filename</span><span class="o">=</span><span class="s2">&quot;example.csv&quot;</span><span class="p">,</span> 
+               <span class="n">Key</span><span class="o">=</span><span class="s2">&quot;my-prefix/example.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>For a full list of operations you can perform on your bucket, refer to this <a class="reference external" href="https://boto3.amazonaws.com/v1/documentation/api/1.9.96/reference/services/s3.html#bucket">documentation</a>. Keep in mind that your  will need to have specific permission associated with your account to perform any action.</p>
+<p>Similarly, the code below would download that file from S3.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s3</span><span class="o">.</span><span class="n">download_file</span><span class="p">(</span><span class="n">Bucket</span><span class="o">=</span><span class="s2">&quot;my-bucket&quot;</span><span class="p">,</span> 
+                 <span class="n">Filename</span><span class="o">=</span><span class="s2">&quot;example.csv&quot;</span><span class="p">,</span> 
+                 <span class="n">Key</span><span class="o">=</span><span class="s2">&quot;my-prefix/example.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>For a full list of operations you can perform on your bucket using Boto3, refer to this <a class="reference external" href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#client">documentation</a>. Keep in mind that you will need to have specific permissions associated with your credentials to perform any action.</p>
+</div>
+<div class="section" id="using-pandas">
+<h4>Using Pandas<a class="headerlink" href="#using-pandas" title="Permalink to this headline">#</a></h4>
+<p>Recent versions of Pandas let you read and write files to S3 with simplified syntax using the s3fs package under-the-hood. You can install s3fs using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">s3fs</span></code>.</p>
+<p>The code below would read the file <code class="docutils literal notranslate"><span class="pre">example.csv</span></code> from S3 as a Pandas dataframe.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;s3://my-bucket/my-prefix/example.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Similarly, the code below would write that dataframe to S3 at the specified path.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;s3://my-bucket/my-prefix/example.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="s3-triggers">
-<h3>S3 Triggers<a class="headerlink" href="#s3-triggers" title="Permalink to this headline">#</a></h3>
+<h3>S3 triggers<a class="headerlink" href="#s3-triggers" title="Permalink to this headline">#</a></h3>
 <p>S3 can be used to trigger AWS events relating to other services. For example an S3 bucket can be configured so that when a file is placed into it:</p>
 <ul class="simple">
 <li><p>An email is sent to a user</p></li>
 <li><p>An EC2 instance spins up and runs a script which takes in that file as input</p></li>
 </ul>
-<p>Contact the tech team if you would like to set up a trigger for your S3 bucket.</p>
+<p>Contact the TECH team if you would like to set up a trigger for your S3 bucket.</p>
 </div>
 </div>
 <div class="section" id="ec2">
 <h2>EC2<a class="headerlink" href="#ec2" title="Permalink to this headline">#</a></h2>
-<p>EC2 is an Amazon service which provides compute capacity in the cloud. Rather than running your models and scripts on Urban on premise servers, you can run them on EC2 which provides customizable compute capacity, memory, and more.</p>
+<p>EC2, or Elastic Compute Cloud, is an Amazon service which provides virtual computers in the cloud. Rather than running your models and scripts on your local computer or on Urban servers, you can run them on EC2 which provides customizable compute capacity, memory, and more.</p>
 <div class="section" id="using-tech-tools-to-spin-up-an-ec2-instance">
-<h3>Using tech-tools to spin up an EC2 instance<a class="headerlink" href="#using-tech-tools-to-spin-up-an-ec2-instance" title="Permalink to this headline">#</a></h3>
-<p>The tech team at Urban has designed a tool for researchers to easily create and terminate EC2 instances. This tool is hosted on the tech-tools site via the Urban Institute intranet page.</p>
-<p>To begin, under the “Research Platforms” dropdown on the tech-tools site, select “Start or Stop EC2 instance.” In order to spin up your EC2 instance, you will be able to select which instance type you would like based on your specific needs and submit the form.</p>
+<h3>Using Tech Tools to spin up an EC2 instance<a class="headerlink" href="#using-tech-tools-to-spin-up-an-ec2-instance" title="Permalink to this headline">#</a></h3>
+<p>The TECH team at Urban has designed a tool for researchers to easily create and terminate EC2 instances. This tool is hosted on the Tech Tools site via the Urban Institute intranet <a class="reference external" href="https://tech-tools.urban.org/ec2-submission/">here</a>.</p>
+<p><strong>Confidential Data</strong>: These instances are NOT suitable for processing confidential data, but if you are working on a project that uses confidential data and you would like to leverage an EC2 instance, the TECH team would be happy to create a custom instance that adheres to data use requirements for you.</p>
+<p>The Python interface for the Tech Tools instances use the latest <code class="docutils literal notranslate"><span class="pre">jupyter/scipy-notebook</span></code> <a class="reference external" href="https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html#jupyter-scipy-notebook">Docker image</a>. This means that a recent version of Python and many commonly used packages for data analysis and scientific computing will come pre-installed. This also means that you will get access to a user-friendly interface for creating and working with Jupyter notebooks, text editors, and terminal windows. See the <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/index.html">JupyterLab documentation</a> for more info.</p>
 <p><img alt="title" src="../_images/tech-tools.png" /></p>
-<p>After your instance has spun up, you will receive an email which contains links that point your browser to Jupyter or RStudio on your instance. Note: You must be within Urban’s IP range to access those links from your browser (e.g. through a virtual desktop if you are working remotely).</p>
-<p>You can also use your instance’s IP to SSH into it. When you are finished with the instance, you can terminate it, and you will be charged only for the amount of time that it was running.</p>
+<p>To begin, under the “Research Platforms” dropdown on the Tech Tools site, select “Start or Stop EC2 instance.” Then, select the instance type you would like based on your specific needs and submit the form. For Python users, we generally recommend Linux instances.</p>
+<p>After your instance has spun up, you will receive an email with links that point your browser to JupyterLab or RStudio on your instance. Note: You must be within Urban’s IP range to access those links from your browser (e.g. through a virtual desktop if you are working remotely). When you are finished with the instance, you can terminate it, and you will be charged only for the amount of time that it was running. You will also get periodic email reminders while your instance is running.</p>
 </div>
 </div>
 <div class="section" id="putting-it-all-together">
 <h2>Putting it all together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline">#</a></h2>
-<p>S3 and EC2 can be used to create a workflow entirely hosted in the cloud. The tech-tools site simplifies the process of working with EC2, abstracting many details of the creation and termination away from the user. In terms of more complex workflows using EC2 and other services, the tech team can partner with your team for design and implementation. in order to create more complex workflows. An example workflow for a Python data processing script is detailed below.</p>
-<p>As mentioned earlier, a rule can be set so that the placement of a file into an S3 bucket triggers the creation of an EC2 instance. This workflow begins with an input data file being placed into an input S3 bucket via Boto3. This triggers an EC2 instance to spin up, obtain the input file, and run the data processing script. At the end of the run, the output file is written to the output S3 bucket, and the EC2 instance automatically terminates. Additionally, a rule is set on the output bucket to trigger a notification of the user when a file is placed into it.</p>
+<p>S3 and EC2 can be used to create a workflow entirely hosted in the cloud. The Tech Tools site simplifies the process of working with EC2, abstracting many details of the creation and termination away from the user. For more complex workflows using EC2 and other AWS services, the TECH team can partner with you to design and implement a solution. An example workflow for a Python data processing script is detailed below.</p>
+<p>As mentioned earlier, a rule can be set so that the placement of a file into an S3 bucket triggers the creation of an EC2 instance. This workflow begins with an input data file being placed into an input S3 bucket via Boto3. This triggers an EC2 instance to spin up, obtain the input file, and run the data processing script. When the script completes, the output file is written to the output S3 bucket, and the EC2 instance automatically terminates. Additionally, a rule is set on the output bucket to trigger a notification of the user when a file is placed into it.</p>
 <p><img alt="title" src="../_images/aws-workflow.png" /></p>
-<p>This and similar workflows have been employed by the Urban Institute tech team to run data processing scripts and research models, including the TPC Tax Calculator and the Social Genome Model. Both of the models use Boto3 to place and retrieve objects in S3, and the Social Genome Model leverages Python’s compatibility with EC2.</p>
+<p>This and similar workflows have been employed by the Urban Institute TECH team to run data processing scripts and research models, including the TPC Tax Calculator, the Education Data Portal, and the Social Genome Model.</p>
 </div>
 </div>
 
