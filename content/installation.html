@@ -284,13 +284,13 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python-2-or-3">
-   Python 2 or 3?
+  <a class="reference internal nav-link" href="#installing-anaconda">
+   Installing Anaconda
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#using-anaconda">
-   Using Anaconda
+  <a class="reference internal nav-link" href="#choosing-a-code-editor">
+   Choosing a Code Editor
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -301,16 +301,6 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#using-virtual-environments">
    Using Virtual Environments
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#choosing-an-ide">
-   Choosing an IDE
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installing-python-directly">
-   Installing Python Directly
   </a>
  </li>
 </ul>
@@ -333,13 +323,13 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python-2-or-3">
-   Python 2 or 3?
+  <a class="reference internal nav-link" href="#installing-anaconda">
+   Installing Anaconda
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#using-anaconda">
-   Using Anaconda
+  <a class="reference internal nav-link" href="#choosing-a-code-editor">
+   Choosing a Code Editor
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -350,16 +340,6 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#using-virtual-environments">
    Using Virtual Environments
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#choosing-an-ide">
-   Choosing an IDE
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installing-python-directly">
-   Installing Python Directly
   </a>
  </li>
 </ul>
@@ -374,19 +354,21 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="installing-python">
 <h1>Installing Python<a class="headerlink" href="#installing-python" title="Permalink to this headline">#</a></h1>
-<section id="python-2-or-3">
-<h2>Python 2 or 3?<a class="headerlink" href="#python-2-or-3" title="Permalink to this headline">#</a></h2>
-<p><a class="reference external" href="https://wiki.python.org/moin/Python2orPython3"><strong>Python 2.x is legacy, Python 3.x is the present and future of the language.</strong></a></p>
-<p>There are two versions of Python - Python 2 and Python 3. Unless you have inherited an old project that requires you to use Python 2, or need libraries that are available only in Python 2, then you should install and use Python 3 exclusively.</p>
+<section id="installing-anaconda">
+<h2>Installing Anaconda<a class="headerlink" href="#installing-anaconda" title="Permalink to this headline">#</a></h2>
+<p>There are countless ways to install Python, which can make knowing how to get started notoriously intimidating. For new users at Urban, we strongly recommend <a class="reference external" href="https://docs.anaconda.com/anaconda/user-guide/getting-started/">Anaconda</a> as a great way to quickly set up and manage your Python environment. Anaconda is an open-source distribution that includes a Python interpreter, hundreds of useful Python packages for data science (including pandas, numpy, and scipy), and tools like code editors.</p>
+<p>To install Anaconda, simply go to the <a class="reference external" href="https://www.anaconda.com/distribution/#download-section">Anaconda Download page</a>, and click Download. We recommend the suggested defaults (i.e., install for “Just Me”, use the default destination folder, and do not add Anaconda to your PATH environment). With these settings, you will NOT need administrator privileges to install Anaconda on your Urban computer.</p>
+<p>Once you have successfully installed Anaconda, you can open the Anaconda Navigator. This is a graphical interface that lets you launch applications to run Python code. To launch the Anaconda Navigator, search for it from the Start menu.</p>
+<p>For more information, see the getting started guides for <a class="reference external" href="https://docs.anaconda.com/anaconda/user-guide/getting-started/">Anaconda</a> and <a class="reference external" href="https://docs.anaconda.com/navigator/getting-started/">Anaconda Navigator</a>.</p>
 </section>
-<section id="using-anaconda">
-<h2>Using Anaconda<a class="headerlink" href="#using-anaconda" title="Permalink to this headline">#</a></h2>
-<p>We strongly recommend using Anaconda if you want to use Python for data science. This will simplify dealing with things like privileges, environments and packages.</p>
-<p>Anaconda is a Python distribution that includes a Python interpreter, a number of Python packages (including pandas, numpy, and scipy), and tools like editors. To install, go to the <a class="reference external" href="https://www.anaconda.com/distribution/#download-section">Anaconda Download page</a>. Select Windows, MacOS, or Linux, then select a Python version, and click Download.</p>
-<p>For a guided walk-through of installing and getting started with Anaconda, follow <a class="reference external" href="https://github.com/UI-Research/python-at-urban/blob/master/misc-resources/anaconda-installation.ipynb">this notebook</a> from a previous Python Users Group session.</p>
-<p>On opening Anaconda, you will be brought to the Navigator page from which you can launch various applications in order to run your code, including Jupyter Notebook and Spyder.</p>
-<p>Jupyter Notebook is similar to R Markdown, where you can edit and run blocks of code along with markdown text. It allows you to create and share documents that contain live code, equations, visualizations and narrative text.</p>
-<p>Spyder is an environment for running Python, similar to RStudio for R. It offers editing, analysis, and debugging. For tips on using Spyder, see <a class="reference external" href="https://urbanorg.box.com/s/3raiuvsykulh290884xkogduzbdhi371">these resources</a> from a previous Python Users Group session.</p>
+<section id="choosing-a-code-editor">
+<h2>Choosing a Code Editor<a class="headerlink" href="#choosing-a-code-editor" title="Permalink to this headline">#</a></h2>
+<p>There are a number of different code editors or integrated development environments (IDEs) for Python. The most popular ones among users at Urban include the following:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a> comes installed with Anaconda, and is similar to RMarkdown. Jupyter notebooks are web-based applications that let you edit and run blocks of code along with markdown text, equations, and visualizations in a single notebook file.</p></li>
+<li><p><a class="reference external" href="https://www.spyder-ide.org/">Spyder</a> also comes installed with Anaconda and is most similar to RStudio for R. It offers editing, analysis, and debugging support for Python.</p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> (or VS Code) can be installed through Anaconda, and includes support for debugging, syntax highlighting, code completion, and more. It also offers thousands of extensions (including <a class="reference external" href="https://code.visualstudio.com/docs/languages/python">Python-specific extensions</a>, a <a class="reference external" href="https://quarto.org/docs/tools/vscode.html">Quarto extension</a>, and an <a class="reference external" href="https://aws.amazon.com/visualstudiocode/">AWS extension</a>).</p></li>
+</ul>
 </section>
 <section id="installing-packages">
 <h2>Installing Packages<a class="headerlink" href="#installing-packages" title="Permalink to this headline">#</a></h2>
@@ -399,21 +381,7 @@ title="Print to PDF"
 </section>
 <section id="using-virtual-environments">
 <h2>Using Virtual Environments<a class="headerlink" href="#using-virtual-environments" title="Permalink to this headline">#</a></h2>
-<p>To avoid running into version issues between multiple projects that rely on different Python versions or different versions of packages, you might want to try using virtual environments. A virtual environment is a way to create an isolated space so you can, for example, run Python 2.7 for one project and Python 3.7 for another on the same computer. <code class="docutils literal notranslate"><span class="pre">conda</span></code> includes robust support for creating and managing different environments. For more detail, see the <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">conda documentation</a>.</p>
-</section>
-<section id="choosing-an-ide">
-<h2>Choosing an IDE<a class="headerlink" href="#choosing-an-ide" title="Permalink to this headline">#</a></h2>
-<p>There are a number of different integrated development environments (IDEs) for Python. Some popular ones include:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.spyder-ide.org/">Spyder</a> comes installed with Anaconda, and is most similar to RStudio for R.</p></li>
-<li><p><a class="reference external" href="https://jupyter.org/">Jupyter</a> also comes with Anaconda, and is most similar to RMarkdown.</p></li>
-<li><p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> includes support for debugging, syntax highlighting, code completion, and more. It also offers thousands of extensions (including Python-specific extensions).</p></li>
-<li><p><a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm</a> is another popular Python IDE. The free version offers syntax highlighting, access to plugins, and web development support.</p></li>
-</ul>
-</section>
-<section id="installing-python-directly">
-<h2>Installing Python Directly<a class="headerlink" href="#installing-python-directly" title="Permalink to this headline">#</a></h2>
-<p>You can also install Python directly onto your machine rather than using Anaconda. See the Python <a class="reference external" href="https://www.python.org/downloads/">downloads page</a> for the most up to date Mac, Linux, and Windows versions of Python.</p>
+<p>To avoid running into version issues between multiple projects that rely on different Python versions or different versions of packages, you might want to try using virtual environments. A virtual environment is a way to create an isolated space so you can, for example, run Python 2.7 for one project and Python 3.7 for another on the same computer. <code class="docutils literal notranslate"><span class="pre">conda</span></code> includes robust support for creating and managing different environments. For more detail, see <a class="reference external" href="https://ui-research.github.io/virtual-envs/">this guide</a> on using virtual environments at Urban or the official <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">conda documentation</a>.</p>
 </section>
 </section>
 
