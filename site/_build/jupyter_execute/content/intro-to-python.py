@@ -5,9 +5,9 @@
 
 # ## 1. Getting Started
 
-# There are number of ways of running Python. This guide was written using Jupyter Notebook. To start, open the folder where Anaconda is installed and click "Jupyter Notebook". This will open local instance of Jupyter server in your browser (if not, point your browser to http://localhost:8888). 
+# There are number of ways of running Python. This guide was written using Jupyter Notebook. To start, open the folder where Anaconda is installed and click "Jupyter Notebook". This will open a local instance of Jupyter in your browser (if not, point your browser to http://localhost:8888). 
 
-# To start a new Python notebook, go to the right hand side, click "New", and then select "Python 3".
+# To start a new notebook, go to the right hand side, click "New", and then select "Python 3".
 
 # ![](img/jupyter-01.png)
 
