@@ -26,8 +26,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/ipynb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/main.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ipynb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -837,7 +837,7 @@ title="Print to PDF"
 <p>Each data point can be referenced through its Index (which corresponds to its row, the far most left value) and the column signifies what the value means. We can call a single Pandas column with this command:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -863,17 +863,17 @@ Name: one, dtype: float64
 </div>
 </div>
 </div>
-<p>A Series in Pandas is similar visually to a list. But there are key distinctions in how they opearte. As mentioned, Pandas is used for data analysis, so a Series has functions that allow for data analysis to be done easily, while a list would require either a for loop or list comprehension for the same operations. Example of this below:</p>
+<p>A Series in Pandas is similar visually to a list. But there are key distinctions in how they operate. As mentioned, Pandas is used for data analysis, so a Series has functions that allow for data analysis to be done easily, while a list would require either a for loop or list comprehension for the same operations. Example of this below:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series_ex</span> <span class="o">=</span> <span class="n">series_ex</span><span class="o">*</span><span class="mi">2</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is a Series multipled by two&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is a Series multiplied by two&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">series_ex</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is a Series multipled by two
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is a Series multiplied by two
 0    2
 1    4
 2    6
@@ -885,15 +885,15 @@ dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
-<span class="nb">list</span> <span class="o">=</span> <span class="nb">list</span><span class="o">*</span><span class="mi">2</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is a List multipled by two&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">alist</span> <span class="o">=</span> <span class="n">alist</span><span class="o">*</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is a List multiplied by two&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">alist</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is a List multipled by two
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is a List multiplied by two
 [1, 2, 3, 4, 1, 2, 3, 4]
 </pre></div>
 </div>
@@ -911,7 +911,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Int64Index([2, 3, 5, 7, 11], dtype=&#39;int64&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([2, 3, 5, 7, 11], dtype=&#39;int64&#39;)
 </pre></div>
 </div>
 </div>
@@ -1116,6 +1116,7 @@ dtype: int64
 </section>
 <section id="excel-files-xlsx">
 <h3>Excel Files (XLSX)<a class="headerlink" href="#excel-files-xlsx" title="Permalink to this headline">#</a></h3>
+<p>(Note: May need to <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">openpyxl</span></code> for this to work!)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importing data from excel into pandas</span>
@@ -1958,17 +1959,17 @@ dtype: object
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is the first five observations </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;These are the first five observations: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="s1">&#39;State&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is the last five observations </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;These are the last five observations: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="s1">&#39;State&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is the first five observations 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>These are the first five observations: 
 
    Year       State
 0  1968     Alabama
@@ -1978,7 +1979,7 @@ dtype: object
 4  1968  California
 
 
-This is the last five observations 
+These are the last five observations: 
 
       Year          State
 2745  2017       Virginia
@@ -2014,23 +2015,76 @@ Index([&#39;Year&#39;, &#39;State&#39;, &#39;Table_Data&#39;, &#39;High_Value&#3
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rows past 2015</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">Year</span> <span class="o">&gt;</span> <span class="mi">2015</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">Year</span> <span class="o">&gt;</span> <span class="mi">2015</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Year    State Table_Data  High_Value  Low_Value  CPI_Average  High_2018  \
-2640  2016  Alabama        ...        0.00       0.00   240.007167       0.00   
-2641  2016   Alaska       9.75        9.75       9.75   240.007167      10.17   
-2642  2016  Arizona       8.05        8.05       8.05   240.007167       8.40   
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-      Low_2018  
-2640      0.00  
-2641     10.17  
-2642      8.40  
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>State</th>
+      <th>Table_Data</th>
+      <th>High_Value</th>
+      <th>Low_Value</th>
+      <th>CPI_Average</th>
+      <th>High_2018</th>
+      <th>Low_2018</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2640</th>
+      <td>2016</td>
+      <td>Alabama</td>
+      <td>...</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>240.007167</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>2641</th>
+      <td>2016</td>
+      <td>Alaska</td>
+      <td>9.75</td>
+      <td>9.75</td>
+      <td>9.75</td>
+      <td>240.007167</td>
+      <td>10.17</td>
+      <td>10.17</td>
+    </tr>
+    <tr>
+      <th>2642</th>
+      <td>2016</td>
+      <td>Arizona</td>
+      <td>8.05</td>
+      <td>8.05</td>
+      <td>8.05</td>
+      <td>240.007167</td>
+      <td>8.40</td>
+      <td>8.40</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Segmenting on multiple conditions is also desirable. Most programs allow for an “AND” operator and an “OR” operator.</p>
 <div class="cell docutils container">
@@ -2042,8 +2096,8 @@ Index([&#39;Year&#39;, &#39;State&#39;, &#39;Table_Data&#39;, &#39;High_Value&#3
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Year       State Table_Data  High_Value  Low_Value  CPI_Average  \
-2314  2010  California          8         8.0        8.0     218.0555   
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      Year       State Table_Data  High_Value  Low_Value  CPI_Average   
+2314  2010  California          8         8.0        8.0     218.0555  \
 
       High_2018  Low_2018  
 2314       9.19      9.19  
@@ -2054,23 +2108,76 @@ Index([&#39;Year&#39;, &#39;State&#39;, &#39;Table_Data&#39;, &#39;High_Value&#3
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Alabama OR before 2015</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">State</span> <span class="o">==</span> <span class="s2">&quot;Alabama&quot;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Year</span> <span class="o">&lt;</span> <span class="mi">2015</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="o">.</span><span class="n">State</span> <span class="o">==</span> <span class="s2">&quot;Alabama&quot;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Year</span> <span class="o">&lt;</span> <span class="mi">2015</span><span class="p">)]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Year    State           Table_Data  High_Value  Low_Value  CPI_Average  \
-0  1968  Alabama                  NaN        0.00      0.000    34.783333   
-1  1968   Alaska                  2.1        2.10      2.100    34.783333   
-2  1968  Arizona  18.72 - 26.40/wk(b)        0.66      0.468    34.783333   
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-   High_2018  Low_2018  
-0       0.00      0.00  
-1      15.12     15.12  
-2       4.75      3.37  
-</pre></div>
-</div>
-</div>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>State</th>
+      <th>Table_Data</th>
+      <th>High_Value</th>
+      <th>Low_Value</th>
+      <th>CPI_Average</th>
+      <th>High_2018</th>
+      <th>Low_2018</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1968</td>
+      <td>Alabama</td>
+      <td>NaN</td>
+      <td>0.00</td>
+      <td>0.000</td>
+      <td>34.783333</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1968</td>
+      <td>Alaska</td>
+      <td>2.1</td>
+      <td>2.10</td>
+      <td>2.100</td>
+      <td>34.783333</td>
+      <td>15.12</td>
+      <td>15.12</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1968</td>
+      <td>Arizona</td>
+      <td>18.72 - 26.40/wk(b)</td>
+      <td>0.66</td>
+      <td>0.468</td>
+      <td>34.783333</td>
+      <td>4.75</td>
+      <td>3.37</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>The traditional Python index slicers are also applicable for DataFrames with the <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> method.</p>
 <div class="cell docutils container">
@@ -2093,8 +2200,8 @@ Low_2018                    2.9
 Name: 99, dtype: object
 
 
-     Year      State  Table_Data  High_Value  Low_Value  CPI_Average  \
-1    1968     Alaska         2.1         2.1       2.10    34.783333   
+     Year      State  Table_Data  High_Value  Low_Value  CPI_Average   
+1    1968     Alaska         2.1         2.1       2.10    34.783333  \
 50   1968   Virginia         ...         0.0       0.00    34.783333   
 300  1973  Minnesota  .75 - 1.60         1.6       0.75    44.400000   
 
@@ -2106,38 +2213,70 @@ Name: 99, dtype: object
 </div>
 </div>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> method is also highly useful for subsetting rows and columns at the same time</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">100</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">301</span><span class="p">]])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;State&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Year                1969
-State          Tennessee
-Table_Data           ...
-High_Value           0.0
-Low_Value            0.0
-CPI_Average    36.683333
-High_2018            0.0
-Low_2018             0.0
-Name: 100, dtype: object
-
-
-     Year        State           Table_Data  High_Value  Low_Value  \
-2    1968      Arizona  18.72 - 26.40/wk(b)        0.66      0.468   
-51   1968   Washington                  1.6        1.60      1.600   
-301  1973  Mississippi                  ...        0.00      0.000   
-
-     CPI_Average  High_2018  Low_2018  
-2      34.783333       4.75      3.37  
-51     34.783333      11.52     11.52  
-301    44.400000       0.00      0.00  
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1      Alaska
+2     Arizona
+3    Arkansas
+Name: State, dtype: object
 </pre></div>
 </div>
 </div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="s1">&#39;State&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>State</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1968</td>
+      <td>Alabama</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1968</td>
+      <td>Alaska</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1968</td>
+      <td>Arizona</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 </section>
@@ -2145,37 +2284,250 @@ Name: 100, dtype: object
 <h2>Manipulating Data<a class="headerlink" href="#manipulating-data" title="Permalink to this headline">#</a></h2>
 <section id="summary-statistics">
 <h3>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">#</a></h3>
-<p>Exporting summary stats in a different document type can help visualize results and understand data.</p>
+<p>Exporting summary stats in a different document type can help visualize results and understand data. Also note the different steps we can take to print out summary stats in a more visually intuitive way.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
-<span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>High_Value</th>
+      <th>Low_Value</th>
+      <th>CPI_Average</th>
+      <th>High_2018</th>
+      <th>Low_2018</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2750.000000</td>
+      <td>2739.000000</td>
+      <td>2739.000000</td>
+      <td>2750.000000</td>
+      <td>2739.000000</td>
+      <td>2739.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1992.500000</td>
+      <td>3.653761</td>
+      <td>3.533555</td>
+      <td>138.828983</td>
+      <td>6.441486</td>
+      <td>6.200252</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>14.433494</td>
+      <td>2.560308</td>
+      <td>2.539424</td>
+      <td>65.823807</td>
+      <td>3.025140</td>
+      <td>3.017818</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1968.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>34.783333</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1980.000000</td>
+      <td>1.600000</td>
+      <td>1.600000</td>
+      <td>82.408333</td>
+      <td>5.980000</td>
+      <td>5.230000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1992.500000</td>
+      <td>3.350000</td>
+      <td>3.350000</td>
+      <td>142.387500</td>
+      <td>7.370000</td>
+      <td>7.170000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2005.000000</td>
+      <td>5.150000</td>
+      <td>5.150000</td>
+      <td>195.291667</td>
+      <td>8.280000</td>
+      <td>8.070000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2017.000000</td>
+      <td>11.500000</td>
+      <td>11.500000</td>
+      <td>245.119583</td>
+      <td>15.120000</td>
+      <td>15.120000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>High_Value</th>
+      <th>Low_Value</th>
+      <th>CPI_Average</th>
+      <th>High_2018</th>
+      <th>Low_2018</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2750.00</td>
+      <td>2739.00</td>
+      <td>2739.00</td>
+      <td>2750.00</td>
+      <td>2739.00</td>
+      <td>2739.00</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1992.50</td>
+      <td>3.65</td>
+      <td>3.53</td>
+      <td>138.83</td>
+      <td>6.44</td>
+      <td>6.20</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>14.43</td>
+      <td>2.56</td>
+      <td>2.54</td>
+      <td>65.82</td>
+      <td>3.03</td>
+      <td>3.02</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1968.00</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>34.78</td>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>1980.00</td>
+      <td>1.60</td>
+      <td>1.60</td>
+      <td>82.41</td>
+      <td>5.98</td>
+      <td>5.23</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>1992.50</td>
+      <td>3.35</td>
+      <td>3.35</td>
+      <td>142.39</td>
+      <td>7.37</td>
+      <td>7.17</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2005.00</td>
+      <td>5.15</td>
+      <td>5.15</td>
+      <td>195.29</td>
+      <td>8.28</td>
+      <td>8.07</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2017.00</td>
+      <td>11.50</td>
+      <td>11.50</td>
+      <td>245.12</td>
+      <td>15.12</td>
+      <td>15.12</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">(),</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;exports/summary_stats.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              Year   High_Value    Low_Value  CPI_Average    High_2018  \
-count  2750.000000  2739.000000  2739.000000  2750.000000  2739.000000   
-mean   1992.500000     3.653761     3.533555   138.828983     6.441486   
-std      14.433494     2.560308     2.539424    65.823807     3.025140   
-min    1968.000000     0.000000     0.000000    34.783333     0.000000   
-25%    1980.000000     1.600000     1.600000    82.408333     5.980000   
-50%    1992.500000     3.350000     3.350000   142.387500     7.370000   
-75%    2005.000000     5.150000     5.150000   195.291667     8.280000   
-max    2017.000000    11.500000    11.500000   245.119583    15.120000   
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              count     mean    std      min      25%      50%      75%   
+Year         2750.0  1992.50  14.43  1968.00  1980.00  1992.50  2005.00  \
+High_Value   2739.0     3.65   2.56     0.00     1.60     3.35     5.15   
+Low_Value    2739.0     3.53   2.54     0.00     1.60     3.35     5.15   
+CPI_Average  2750.0   138.83  65.82    34.78    82.41   142.39   195.29   
+High_2018    2739.0     6.44   3.03     0.00     5.98     7.37     8.28   
+Low_2018     2739.0     6.20   3.02     0.00     5.23     7.17     8.07   
 
-          Low_2018  
-count  2739.000000  
-mean      6.200252  
-std       3.017818  
-min       0.000000  
-25%       5.230000  
-50%       7.170000  
-75%       8.070000  
-max      15.120000  
+                 max  
+Year         2017.00  
+High_Value     11.50  
+Low_Value      11.50  
+CPI_Average   245.12  
+High_2018      15.12  
+Low_2018       15.12  
 </pre></div>
 </div>
 </div>
@@ -2192,8 +2544,8 @@ max      15.120000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Year       State           Table_Data  High_Value  Low_Value  CPI_Average  \
-0  1968     Alabama                  NaN     0.00000    0.00000    34.783333   
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Year       State           Table_Data  High_Value  Low_Value  CPI_Average   
+0  1968     Alabama                  NaN     0.00000    0.00000    34.783333  \
 1  1968      Alaska                  2.1     2.10000    2.10000    34.783333   
 2  1968     Arizona  18.72 - 26.40/wk(b)     0.66000    0.46800    34.783333   
 3  1968    Arkansas          1.25/day(b)     0.15625    0.15625    34.783333   
@@ -2221,8 +2573,8 @@ max      15.120000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Year       State           Table_Data  High_Value  Low_Value  CPI_Average  \
-0  1968     Alabama                  NaN     0.00000    0.00000    34.783333   
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Year       State           Table_Data  High_Value  Low_Value  CPI_Average   
+0  1968     Alabama                  NaN     0.00000    0.00000    34.783333  \
 1  1968      Alaska                  2.1     2.10000    2.10000    34.783333   
 2  1968     Arizona  18.72 - 26.40/wk(b)     0.66000    0.46800    34.783333   
 3  1968    Arkansas          1.25/day(b)     0.15625    0.15625    34.783333   
@@ -2244,49 +2596,109 @@ max      15.120000
 <h3>Renaming Variables<a class="headerlink" href="#renaming-variables" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Year&quot;</span><span class="p">:</span> <span class="s2">&quot;Date&quot;</span><span class="p">,</span> <span class="s2">&quot;Table_Data&quot;</span><span class="p">:</span> <span class="s2">&quot;Values&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Year&quot;</span><span class="p">:</span> <span class="s2">&quot;Date&quot;</span><span class="p">,</span> <span class="s2">&quot;Table_Data&quot;</span><span class="p">:</span> <span class="s2">&quot;Values&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Year       State           Table_Data  High_Value  Low_Value  CPI_Average  \
-0  1968     Alabama                  NaN     0.00000    0.00000    34.783333   
-1  1968      Alaska                  2.1     2.10000    2.10000    34.783333   
-2  1968     Arizona  18.72 - 26.40/wk(b)     0.66000    0.46800    34.783333   
-3  1968    Arkansas          1.25/day(b)     0.15625    0.15625    34.783333   
-4  1968  California              1.65(b)     1.65000    1.65000    34.783333   
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-   High_2018  Low_2018  7  
-0       0.00      0.00  8  
-1      15.12     15.12  8  
-2       4.75      3.37  8  
-3       1.12      1.12  8  
-4      11.88     11.88  8  
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-
-   Date       State               Values  High_Value  Low_Value  CPI_Average  \
-0  1968     Alabama                  NaN     0.00000    0.00000    34.783333   
-1  1968      Alaska                  2.1     2.10000    2.10000    34.783333   
-2  1968     Arizona  18.72 - 26.40/wk(b)     0.66000    0.46800    34.783333   
-3  1968    Arkansas          1.25/day(b)     0.15625    0.15625    34.783333   
-4  1968  California              1.65(b)     1.65000    1.65000    34.783333   
-
-   High_2018  Low_2018  7  
-0       0.00      0.00  8  
-1      15.12     15.12  8  
-2       4.75      3.37  8  
-3       1.12      1.12  8  
-4      11.88     11.88  8  
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>State</th>
+      <th>Values</th>
+      <th>High_Value</th>
+      <th>Low_Value</th>
+      <th>CPI_Average</th>
+      <th>High_2018</th>
+      <th>Low_2018</th>
+      <th>7</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1968</td>
+      <td>Alabama</td>
+      <td>NaN</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>34.783333</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1968</td>
+      <td>Alaska</td>
+      <td>2.1</td>
+      <td>2.10000</td>
+      <td>2.10000</td>
+      <td>34.783333</td>
+      <td>15.12</td>
+      <td>15.12</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1968</td>
+      <td>Arizona</td>
+      <td>18.72 - 26.40/wk(b)</td>
+      <td>0.66000</td>
+      <td>0.46800</td>
+      <td>34.783333</td>
+      <td>4.75</td>
+      <td>3.37</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1968</td>
+      <td>Arkansas</td>
+      <td>1.25/day(b)</td>
+      <td>0.15625</td>
+      <td>0.15625</td>
+      <td>34.783333</td>
+      <td>1.12</td>
+      <td>1.12</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1968</td>
+      <td>California</td>
+      <td>1.65(b)</td>
+      <td>1.65000</td>
+      <td>1.65000</td>
+      <td>34.783333</td>
+      <td>11.88</td>
+      <td>11.88</td>
+      <td>8</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="dropping-variables">
 <h3>Dropping Variables<a class="headerlink" href="#dropping-variables" title="Permalink to this headline">#</a></h3>
-<p>We can also drop a variable with <code class="docutils literal notranslate"><span class="pre">df.drop()</span></code>:</p>
+<p>We can also drop a variable with <code class="docutils literal notranslate"><span class="pre">df.drop()</span></code>. This is one of many functions where you’ll need to specify an axis. <code class="docutils literal notranslate"><span class="pre">axis=0</span></code> would indicate that you want to apply the operation along the rows, whereas <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> indicates that we want to apply this operation to a column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dropping a variable</span>
@@ -2296,8 +2708,8 @@ max      15.120000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Year       State           Table_Data  High_Value  Low_Value  CPI_Average  \
-0  1968     Alabama                  NaN     0.00000    0.00000    34.783333   
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Year       State           Table_Data  High_Value  Low_Value  CPI_Average   
+0  1968     Alabama                  NaN     0.00000    0.00000    34.783333  \
 1  1968      Alaska                  2.1     2.10000    2.10000    34.783333   
 2  1968     Arizona  18.72 - 26.40/wk(b)     0.66000    0.46800    34.783333   
 3  1968    Arkansas          1.25/day(b)     0.15625    0.15625    34.783333   
@@ -2327,8 +2739,8 @@ max      15.120000
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Year       State           Table_Data  High_Value  Low_Value  CPI_Average  \
-0  1968     Alabama                  NaN     0.00000    0.00000    34.783333   
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Year       State           Table_Data  High_Value  Low_Value  CPI_Average   
+0  1968     Alabama                  NaN     0.00000    0.00000    34.783333  \
 1  1968      Alaska                  2.1     2.10000    2.10000    34.783333   
 2  1968     Arizona  18.72 - 26.40/wk(b)     0.66000    0.46800    34.783333   
 3  1968    Arkansas          1.25/day(b)     0.15625    0.15625    34.783333   
@@ -2352,9 +2764,80 @@ max      15.120000
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using Data.map</span>
-<span class="n">state_2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;OH&#39;</span><span class="p">:</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Illinois&#39;</span><span class="p">:</span> <span class="s1">&#39;IL&#39;</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">:</span> <span class="s1">&#39;CA&#39;</span><span class="p">,</span> <span class="s1">&#39;Texas&#39;</span><span class="p">:</span> <span class="s1">&#39;TX&#39;</span><span class="p">}</span>
+<span class="n">state_2</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;OH&#39;</span><span class="p">:</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Illinois&#39;</span><span class="p">:</span> <span class="s1">&#39;IL&#39;</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">:</span> <span class="s1">&#39;CA&#39;</span><span class="p">,</span> <span class="s1">&#39;Texas&#39;</span><span class="p">:</span> <span class="s1">&#39;TX&#39;</span><span class="p">,</span> <span class="s1">&#39;Alabama&#39;</span><span class="p">:</span><span class="s1">&#39;AL&#39;</span><span class="p">}</span>
 
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;abbrev&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">state_2</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;State&#39;</span><span class="p">,</span> <span class="s1">&#39;abbrev&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>State</th>
+      <th>abbrev</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alabama</td>
+      <td>AL</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alaska</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Arizona</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Arkansas</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>California</td>
+      <td>CA</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Another simpler map example</span>
+<span class="n">alist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+<span class="k">def</span> <span class="nf">function_to_be_mapped</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">3</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">function_to_be_mapped</span><span class="p">,</span> <span class="n">alist</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[4, 5, 6, 7]
 </pre></div>
 </div>
 </div>
@@ -2537,69 +3020,274 @@ False
 
 <span class="n">reshape</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">wide_to_long</span><span class="p">(</span><span class="n">df_ex</span><span class="p">,</span> <span class="n">stubnames</span><span class="o">=</span><span class="s1">&#39;az&#39;</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Unique Family Identifier&#39;</span><span class="p">,</span> <span class="s1">&#39;Order&#39;</span><span class="p">],</span> <span class="n">j</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">df_ex</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">reshape</span><span class="p">)</span>
+<span class="n">df_ex</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Unique Family Identifier  Order  az1    az2
-0                      1000      1   28   2342
-1                      1000      2   82   2342
-2                      1000      3   23  54645
-3                      1001      1  234  56765
-4                      1001      2  234  65765
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-                                       az
-Unique Family Identifier Order age       
-1000                     1     1       28
-                               2     2342
-                         2     1       82
-                               2     2342
-                         3     1       23
-                               2    54645
-1001                     1     1      234
-                               2    56765
-                         2     1      234
-                               2    65765
-                         3     1      324
-                               2    65756
-1002                     1     1      546
-                               2     3453
-324                      2     1      546
-                               2    56756
-234                      3     1     5464
-                               2     3453
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unique Family Identifier</th>
+      <th>Order</th>
+      <th>az1</th>
+      <th>az2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1000</td>
+      <td>1</td>
+      <td>28</td>
+      <td>2342</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1000</td>
+      <td>2</td>
+      <td>82</td>
+      <td>2342</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1000</td>
+      <td>3</td>
+      <td>23</td>
+      <td>54645</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1001</td>
+      <td>1</td>
+      <td>234</td>
+      <td>56765</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1001</td>
+      <td>2</td>
+      <td>234</td>
+      <td>65765</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reshape</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>az</th>
+    </tr>
+    <tr>
+      <th>Unique Family Identifier</th>
+      <th>Order</th>
+      <th>age</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="6" valign="top">1000</th>
+      <th rowspan="2" valign="top">1</th>
+      <th>1</th>
+      <td>28</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2342</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2</th>
+      <th>1</th>
+      <td>82</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2342</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">3</th>
+      <th>1</th>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>54645</td>
+    </tr>
+    <tr>
+      <th rowspan="6" valign="top">1001</th>
+      <th rowspan="2" valign="top">1</th>
+      <th>1</th>
+      <td>234</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>56765</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2</th>
+      <th>1</th>
+      <td>234</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>65765</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">3</th>
+      <th>1</th>
+      <td>324</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>65756</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">1002</th>
+      <th rowspan="2" valign="top">1</th>
+      <th>1</th>
+      <td>546</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3453</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">324</th>
+      <th rowspan="2" valign="top">2</th>
+      <th>1</th>
+      <td>546</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>56756</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">234</th>
+      <th rowspan="2" valign="top">3</th>
+      <th>1</th>
+      <td>5464</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3453</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-<p>Going from wide to long requires the use of <code class="docutils literal notranslate"><span class="pre">unstack()</span></code>.</p>
+<p>Going from long to wide requires the use of <code class="docutils literal notranslate"><span class="pre">unstack()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">normal</span> <span class="o">=</span> <span class="n">reshape</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
 <span class="n">normal</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">normal</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0[0]}{0[1]}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">)</span>
 <span class="n">normal</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">normal</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">normal</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                 az1    az2
-Unique Family Identifier Order             
-234                      3      5464   3453
-324                      2       546  56756
-1000                     1        28   2342
-                         2        82   2342
-                         3        23  54645
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th>az1</th>
+      <th>az2</th>
+    </tr>
+    <tr>
+      <th>Unique Family Identifier</th>
+      <th>Order</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>234</th>
+      <th>3</th>
+      <td>5464</td>
+      <td>3453</td>
+    </tr>
+    <tr>
+      <th>324</th>
+      <th>2</th>
+      <td>546</td>
+      <td>56756</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">1000</th>
+      <th>1</th>
+      <td>28</td>
+      <td>2342</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>82</td>
+      <td>2342</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>23</td>
+      <td>54645</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="merging-data">
@@ -2822,6 +3510,7 @@ Unique Family Identifier Order
 </section>
 <section id="appending-data">
 <h3>Appending Data<a class="headerlink" href="#appending-data" title="Permalink to this headline">#</a></h3>
+<p>Note: Here, <code class="docutils literal notranslate"><span class="pre">axis=0</span></code> is implied as the default, so it will append along the rows. But columns or Series can also be appended to each other by specifying <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> (provided that they are the same length).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">left_frame</span><span class="p">,</span> <span class="n">right_frame</span><span class="p">],</span> <span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2929,9 +3618,9 @@ Unique Family Identifier Order
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      State  Table_Data  High_Value  Low_Value  CPI_Average  High_2018  \
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      State  Table_Data  High_Value  Low_Value  CPI_Average  High_2018   
 Year                                                                     
-1968     55          53          54         54           55         54   
+1968     55          53          54         54           55         54  \
 1969     55          54          54         54           55         54   
 1970     55          54          54         54           55         54   
 1971     55          54          54         54           55         54   
@@ -2960,63 +3649,153 @@ Year
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      High_Value  Low_Value  CPI_Average  High_2018  Low_2018  Difference  \
-Year                                                                        
-1988      146.75     142.75  6504.208331     310.65    302.19         4.0   
-1989      146.75     142.75  6818.166669     296.49    288.41         4.0   
-1990      146.75     142.75  7186.208332     281.27    273.61         4.0   
-1991      179.20     175.00  7490.541669     329.52    321.80         4.2   
-1992      194.17     189.57  7717.416669     346.40    338.19         4.6   
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">61</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="n">by_year</span><span class="o">.</span><span class="n">sum</span><span class="p">()[</span><span class="mi">20</span><span class="p">:</span><span class="mi">25</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">by_year</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="mi">20</span><span class="p">:</span><span class="mi">25</span><span class="p">])</span> 
 
-      High*2   Low*2  
-Year                  
-1988  293.50  285.50  
-1989  293.50  285.50  
-1990  293.50  285.50  
-1991  358.40  350.00  
-1992  388.34  379.14  
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      High_Value  Low_Value  CPI_Average  High_2018  Low_2018  Difference  \
-Year                                                                        
-1988    2.668182   2.595455   118.258333   5.648182  5.494364    0.072727   
-1989    2.668182   2.595455   123.966667   5.390727  5.243818    0.072727   
-1990    2.668182   2.595455   130.658333   5.114000  4.974727    0.072727   
-1991    3.258182   3.181818   136.191667   5.991273  5.850909    0.076364   
-1992    3.530364   3.446727   140.316667   6.298182  6.148909    0.083636   
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:2263,</span> in <span class="ni">GroupBy.sum</span><span class="nt">(self, numeric_only, min_count, engine, engine_kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2258</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2259</span>     <span class="c1"># If we are grouping on categoricals we want unobserved categories to</span>
+<span class="g g-Whitespace">   </span><span class="mi">2260</span>     <span class="c1"># return zero, rather than the default of NaN which the reindexing in</span>
+<span class="g g-Whitespace">   </span><span class="mi">2261</span>     <span class="c1"># _agg_general() returns. GH #31422</span>
+<span class="g g-Whitespace">   </span><span class="mi">2262</span>     <span class="k">with</span> <span class="n">com</span><span class="o">.</span><span class="n">temp_setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;observed&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">2263</span>         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_agg_general</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2264</span>             <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2265</span>             <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2266</span>             <span class="n">alias</span><span class="o">=</span><span class="s2">&quot;sum&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2267</span>             <span class="n">npfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2268</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2270</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reindex_output</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-        High*2     Low*2  
-Year                      
-1988  5.336364  5.190909  
-1989  5.336364  5.190909  
-1990  5.336364  5.190909  
-1991  6.516364  6.363636  
-1992  7.060727  6.893455  
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1422,</span> in <span class="ni">GroupBy._agg_general</span><span class="nt">(self, numeric_only, min_count, alias, npfunc)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1413</span> <span class="nd">@final</span>
+<span class="g g-Whitespace">   </span><span class="mi">1414</span> <span class="k">def</span> <span class="nf">_agg_general</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1415</span>     <span class="bp">self</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1420</span>     <span class="n">npfunc</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1421</span> <span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1422</span>     <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cython_agg_general</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1423</span>         <span class="n">how</span><span class="o">=</span><span class="n">alias</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1424</span>         <span class="n">alt</span><span class="o">=</span><span class="n">npfunc</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1425</span>         <span class="n">numeric_only</span><span class="o">=</span><span class="n">numeric_only</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1426</span>         <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1427</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1428</span>     <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;groupby&quot;</span><span class="p">)</span>
 
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1507,</span> in <span class="ni">GroupBy._cython_agg_general</span><span class="nt">(self, how, alt, numeric_only, min_count, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1503</span>         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_agg_py_fallback</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> <span class="n">alt</span><span class="o">=</span><span class="n">alt</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1505</span>     <span class="k">return</span> <span class="n">result</span>
+<span class="ne">-&gt; </span><span class="mi">1507</span> <span class="n">new_mgr</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">grouped_reduce</span><span class="p">(</span><span class="n">array_func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1508</span> <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_agged_manager</span><span class="p">(</span><span class="n">new_mgr</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1509</span> <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_aggregated_output</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
-      High_Value  Low_Value  CPI_Average  High_2018  Low_2018  Difference  \
-Year                                                                        
-1988        3.35       3.35   118.258333       7.09      7.09         0.0   
-1989        3.35       3.35   123.966667       6.77      6.77         0.0   
-1990        3.35       3.35   130.658333       6.42      6.42         0.0   
-1991        3.80       3.80   136.191667       6.99      6.99         0.0   
-1992        4.25       4.25   140.316667       7.58      7.58         0.0   
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/internals/managers.py:1503,</span> in <span class="ni">BlockManager.grouped_reduce</span><span class="nt">(self, func)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1499</span> <span class="k">if</span> <span class="n">blk</span><span class="o">.</span><span class="n">is_object</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1500</span>     <span class="c1"># split on object-dtype blocks bc some columns may raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">1501</span>     <span class="c1">#  while others do not.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1502</span>     <span class="k">for</span> <span class="n">sb</span> <span class="ow">in</span> <span class="n">blk</span><span class="o">.</span><span class="n">_split</span><span class="p">():</span>
+<span class="ne">-&gt; </span><span class="mi">1503</span>         <span class="n">applied</span> <span class="o">=</span> <span class="n">sb</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1504</span>         <span class="n">result_blocks</span> <span class="o">=</span> <span class="n">extend_blocks</span><span class="p">(</span><span class="n">applied</span><span class="p">,</span> <span class="n">result_blocks</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1505</span> <span class="k">else</span><span class="p">:</span>
 
-      High*2  Low*2  
-Year                 
-1988     6.7    6.7  
-1989     6.7    6.7  
-1990     6.7    6.7  
-1991     7.6    7.6  
-1992     8.5    8.5  
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1811/918670227.py:1: FutureWarning: The default value of numeric_only in DataFrameGroupBy.sum is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
-  print(by_year.sum()[20:25])
-/tmp/ipykernel_1811/918670227.py:3: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
-  print(by_year.mean()[20:25])
-/tmp/ipykernel_1811/918670227.py:5: FutureWarning: The default value of numeric_only in DataFrameGroupBy.median is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
-  print(by_year.median()[20:25])
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/internals/blocks.py:329,</span> in <span class="ni">Block.apply</span><span class="nt">(self, func, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">323</span> <span class="nd">@final</span>
+<span class="g g-Whitespace">    </span><span class="mi">324</span> <span class="k">def</span> <span class="nf">apply</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Block</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">325</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">326</span><span class="sd">     apply the function to my values; return a block if we are not</span>
+<span class="g g-Whitespace">    </span><span class="mi">327</span><span class="sd">     one</span>
+<span class="g g-Whitespace">    </span><span class="mi">328</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">329</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">331</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_split_op_result</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1490,</span> in <span class="ni">GroupBy._cython_agg_general.&lt;locals&gt;.array_func</span><span class="nt">(values)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1488</span> <span class="k">def</span> <span class="nf">array_func</span><span class="p">(</span><span class="n">values</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ArrayLike</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1489</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1490</span>         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouper</span><span class="o">.</span><span class="n">_cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1491</span>             <span class="s2">&quot;aggregate&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1492</span>             <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1493</span>             <span class="n">how</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1494</span>             <span class="n">axis</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1495</span>             <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1496</span>             <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1497</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1498</span>     <span class="k">except</span> <span class="ne">NotImplementedError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1499</span>         <span class="c1"># generally if we have numeric_only=False</span>
+<span class="g g-Whitespace">   </span><span class="mi">1500</span>         <span class="c1"># and non-applicable functions</span>
+<span class="g g-Whitespace">   </span><span class="mi">1501</span>         <span class="c1"># try to python agg</span>
+<span class="g g-Whitespace">   </span><span class="mi">1502</span>         <span class="c1"># TODO: shouldn&#39;t min_count matter?</span>
+<span class="g g-Whitespace">   </span><span class="mi">1503</span>         <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_agg_py_fallback</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">ndim</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span> <span class="n">alt</span><span class="o">=</span><span class="n">alt</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:959,</span> in <span class="ni">BaseGrouper._cython_operation</span><span class="nt">(self, kind, values, how, axis, min_count, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">957</span> <span class="n">ids</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">group_info</span>
+<span class="g g-Whitespace">    </span><span class="mi">958</span> <span class="n">ngroups</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ngroups</span>
+<span class="ne">--&gt; </span><span class="mi">959</span> <span class="k">return</span> <span class="n">cy_op</span><span class="o">.</span><span class="n">cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">960</span>     <span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">961</span>     <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">962</span>     <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">963</span>     <span class="n">comp_ids</span><span class="o">=</span><span class="n">ids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">964</span>     <span class="n">ngroups</span><span class="o">=</span><span class="n">ngroups</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">965</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">966</span> <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:657,</span> in <span class="ni">WrappedCythonOp.cython_operation</span><span class="nt">(self, values, axis, min_count, comp_ids, ngroups, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">647</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">648</span>     <span class="c1"># i.e. ExtensionArray</span>
+<span class="g g-Whitespace">    </span><span class="mi">649</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ea_wrap_cython_operation</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">650</span>         <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">651</span>         <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">654</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">655</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">657</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cython_op_ndim_compat</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">658</span>     <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">659</span>     <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">660</span>     <span class="n">ngroups</span><span class="o">=</span><span class="n">ngroups</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">661</span>     <span class="n">comp_ids</span><span class="o">=</span><span class="n">comp_ids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">662</span>     <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">663</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">664</span> <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:497,</span> in <span class="ni">WrappedCythonOp._cython_op_ndim_compat</span><span class="nt">(self, values, min_count, ngroups, comp_ids, mask, result_mask, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">494</span>     <span class="c1"># otherwise we have OHLC</span>
+<span class="g g-Whitespace">    </span><span class="mi">495</span>     <span class="k">return</span> <span class="n">res</span><span class="o">.</span><span class="n">T</span>
+<span class="ne">--&gt; </span><span class="mi">497</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_cython_op</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">498</span>     <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">499</span>     <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">500</span>     <span class="n">ngroups</span><span class="o">=</span><span class="n">ngroups</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">501</span>     <span class="n">comp_ids</span><span class="o">=</span><span class="n">comp_ids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">502</span>     <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">503</span>     <span class="n">result_mask</span><span class="o">=</span><span class="n">result_mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">504</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">505</span> <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:549,</span> in <span class="ni">WrappedCythonOp._call_cython_op</span><span class="nt">(self, values, min_count, ngroups, comp_ids, mask, result_mask, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">547</span> <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">ngroups</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">548</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">how</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;last&quot;</span><span class="p">,</span> <span class="s2">&quot;first&quot;</span><span class="p">,</span> <span class="s2">&quot;sum&quot;</span><span class="p">]:</span>
+<span class="ne">--&gt; </span><span class="mi">549</span>     <span class="n">func</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">550</span>         <span class="n">out</span><span class="o">=</span><span class="n">result</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">551</span>         <span class="n">counts</span><span class="o">=</span><span class="n">counts</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">552</span>         <span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">553</span>         <span class="n">labels</span><span class="o">=</span><span class="n">comp_ids</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">554</span>         <span class="n">min_count</span><span class="o">=</span><span class="n">min_count</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">555</span>         <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">556</span>         <span class="n">result_mask</span><span class="o">=</span><span class="n">result_mask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">557</span>         <span class="n">is_datetimelike</span><span class="o">=</span><span class="n">is_datetimelike</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">558</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">559</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">how</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;var&quot;</span><span class="p">,</span> <span class="s2">&quot;ohlc&quot;</span><span class="p">,</span> <span class="s2">&quot;prod&quot;</span><span class="p">,</span> <span class="s2">&quot;median&quot;</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">560</span>     <span class="n">func</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">561</span>         <span class="n">result</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">562</span>         <span class="n">counts</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">568</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">569</span>     <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/_libs/groupby.pyx:717,</span> in <span class="ni">pandas._libs.groupby.group_sum</span><span class="nt">()</span>
+
+<span class="ne">TypeError</span>: unsupported operand type(s) for +: &#39;float&#39; and &#39;str&#39;
 </pre></div>
 </div>
 </div>

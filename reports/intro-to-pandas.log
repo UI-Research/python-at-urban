@@ -1,0 +1,175 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+print(by_year.sum()[20:25])
+print('\n')
+print(by_year.mean()[20:25]) 
+print('\n')
+print(by_year.median()[20:25]) 
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[61], line 1[0m
+[0;32m----> 1[0m [38;5;28mprint[39m([43mby_year[49m[38;5;241;43m.[39;49m[43msum[49m[43m([49m[43m)[49m[[38;5;241m20[39m:[38;5;241m25[39m])
+[1;32m      2[0m [38;5;28mprint[39m([38;5;124m'[39m[38;5;130;01m\n[39;00m[38;5;124m'[39m)
+[1;32m      3[0m [38;5;28mprint[39m(by_year[38;5;241m.[39mmean()[[38;5;241m20[39m:[38;5;241m25[39m]) 
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:2263[0m, in [0;36mGroupBy.sum[0;34m(self, numeric_only, min_count, engine, engine_kwargs)[0m
+[1;32m   2258[0m [38;5;28;01melse[39;00m:
+[1;32m   2259[0m     [38;5;66;03m# If we are grouping on categoricals we want unobserved categories to[39;00m
+[1;32m   2260[0m     [38;5;66;03m# return zero, rather than the default of NaN which the reindexing in[39;00m
+[1;32m   2261[0m     [38;5;66;03m# _agg_general() returns. GH #31422[39;00m
+[1;32m   2262[0m     [38;5;28;01mwith[39;00m com[38;5;241m.[39mtemp_setattr([38;5;28mself[39m, [38;5;124m"[39m[38;5;124mobserved[39m[38;5;124m"[39m, [38;5;28;01mTrue[39;00m):
+[0;32m-> 2263[0m         result [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_agg_general[49m[43m([49m
+[1;32m   2264[0m [43m            [49m[43mnumeric_only[49m[38;5;241;43m=[39;49m[43mnumeric_only[49m[43m,[49m
+[1;32m   2265[0m [43m            [49m[43mmin_count[49m[38;5;241;43m=[39;49m[43mmin_count[49m[43m,[49m
+[1;32m   2266[0m [43m            [49m[43malias[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43msum[39;49m[38;5;124;43m"[39;49m[43m,[49m
+[1;32m   2267[0m [43m            [49m[43mnpfunc[49m[38;5;241;43m=[39;49m[43mnp[49m[38;5;241;43m.[39;49m[43msum[49m[43m,[49m
+[1;32m   2268[0m [43m        [49m[43m)[49m
+[1;32m   2270[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_reindex_output(result, fill_value[38;5;241m=[39m[38;5;241m0[39m)
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1422[0m, in [0;36mGroupBy._agg_general[0;34m(self, numeric_only, min_count, alias, npfunc)[0m
+[1;32m   1413[0m [38;5;129m@final[39m
+[1;32m   1414[0m [38;5;28;01mdef[39;00m [38;5;21m_agg_general[39m(
+[1;32m   1415[0m     [38;5;28mself[39m,
+[0;32m   (...)[0m
+[1;32m   1420[0m     npfunc: Callable,
+[1;32m   1421[0m ):
+[0;32m-> 1422[0m     result [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cython_agg_general[49m[43m([49m
+[1;32m   1423[0m [43m        [49m[43mhow[49m[38;5;241;43m=[39;49m[43malias[49m[43m,[49m
+[1;32m   1424[0m [43m        [49m[43malt[49m[38;5;241;43m=[39;49m[43mnpfunc[49m[43m,[49m
+[1;32m   1425[0m [43m        [49m[43mnumeric_only[49m[38;5;241;43m=[39;49m[43mnumeric_only[49m[43m,[49m
+[1;32m   1426[0m [43m        [49m[43mmin_count[49m[38;5;241;43m=[39;49m[43mmin_count[49m[43m,[49m
+[1;32m   1427[0m [43m    [49m[43m)[49m
+[1;32m   1428[0m     [38;5;28;01mreturn[39;00m result[38;5;241m.[39m__finalize__([38;5;28mself[39m[38;5;241m.[39mobj, method[38;5;241m=[39m[38;5;124m"[39m[38;5;124mgroupby[39m[38;5;124m"[39m)
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1507[0m, in [0;36mGroupBy._cython_agg_general[0;34m(self, how, alt, numeric_only, min_count, **kwargs)[0m
+[1;32m   1503[0m         result [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_agg_py_fallback(values, ndim[38;5;241m=[39mdata[38;5;241m.[39mndim, alt[38;5;241m=[39malt)
+[1;32m   1505[0m     [38;5;28;01mreturn[39;00m result
+[0;32m-> 1507[0m new_mgr [38;5;241m=[39m [43mdata[49m[38;5;241;43m.[39;49m[43mgrouped_reduce[49m[43m([49m[43marray_func[49m[43m)[49m
+[1;32m   1508[0m res [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_wrap_agged_manager(new_mgr)
+[1;32m   1509[0m out [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_wrap_aggregated_output(res)
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/internals/managers.py:1503[0m, in [0;36mBlockManager.grouped_reduce[0;34m(self, func)[0m
+[1;32m   1499[0m [38;5;28;01mif[39;00m blk[38;5;241m.[39mis_object:
+[1;32m   1500[0m     [38;5;66;03m# split on object-dtype blocks bc some columns may raise[39;00m
+[1;32m   1501[0m     [38;5;66;03m#  while others do not.[39;00m
+[1;32m   1502[0m     [38;5;28;01mfor[39;00m sb [38;5;129;01min[39;00m blk[38;5;241m.[39m_split():
+[0;32m-> 1503[0m         applied [38;5;241m=[39m [43msb[49m[38;5;241;43m.[39;49m[43mapply[49m[43m([49m[43mfunc[49m[43m)[49m
+[1;32m   1504[0m         result_blocks [38;5;241m=[39m extend_blocks(applied, result_blocks)
+[1;32m   1505[0m [38;5;28;01melse[39;00m:
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/internals/blocks.py:329[0m, in [0;36mBlock.apply[0;34m(self, func, **kwargs)[0m
+[1;32m    323[0m [38;5;129m@final[39m
+[1;32m    324[0m [38;5;28;01mdef[39;00m [38;5;21mapply[39m([38;5;28mself[39m, func, [38;5;241m*[39m[38;5;241m*[39mkwargs) [38;5;241m-[39m[38;5;241m>[39m [38;5;28mlist[39m[Block]:
+[1;32m    325[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[1;32m    326[0m [38;5;124;03m    apply the function to my values; return a block if we are not[39;00m
+[1;32m    327[0m [38;5;124;03m    one[39;00m
+[1;32m    328[0m [38;5;124;03m    """[39;00m
+[0;32m--> 329[0m     result [38;5;241m=[39m [43mfunc[49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mvalues[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    331[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_split_op_result(result)
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/groupby.py:1490[0m, in [0;36mGroupBy._cython_agg_general.<locals>.array_func[0;34m(values)[0m
+[1;32m   1488[0m [38;5;28;01mdef[39;00m [38;5;21marray_func[39m(values: ArrayLike) [38;5;241m-[39m[38;5;241m>[39m ArrayLike:
+[1;32m   1489[0m     [38;5;28;01mtry[39;00m:
+[0;32m-> 1490[0m         result [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mgrouper[49m[38;5;241;43m.[39;49m[43m_cython_operation[49m[43m([49m
+[1;32m   1491[0m [43m            [49m[38;5;124;43m"[39;49m[38;5;124;43maggregate[39;49m[38;5;124;43m"[39;49m[43m,[49m
+[1;32m   1492[0m [43m            [49m[43mvalues[49m[43m,[49m
+[1;32m   1493[0m [43m            [49m[43mhow[49m[43m,[49m
+[1;32m   1494[0m [43m            [49m[43maxis[49m[38;5;241;43m=[39;49m[43mdata[49m[38;5;241;43m.[39;49m[43mndim[49m[43m [49m[38;5;241;43m-[39;49m[43m [49m[38;5;241;43m1[39;49m[43m,[49m
+[1;32m   1495[0m [43m            [49m[43mmin_count[49m[38;5;241;43m=[39;49m[43mmin_count[49m[43m,[49m
+[1;32m   1496[0m [43m            [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m,[49m
+[1;32m   1497[0m [43m        [49m[43m)[49m
+[1;32m   1498[0m     [38;5;28;01mexcept[39;00m [38;5;167;01mNotImplementedError[39;00m:
+[1;32m   1499[0m         [38;5;66;03m# generally if we have numeric_only=False[39;00m
+[1;32m   1500[0m         [38;5;66;03m# and non-applicable functions[39;00m
+[1;32m   1501[0m         [38;5;66;03m# try to python agg[39;00m
+[1;32m   1502[0m         [38;5;66;03m# TODO: shouldn't min_count matter?[39;00m
+[1;32m   1503[0m         result [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_agg_py_fallback(values, ndim[38;5;241m=[39mdata[38;5;241m.[39mndim, alt[38;5;241m=[39malt)
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:959[0m, in [0;36mBaseGrouper._cython_operation[0;34m(self, kind, values, how, axis, min_count, **kwargs)[0m
+[1;32m    957[0m ids, _, _ [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mgroup_info
+[1;32m    958[0m ngroups [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mngroups
+[0;32m--> 959[0m [38;5;28;01mreturn[39;00m [43mcy_op[49m[38;5;241;43m.[39;49m[43mcython_operation[49m[43m([49m
+[1;32m    960[0m [43m    [49m[43mvalues[49m[38;5;241;43m=[39;49m[43mvalues[49m[43m,[49m
+[1;32m    961[0m [43m    [49m[43maxis[49m[38;5;241;43m=[39;49m[43maxis[49m[43m,[49m
+[1;32m    962[0m [43m    [49m[43mmin_count[49m[38;5;241;43m=[39;49m[43mmin_count[49m[43m,[49m
+[1;32m    963[0m [43m    [49m[43mcomp_ids[49m[38;5;241;43m=[39;49m[43mids[49m[43m,[49m
+[1;32m    964[0m [43m    [49m[43mngroups[49m[38;5;241;43m=[39;49m[43mngroups[49m[43m,[49m
+[1;32m    965[0m [43m    [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m,[49m
+[1;32m    966[0m [43m[49m[43m)[49m
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:657[0m, in [0;36mWrappedCythonOp.cython_operation[0;34m(self, values, axis, min_count, comp_ids, ngroups, **kwargs)[0m
+[1;32m    647[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(values, np[38;5;241m.[39mndarray):
+[1;32m    648[0m     [38;5;66;03m# i.e. ExtensionArray[39;00m
+[1;32m    649[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_ea_wrap_cython_operation(
+[1;32m    650[0m         values,
+[1;32m    651[0m         min_count[38;5;241m=[39mmin_count,
+[0;32m   (...)[0m
+[1;32m    654[0m         [38;5;241m*[39m[38;5;241m*[39mkwargs,
+[1;32m    655[0m     )
+[0;32m--> 657[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cython_op_ndim_compat[49m[43m([49m
+[1;32m    658[0m [43m    [49m[43mvalues[49m[43m,[49m
+[1;32m    659[0m [43m    [49m[43mmin_count[49m[38;5;241;43m=[39;49m[43mmin_count[49m[43m,[49m
+[1;32m    660[0m [43m    [49m[43mngroups[49m[38;5;241;43m=[39;49m[43mngroups[49m[43m,[49m
+[1;32m    661[0m [43m    [49m[43mcomp_ids[49m[38;5;241;43m=[39;49m[43mcomp_ids[49m[43m,[49m
+[1;32m    662[0m [43m    [49m[43mmask[49m[38;5;241;43m=[39;49m[38;5;28;43;01mNone[39;49;00m[43m,[49m
+[1;32m    663[0m [43m    [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m,[49m
+[1;32m    664[0m [43m[49m[43m)[49m
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:497[0m, in [0;36mWrappedCythonOp._cython_op_ndim_compat[0;34m(self, values, min_count, ngroups, comp_ids, mask, result_mask, **kwargs)[0m
+[1;32m    494[0m     [38;5;66;03m# otherwise we have OHLC[39;00m
+[1;32m    495[0m     [38;5;28;01mreturn[39;00m res[38;5;241m.[39mT
+[0;32m--> 497[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_call_cython_op[49m[43m([49m
+[1;32m    498[0m [43m    [49m[43mvalues[49m[43m,[49m
+[1;32m    499[0m [43m    [49m[43mmin_count[49m[38;5;241;43m=[39;49m[43mmin_count[49m[43m,[49m
+[1;32m    500[0m [43m    [49m[43mngroups[49m[38;5;241;43m=[39;49m[43mngroups[49m[43m,[49m
+[1;32m    501[0m [43m    [49m[43mcomp_ids[49m[38;5;241;43m=[39;49m[43mcomp_ids[49m[43m,[49m
+[1;32m    502[0m [43m    [49m[43mmask[49m[38;5;241;43m=[39;49m[43mmask[49m[43m,[49m
+[1;32m    503[0m [43m    [49m[43mresult_mask[49m[38;5;241;43m=[39;49m[43mresult_mask[49m[43m,[49m
+[1;32m    504[0m [43m    [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m,[49m
+[1;32m    505[0m [43m[49m[43m)[49m
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/groupby/ops.py:549[0m, in [0;36mWrappedCythonOp._call_cython_op[0;34m(self, values, min_count, ngroups, comp_ids, mask, result_mask, **kwargs)[0m
+[1;32m    547[0m counts [38;5;241m=[39m np[38;5;241m.[39mzeros(ngroups, dtype[38;5;241m=[39mnp[38;5;241m.[39mint64)
+[1;32m    548[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mhow [38;5;129;01min[39;00m [[38;5;124m"[39m[38;5;124mmin[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mmax[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mmean[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mlast[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mfirst[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124msum[39m[38;5;124m"[39m]:
+[0;32m--> 549[0m     [43mfunc[49m[43m([49m
+[1;32m    550[0m [43m        [49m[43mout[49m[38;5;241;43m=[39;49m[43mresult[49m[43m,[49m
+[1;32m    551[0m [43m        [49m[43mcounts[49m[38;5;241;43m=[39;49m[43mcounts[49m[43m,[49m
+[1;32m    552[0m [43m        [49m[43mvalues[49m[38;5;241;43m=[39;49m[43mvalues[49m[43m,[49m
+[1;32m    553[0m [43m        [49m[43mlabels[49m[38;5;241;43m=[39;49m[43mcomp_ids[49m[43m,[49m
+[1;32m    554[0m [43m        [49m[43mmin_count[49m[38;5;241;43m=[39;49m[43mmin_count[49m[43m,[49m
+[1;32m    555[0m [43m        [49m[43mmask[49m[38;5;241;43m=[39;49m[43mmask[49m[43m,[49m
+[1;32m    556[0m [43m        [49m[43mresult_mask[49m[38;5;241;43m=[39;49m[43mresult_mask[49m[43m,[49m
+[1;32m    557[0m [43m        [49m[43mis_datetimelike[49m[38;5;241;43m=[39;49m[43mis_datetimelike[49m[43m,[49m
+[1;32m    558[0m [43m    [49m[43m)[49m
+[1;32m    559[0m [38;5;28;01melif[39;00m [38;5;28mself[39m[38;5;241m.[39mhow [38;5;129;01min[39;00m [[38;5;124m"[39m[38;5;124mvar[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mohlc[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mprod[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mmedian[39m[38;5;124m"[39m]:
+[1;32m    560[0m     func(
+[1;32m    561[0m         result,
+[1;32m    562[0m         counts,
+[0;32m   (...)[0m
+[1;32m    568[0m         [38;5;241m*[39m[38;5;241m*[39mkwargs,
+[1;32m    569[0m     )
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/_libs/groupby.pyx:717[0m, in [0;36mpandas._libs.groupby.group_sum[0;34m()[0m
+
+[0;31mTypeError[0m: unsupported operand type(s) for +: 'float' and 'str'
+TypeError: unsupported operand type(s) for +: 'float' and 'str'
+
