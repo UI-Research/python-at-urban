@@ -11,37 +11,40 @@ format:
 
 ## What is web scraping?
 
-- Web scraping is the use of programming to extract text or data from a website
-- It is generally used to automate tasks that would take too long to be feasible manually.
+- Web scraping is the use of programming to extract structured text or data from a website 
+- It is generally used to automate tasks that would take too long (or be too error-prone) to feasibly do manually 
 
 ## How does Urban use web scraping?
 
 - Collecting thousands of community college course descriptions from the [FLDOE website](https://www.fldoe.org/)
-- Downloading hundreds of CSV files from the Centers for Medicare and Medicaid Services that all required clicking different dropdownsfrom a menu of options
-- (Erika's examples here)
+- Downloading hundreds of CSV files from the [Centers for Medicare & Medicaid Services website](https://data.cms.gov/tools/mapping-medicare-disparities-by-population) that all required clicking different dropdowns from a menu of options
+- Collecting the contact info for all notaries in Mississippi by clicking through thousands of pages on the [Secretary of State website](https://www.sos.ms.gov/notarysearch/notarysearch.aspx) 
+- Pulling voting history information from the [North Carolina State Board of Election website](https://vt.ncsbe.gov/RegLkup/) by searching for thousands of registered voters 
 
 ## What are some drawbacks of web scraping?
-- Not all sites can be legally or responsible scraped
+- Not all sites can be legally or responsibly scraped
 - Repeated requests to a website can lead to rate limiting (i.e. capping the number of requests over a certain period of time)
 - Depending on the task and site layout, complexity can vary widely
+- Web scraping code can be brittle as websites change over time 
 
 ![**Example of a robots.txt file**](images/robots.png "Title: Robots.txt example"){fig.align='left' height='350'}
 
 ## What are the variables that affect how difficult a web scraping task is?
-1. How many different websites are involved in the web scraping analysis?
+1. How many different websites are involved in the web scraping process?
 2. Does the website have dynamic content or only static content?
-3. Is it easy to identify the info we want once we reach the desired webpage?
+3. Is it easy to extract the info we want once we reach the desired webpage?
 
 ## 1. Different Webpages
 - Intuitively, scraping information from one website is simpler than doing so from many websites
 - If the layouts of the sites are different, difficulty vastly increases
-  - **Rule of thumb**: Think of this as a unique web scraping task for each uniquely arranged website
+  - **Rule of thumb**: Think of this as a unique web scraping task for each uniquely structured website
 - Web crawlers such as `scrapy` exist to traverse many websites and grab all relevant information, but without easy ways to filter through that metadata, this can quickly become infeasible
+- For jobs that take a long time to run (e.g. more than a few hours), gracefully logging and handling issues can add complexity 
 
 ## 2. Static vs Dynamic Content
-- For a static page like a [Wikipedia article](https://en.wikipedia.org/wiki/Urban_Institute), packages like `BeautifulSoup` can grab HTML text without too much complexity by parsing HTML tags
+- For a static page like a [Wikipedia article](https://en.wikipedia.org/wiki/Urban_Institute), packages like `BeautifulSoup` or `pandas` can grab HTML text without too much complexity by parsing HTML tags
 - For pages with dynamic content like clickable buttons or dropdown menus, the `Selenium` package is needed and the complexity goes up
-  - **Rule of thumb**: Would a human user need to take any actions (besides scrolling up or down) to navigate to the desired info, or can it be identified on the webpage?
+  - **Rule of thumb**: Would a human user need to take any actions (besides scrolling up or down) to navigate to the desired info, or is it immediately available on the webpage?
 
 ## Static Content Example
 - Grabbing baseball statistics from [fangraphs.com](https://www.fangraphs.com/leaders.aspx?pos=all&stats=bat&lg=all&qual=y&type=8&season=2023&month=0&season1=2023&ind=0&page=1_30)
@@ -338,11 +341,16 @@ View the full public repo [here](https://github.com/UI-Research/work-based-learn
 - Downside: Numbers we want to grab can be in different places within each webpage
 
 ## What questions should I be asking at the outset?
-- What tools/packages are needed for the job?
+- Can I get the data without web scraping? (e.g. Is there an API or download option? Can you contact the website owner to request access to the data?)
+- Am I legally allowed to scrape the website? Are there any site/rate limits or responsible web scraping considerations?
 - How many datasets or pieces of text need to be scraped?
 - Is webpage layout consistent or unstandardized?
 - Are there Captchas, pop-ups, or ads blocking the content you want?
-- Does the webpage suffer from slow load times?
-- Are there any site/rate limits or responsible web scraping considerations?
+- Does the webpage have slow or inconsistent load times?
+- What tools/packages are needed for the job?
 
-
+## What web scraping resources exist at Urban? 
+- Urban's [Automated Data Collection Guidelines](https://urbanorg.account.box.com/login?redirect_url=https%3A%2F%2Furbanorg.app.box.com%2Fs%2Fmam9kpf48mu92f4ktpyuw218yf8j45w0)
+- Use [Site Monitor](https://urbanorg.app.box.com/s/mam9kpf48mu92f4ktpyuw218yf8j45w0) to monitor your effect on the site's response times 
+- Use the [Tech Intake Form](https://app.smartsheet.com/b/form?EQBCT=5b8bcb21f39c4f19b96c448e4a6622a0) to request assistance on a web scraping task 
+- The Python Users Group has web scraping resources in our [GitHub repository](https://github.com/UI-Research/python-at-urban/tree/master/misc-resources/web-scraping), and we're happy to answer questions in the #python-users Slack channel 
