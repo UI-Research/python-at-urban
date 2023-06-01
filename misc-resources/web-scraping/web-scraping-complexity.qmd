@@ -2,7 +2,7 @@
 title: "Assessing a Web Scraping Task"
 author: "Judah Axelrod and Erika Tyagi"
 date: "2023-05-19"
-format: gfm
+format:
     revealjs: 
         slide-number: c/t
         width: 1250
