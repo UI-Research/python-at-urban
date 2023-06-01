@@ -3,7 +3,7 @@ title: Python Lunch Lab - Quarto Demo
 subtitle: The Squirrel Census (NYC Open Data Portal) 
 author: "Erika Tyagi"
 date: 2022-10-21  
-format:
+format: gfm
   html:
     toc: true
     theme: urbn.scss
