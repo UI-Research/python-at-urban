@@ -4,7 +4,7 @@ This folder was produced for a Python Users Group (PUG) lunch on August 23, 2023
 
 ## Contents
 ```
-├── troubleshooting         <- Resources intentionally excluded from the site! 
+├── troubleshooting          
     ├── troubleshooting-presentation.qmd    <- Quarto presentation
     ├── requirements.txt    <- Update PyPI packages here  
 ```
