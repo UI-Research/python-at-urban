@@ -13,6 +13,8 @@ See the [Jupyter Book documentation](https://jupyterbook.org/en/stable/intro.htm
     ├── _toc.yml            <- Update Jupyter Book table of contents here 
     ├── content             <- Update content here 
 ├── misc-resources          <- Resources intentionally excluded from the site! 
+    ├── web-scraping        <- Explore web scraping content here 
+    ├── quarto-demo         <- Explore Quarto content here 
 ├── requirements.txt        <- Update PyPI packages here  
 └── environment.yml         <- Update conda environment here 
 ```
