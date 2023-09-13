@@ -25,7 +25,7 @@ no download available, cannot get through to data provider
 
 format remains consistent
 
-## What makes it hard? {video-loop="true"}
+## What makes it hard? (can be multiple slides) {video-loop="true"}
 
 takes time to code
 
@@ -33,22 +33,31 @@ sites might change
 
 not always desired from site maintainers
 
+difficulty is variable and hard to predict
+
 ## Demonstrative example {video-loop="true"}
 
 Slides describing florida example
 
-## Demonstrative example 2 {video-loop="true"}
+## Scraping Medicaid enrollment data from KFF dashboard {video-loop="true"}
 
-Slides describing kaiser family foundation example
+Since Spring 2023, states have been disenrolling Medicaid beneficiaries who were previously eligible due to since-expired provisions passed during the pandemic.
 
-## Bullets
+We wanted to know, how does a state's disenrollment rate relate to policy options that states utilized to attempt a smooth transition?
 
-When you click the **Render** button a document will be generated that includes:
+To answer this, we required data.
 
--   Content authored with markdown
--   Output from executable code
+## Decentralized data systems strike again
 
-## Code
+State agencies reporting data in 50 ways with varying success...
+
+::: {layout-ncol=2} 
+![Unreadable PDFs abound (this example from Louisiana)](louisiana-horrible.png)
+
+![Even the clearest source was provided in a PDF (New York)](ny-good.png)
+:::
+
+## KFF research assistants come to the rescue
 
 When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
 

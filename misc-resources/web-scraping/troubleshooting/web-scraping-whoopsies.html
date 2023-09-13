@@ -7,9 +7,7 @@
 <link href="web-scraping-whoopsies_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="web-scraping-whoopsies_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="web-scraping-whoopsies_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="web-scraping-whoopsies_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="web-scraping-whoopsies_files/libs/quarto-contrib/videojs/video.min.js"></script>
-<link href="web-scraping-whoopsies_files/libs/quarto-contrib/videojs/video-js.css" rel="stylesheet"><meta charset="utf-8">
+<link href="web-scraping-whoopsies_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.433">
 
   <meta name="author" content="Manu Alcala + Jameson Carter">
@@ -340,20 +338,59 @@ Manu Alcala + Jameson Carter
 </section>
 <section id="what-is-web-scraping" class="slide level2" data-video-loop="true">
 <h2>What is web scraping?</h2>
-<p>Web scraping is more generally</p>
-<video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="web-surfer.mp4"></video>
-<p>&lt;iframe src=“https://giphy.com/embed/IwTWTsUzmIicM” width=“480” height=“359” frameBorder=“0” class=“giphy-embed” allowFullScreen&gt;&lt;/iframe&gt;&lt;p&gt;&lt;a href=“https://giphy.com/gifs/internet-surfing-IwTWTsUzmIicM”&gt;via GIPHY&lt;/a&gt;&lt;/p&gt;</p>
+<p>static vs dynamic</p>
+<p>scraping vs crawling</p>
 </section>
-<section id="bullets" class="slide level2">
-<h2>Bullets</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes:</p>
-<ul>
-<li>Content authored with markdown</li>
-<li>Output from executable code</li>
-</ul>
+<section id="when-is-it-worth-it" class="slide level2" data-video-loop="true">
+<h2>When is it worth it?</h2>
+<p>commonly produced highly standardized data</p>
+<p>getting data quickly is valuable</p>
+<p>no download available, cannot get through to data provider</p>
+<p>format remains consistent</p>
 </section>
-<section id="code" class="slide level2">
-<h2>Code</h2>
+<section id="what-makes-it-hard-can-be-multiple-slides" class="slide level2" data-video-loop="true">
+<h2>What makes it hard? (can be multiple slides)</h2>
+<p>takes time to code</p>
+<p>sites might change</p>
+<p>not always desired from site maintainers</p>
+<p>difficulty is variable and hard to predict</p>
+</section>
+<section id="demonstrative-example" class="slide level2" data-video-loop="true">
+<h2>Demonstrative example</h2>
+<p>Slides describing florida example</p>
+</section>
+<section id="scraping-medicaid-enrollment-data-from-kff-dashboard" class="slide level2" data-video-loop="true">
+<h2>Scraping Medicaid enrollment data from KFF dashboard</h2>
+<p>Since Spring 2023, states have been disenrolling Medicaid beneficiaries who were previously eligible due to since-expired provisions passed during the pandemic.</p>
+<p>We wanted to know, how does a state’s disenrollment rate relate to policy options that states utilized to attempt a smooth transition?</p>
+<p>To answer this, we required data.</p>
+</section>
+<section id="decentralized-data-systems-strike-again" class="slide level2">
+<h2>Decentralized data systems strike again</h2>
+<p>State agencies reporting data in 50 ways with varying success…</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="louisiana-horrible.png"></p>
+<figcaption>Unreadable PDFs abound (this example from Louisiana)</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ny-good.png"></p>
+<figcaption>Even the clearest source was provided in a PDF (New York)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="kff-research-assistants-come-to-the-rescue" class="slide level2">
+<h2>KFF research assistants come to the rescue</h2>
 <p>When you click the <strong>Render</strong> button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -762,7 +799,6 @@ Manu Alcala + Jameson Carter
       }
     });
     </script>
-    
     
 
 </body></html>
