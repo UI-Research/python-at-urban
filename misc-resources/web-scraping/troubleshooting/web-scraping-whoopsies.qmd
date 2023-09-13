@@ -31,3 +31,5 @@ When you click the **Render** button a presentation will be generated that inclu
 ```{r}
 1 + 1
 ```
+
+## Thank You!  {background-video="web-surfer.mp4" background-video-loop="true" background-size="50px"}
