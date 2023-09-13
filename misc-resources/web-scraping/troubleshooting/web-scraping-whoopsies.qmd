@@ -11,11 +11,35 @@ editor: visual
 
 ## What is web scraping? {video-loop="true"}
 
-Web scraping is more generally
+static vs dynamic
 
-{{< video web-surfer.mp4 >}}
+scraping vs crawling
 
-\<iframe src="https://giphy.com/embed/IwTWTsUzmIicM" width="480" height="359" frameBorder="0" class="giphy-embed" allowFullScreen\>\</iframe\>\<p\>\<a href="https://giphy.com/gifs/internet-surfing-IwTWTsUzmIicM"\>via GIPHY\</a\>\</p\>
+## When is it worth it? {video-loop="true"}
+
+commonly produced highly standardized data
+
+getting data quickly is valuable
+
+no download available, cannot get through to data provider
+
+format remains consistent
+
+## What makes it hard? {video-loop="true"}
+
+takes time to code
+
+sites might change
+
+not always desired from site maintainers
+
+## Demonstrative example {video-loop="true"}
+
+Slides describing florida example
+
+## Demonstrative example 2 {video-loop="true"}
+
+Slides describing kaiser family foundation example
 
 ## Bullets
 
