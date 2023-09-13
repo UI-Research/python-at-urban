@@ -1,13 +1,21 @@
 ---
 title: "Web Scraping Whoopsies"
 author: "Manu Alcala + Jameson Carter"
-format: revealjs
+format: 
+    revealjs: 
+        slide-number: c/t
+        width: 1250
+        height: 800
 editor: visual
 ---
 
-## Quarto
+## What is web scraping? {video-loop="true"}
 
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+Web scraping is more generally
+
+{{< video web-surfer.mp4 >}}
+
+\<iframe src="https://giphy.com/embed/IwTWTsUzmIicM" width="480" height="359" frameBorder="0" class="giphy-embed" allowFullScreen\>\</iframe\>\<p\>\<a href="https://giphy.com/gifs/internet-surfing-IwTWTsUzmIicM"\>via GIPHY\</a\>\</p\>
 
 ## Bullets
 
