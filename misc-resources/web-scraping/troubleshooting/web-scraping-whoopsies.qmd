@@ -12,33 +12,30 @@ editor: visual
 ---
 
 ## What is web scraping?
-Broadly, web scraping is the process of automatically pulling data from websites.
-There are a few distinctions which define the problem:
+Broadly, it is the process of automatically pulling data from websites by reading their underlying code. Doing this gets complicated fast:
 
--   *Static vs. Dynamic* web pages require different code packages to scrape.
-  -   For example, selenium is a common dynamic web scraping library and scrapy is a common static web scraping library.
-
--   
+* *Static* websites contain information in HTML code which **does not change** when you, the user, interact with it.
+* *Dynamic* websites have information in HTML code which **does change** as you interact with it.
+* *Static* vs. *Dynamic* websites require different code packages to scrape.
+  + For example, [selenium](https://www.selenium.dev/) is a common dynamic web scraping library and [scrapy](https://scrapy.org/) is a common static web scraping library.
+  + This is because a static scraper simply has to understand what it is looking for in the HTML. A dynamic scraper needs to simulate a human interacting with the site.
 
 ## When is it worth it?
 
-commonly produced highly standardized data
-
-getting data quickly is valuable
-
-no download available, cannot get through to data provider
-
-format remains consistent
+* Other data collection efforts are impossible or prone to human error
+* Getting new data releases quickly is valuable
+* Creating reproducible and reliable processes eases collaboration / quality assurance
+* Time spent coding < time spent obtaining data in other ways + time spent on quality assurance
 
 ## What makes it hard? (can be multiple slides)
 
-takes time to code
+* It is difficult to predict how much time a web scraping task will take.
 
-sites might change
+* Sites might change, introducing need to update.
 
-not always desired from site maintainers
+* Site maintainers may not be okay with data being scraped
 
-difficulty is variable and hard to predict
+* Sites might be removed or stop being maintained.
 
 # Example 1. Scraping state education sites
 
@@ -129,7 +126,7 @@ Whenever new data were released in the following 2 months, I re-ran [the code](h
 
 # Concluding remarks
 
-## Core questions to explore before scraping anything
+## Core questions to explore before you start
 
 **Availability of data**
 
@@ -149,10 +146,10 @@ Whenever new data were released in the following 2 months, I re-ran [the code](h
 
 -   Will collecting data automatically save time on quality assurance?
 
-## Discussion
+# Questions?
 
 The remainder of the time is reserved for group discussion!
 
-- Have you ever wondered whether a specific site is scrapeable?
+# Thank you!
 
 Please contact [Manu Alcala](mailto:malcalakovalski@urban.org) or [Jameson Carter](mailto:jamcarter@urban.org) if you would like to discuss either of these projects or scope whether a use-case is reasonable.

@@ -340,26 +340,34 @@ Manu Alcala + Jameson Carter
 </section>
 <section id="what-is-web-scraping" class="slide level2">
 <h2>What is web scraping?</h2>
-<p>Broadly, web scraping is the process of automatically pulling data from websites. There are a few distinctions which define the problem:</p>
+<p>Broadly, it is the process of automatically pulling data from websites by reading their underlying code. Doing this gets complicated fast:</p>
 <ul>
-<li><p><em>Static vs.&nbsp;Dynamic</em> web pages require different code packages to scrape.</p></li>
-<li><p>For example, selenium is a common dynamic web scraping library and scrapy is a common static web scraping library.</p></li>
-<li></li>
+<li><em>Static</em> websites contain information in HTML code which <strong>does not change</strong> when you, the user, interact with it.</li>
+<li><em>Dynamic</em> websites have information in HTML code which <strong>does change</strong> as you interact with it.</li>
+<li><em>Static</em> vs.&nbsp;<em>Dynamic</em> websites require different code packages to scrape.
+<ul>
+<li>For example, <a href="https://www.selenium.dev/">selenium</a> is a common dynamic web scraping library and <a href="https://scrapy.org/">scrapy</a> is a common static web scraping library.</li>
+<li>This is because a static scraper simply has to understand what it is looking for in the HTML. A dynamic scraper needs to simulate a human interacting with the site.</li>
+</ul></li>
 </ul>
 </section>
 <section id="when-is-it-worth-it" class="slide level2">
 <h2>When is it worth it?</h2>
-<p>commonly produced highly standardized data</p>
-<p>getting data quickly is valuable</p>
-<p>no download available, cannot get through to data provider</p>
-<p>format remains consistent</p>
+<ul>
+<li>Other data collection efforts are impossible or prone to human error</li>
+<li>Getting new data releases quickly is valuable</li>
+<li>Creating reproducible and reliable processes eases collaboration / quality assurance</li>
+<li>Time spent coding &lt; time spent obtaining data in other ways + time spent on quality assurance</li>
+</ul>
 </section>
 <section id="what-makes-it-hard-can-be-multiple-slides" class="slide level2">
 <h2>What makes it hard? (can be multiple slides)</h2>
-<p>takes time to code</p>
-<p>sites might change</p>
-<p>not always desired from site maintainers</p>
-<p>difficulty is variable and hard to predict</p>
+<ul>
+<li><p>It is difficult to predict how much time a web scraping task will take.</p></li>
+<li><p>Sites might change, introducing need to update.</p></li>
+<li><p>Site maintainers may not be okay with data being scraped</p></li>
+<li><p>Sites might be removed or stop being maintained.</p></li>
+</ul>
 </section>
 <section>
 <section id="example-1.-scraping-state-education-sites" class="title-slide slide level1 center">
@@ -448,17 +456,7 @@ Manu Alcala + Jameson Carter
 </section>
 <section id="fun-slide" class="slide level2" data-background-video="images/web-surfer.mp4" data-background-video-loop="true" data-background-size="50px">
 <h2>3. Code for 30 hours!</h2>
-<div class="cell">
-<style type="text/css">
-#fun-slide,
-#fun-slide h2{
- color: blue;
- font-size: 200px;
- font-style: italic;
- font-family: cursive;
-}
-</style>
-</div>
+<p><code>{css, echo=FALSE} #fun-slide, #fun-slide h2{  color: blue;  font-size: 200px;  font-style: italic;  font-family: cursive; }</code></p>
 </section>
 <section id="bask-in-the-glow-of-automated-scraping" class="slide level2">
 <h2>4. Bask in the glow of automated scraping</h2>
@@ -497,8 +495,8 @@ Manu Alcala + Jameson Carter
 <h1>Concluding remarks</h1>
 
 </section>
-<section id="core-questions-to-explore-before-scraping-anything" class="slide level2">
-<h2>Core questions to explore before scraping anything</h2>
+<section id="core-questions-to-explore-before-you-start" class="slide level2">
+<h2>Core questions to explore before you start</h2>
 <p><strong>Availability of data</strong></p>
 <ul>
 <li><p>Are the data available through other routes?</p></li>
@@ -514,83 +512,19 @@ Manu Alcala + Jameson Carter
 <li><p>Is the time spent coding worth the payoff?</p></li>
 <li><p>Will collecting data automatically save time on quality assurance?</p></li>
 </ul>
+</section></section>
+<section id="questions" class="title-slide slide level1 center">
+<h1>Questions?</h1>
+<p>The remainder of the time is reserved for group discussion!</p>
 </section>
-<section id="discussion" class="slide level2">
-<h2>Discussion</h2>
-<p>Please contact Manu Alcala or Jameson Carter if you would like to discuss either of these projects or scoping whether a use-case is reasonable.</p>
-<p>When you click the <strong>Render</strong> button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
+
+<section id="thank-you" class="title-slide slide level1 center">
+<h1>Thank you!</h1>
+<p>Please contact <a href="mailto:malcalakovalski@urban.org">Manu Alcala</a> or <a href="mailto:jamcarter@urban.org">Jameson Carter</a> if you would like to discuss either of these projects or scope whether a use-case is reasonable.</p>
 <div class="footer footer-default">
 
 </div>
-</section></section>
+</section>
     </div>
   </div>
 
@@ -802,44 +736,6 @@ Manu Alcala + Jameson Carter
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
