@@ -109,14 +109,19 @@ Whenever new data were released in the following 2 months, I re-ran the code and
 ![](example-scraped.png)
 :::
 
-## Then, trouble in paradise...
+## Little did I know, trouble was coming
 
-After a few months of running this scraper successfully, I noticed:
+::: {layout-ncol="1"}
+![](trouble-in-paradise.png)
+:::
 
--   The data were **no longer being updated** on the dashboard
+## What happened?
 
--   The labels containing data were **changed from numbers to character strings**, for example
-1,800,000 would be changed to "1.8M" 
+2 months later, KFF **stopped updating** the dashboard.
+
+::: {layout-ncol="1"}
+![](broken-egg.png)
+:::
 
 # Concluding remarks
 
