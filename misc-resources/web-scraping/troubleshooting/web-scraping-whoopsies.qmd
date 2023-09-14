@@ -55,7 +55,7 @@ Since Spring 2023, states have been disenrolling Medicaid beneficiaries who no l
 
 ## Why are the data interesting?
 
-In anticipation, many states implemented policy changes to smooth the transition.
+In anticipation of ["the great unwinding,"](https://www.brookings.edu/articles/medicaid-and-the-great-unwinding-a-high-stakes-implementation-challenge/) many states implemented policy changes to smooth the transition.
 
 To understand the success of these policies, we wanted **time-series enrollment data for all 50 states**... from a Medicaid data system that is largely decentralized.
 
