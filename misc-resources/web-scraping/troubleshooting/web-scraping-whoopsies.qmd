@@ -50,7 +50,7 @@ Slides describing florida example
 Since Spring 2023, states have been disenrolling Medicaid beneficiaries who no longer qualify since the Public Health Emergency was ended.
 
 ::: {layout-ncol="1"}
-![](kff-fig.png)
+![](images/kff-fig.png)
 :::
 
 ## Why are the data interesting?
@@ -62,9 +62,9 @@ To understand the success of these policies, we wanted **time-series enrollment 
 ## Unreadable PDFs abound!
 
 ::: {layout-ncol="2"}
-![An example from Louisiana](louisiana-horrible.png)
+![An example from Louisiana](images/louisiana-horrible.png)
 
-![and another from Ohio](ohio-horrible.png)
+![and another from Ohio](images/ohio-horrible.png)
 :::
 
 ## A sigh of relief...
@@ -72,7 +72,7 @@ To understand the success of these policies, we wanted **time-series enrollment 
 Why page through PDFs when another organization's RAs can do it for you?
 
 ::: {layout-ncol="1"}
-![](kff-page.png)
+![](images/kff-page.png)
 :::
 
 ## 1. Identify this is a scrape-able dynamic page
@@ -80,16 +80,16 @@ Why page through PDFs when another organization's RAs can do it for you?
 One URL with data you can only get by clicking each option!
 
 ::: {layout-ncol="1"}
-![](kff-page-click.png)
+![](images/kff-page-click.png)
 :::
 
 ## 2. Confirm HTML actually contains the data
 
 ::: {layout-ncol="1"}
-![](html-plot.png)
+![](images/html-plot.png)
 :::
 
-## 3. Code for 30 hours! {#fun-slide background-video="web-surfer.mp4" background-video-loop="true" background-size="50px"}
+## 3. Code for 30 hours! {#fun-slide background-video="images/web-surfer.mp4" background-video-loop="true" background-size="50px"}
 
 ```{css, echo=FALSE}
 #fun-slide,
@@ -106,13 +106,13 @@ One URL with data you can only get by clicking each option!
 Whenever new data were released in the following 2 months, I re-ran [the code](https://github.com/UI-Research/web-scraping/blob/master/kff_unwinding.py) and got a well-formatted excel file as output.
 
 ::: {layout-ncol="1"}
-![](example-scraped.png)
+![](images/example-scraped.png)
 :::
 
 ## Little did I know, trouble was coming
 
 ::: {layout-ncol="1"}
-![](trouble-in-paradise.png)
+![](images/trouble-in-paradise.png)
 :::
 
 ## What happened?
@@ -120,7 +120,7 @@ Whenever new data were released in the following 2 months, I re-ran [the code](h
 2 months later, KFF **stopped updating** the dashboard and **changed how existing data was reported** on graphs.
 
 ::: {layout-ncol="1"}
-![](broken-egg.png)
+![](images/broken-egg.png)
 :::
 
 # Concluding remarks
