@@ -11,6 +11,7 @@
   <meta name="generator" content="quarto-1.3.433">
 
   <meta name="author" content="Manu Alcala + Jameson Carter">
+  <meta name="dcterms.date" content="2023-10-18">
   <title>Web Scraping Whoopsies</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -335,75 +336,173 @@ Manu Alcala + Jameson Carter
 </div>
 </div>
 
+  <p class="date">2023-10-18</p>
 </section>
-<section id="what-is-web-scraping" class="slide level2" data-video-loop="true">
+<section id="what-is-web-scraping" class="slide level2">
 <h2>What is web scraping?</h2>
 <p>static vs dynamic</p>
 <p>scraping vs crawling</p>
 </section>
-<section id="when-is-it-worth-it" class="slide level2" data-video-loop="true">
+<section id="when-is-it-worth-it" class="slide level2">
 <h2>When is it worth it?</h2>
 <p>commonly produced highly standardized data</p>
 <p>getting data quickly is valuable</p>
 <p>no download available, cannot get through to data provider</p>
 <p>format remains consistent</p>
 </section>
-<section id="what-makes-it-hard-can-be-multiple-slides" class="slide level2" data-video-loop="true">
+<section id="what-makes-it-hard-can-be-multiple-slides" class="slide level2">
 <h2>What makes it hard? (can be multiple slides)</h2>
 <p>takes time to code</p>
 <p>sites might change</p>
 <p>not always desired from site maintainers</p>
 <p>difficulty is variable and hard to predict</p>
 </section>
+<section>
+<section id="example-1.-scraping-state-education-sites" class="title-slide slide level1 center">
+<h1>Example 1. Scraping state education sites</h1>
+
+</section>
 <section id="demonstrative-example" class="slide level2" data-video-loop="true">
 <h2>Demonstrative example</h2>
 <p>Slides describing florida example</p>
+</section></section>
+<section>
+<section id="example-2.-scraping-medicaid-enrollment-data" class="title-slide slide level1 center">
+<h1>Example 2. Scraping Medicaid enrollment data</h1>
+
 </section>
-<section id="scraping-medicaid-enrollment-data-from-kff-dashboard" class="slide level2" data-video-loop="true">
-<h2>Scraping Medicaid enrollment data from KFF dashboard</h2>
-<p>Since Spring 2023, states have been disenrolling Medicaid beneficiaries who were previously eligible due to since-expired provisions passed during the pandemic.</p>
-<p>We wanted to know, how does a state’s disenrollment rate relate to policy options that states utilized to attempt a smooth transition?</p>
-<p>To answer this, we required data.</p>
+<section id="why-medicaid-enrollment-data" class="slide level2">
+<h2>Why Medicaid enrollment data?</h2>
+<p>Since Spring 2023, states have been disenrolling Medicaid beneficiaries who no longer qualify since the Public Health Emergency was ended.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img data-src="kff-fig.png"></p>
+</div>
+</div>
+</div>
 </section>
-<section id="decentralized-data-systems-strike-again" class="slide level2">
-<h2>Decentralized data systems strike again</h2>
-<p>State agencies reporting data in 50 ways with varying success…</p>
+<section id="why-are-the-data-interesting" class="slide level2">
+<h2>Why are the data interesting?</h2>
+<p>In anticipation, many states implemented policy changes to smooth the transition.</p>
+<p>To understand the success of these policies, we wanted <strong>time-series enrollment data for all 50 states</strong>… from a Medicaid data system that is largely decentralized.</p>
+</section>
+<section id="unreadable-pdfs-abound" class="slide level2">
+<h2>Unreadable PDFs abound!</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="louisiana-horrible.png"></p>
-<figcaption>Unreadable PDFs abound (this example from Louisiana)</figcaption>
+<figcaption>An example from Louisiana</figcaption>
 </figure>
 </div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="ny-good.png"></p>
-<figcaption>Even the clearest source was provided in a PDF (New York)</figcaption>
+<p><img data-src="ohio-horrible.png"></p>
+<figcaption>and another from Ohio</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="kff-research-assistants-come-to-the-rescue" class="slide level2">
-<h2>KFF research assistants come to the rescue</h2>
+<section id="a-sigh-of-relief" class="slide level2">
+<h2>A sigh of relief…</h2>
+<p>Why page through PDFs when another organization’s RAs can do it for you?</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img data-src="kff-page.png"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="identify-this-is-a-scrape-able-dynamic-page" class="slide level2">
+<h2>1. Identify this is a scrape-able dynamic page</h2>
+<p>One URL with data you can only get by clicking each option!</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img data-src="kff-page-click.png"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="confirm-html-actually-contains-the-data" class="slide level2">
+<h2>2. Confirm HTML actually contains the data</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img data-src="html-plot.png"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="fun-slide" class="slide level2" data-background-video="web-surfer.mp4" data-background-video-loop="true" data-background-size="50px">
+<h2>3. Code for 30 hours!</h2>
+<div class="cell">
+<style type="text/css">
+#fun-slide,
+#fun-slide h2{
+ color: blue;
+ font-size: 200px;
+ font-style: italic;
+ font-family: cursive;
+}
+</style>
+</div>
+</section>
+<section id="bask-in-the-glow-of-automated-scraping" class="slide level2">
+<h2>4. Bask in the glow of automated scraping</h2>
+<p>Whenever new data were released in the following 2 months, I re-ran the code and got a well-formatted excel file as output.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
+<p><img data-src="example-scraped.png"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="then-trouble-in-paradise" class="slide level2">
+<h2>Then, trouble in paradise…</h2>
+<p>After a few months of running this scraper successfully, I noticed:</p>
+<ul>
+<li><p>The data were <strong>no longer being updated</strong> on the dashboard</p></li>
+<li><p>The labels containing data were <strong>changed from numbers to character strings</strong>, for example 1,800,000 would be changed to “1.8M”</p></li>
+</ul>
+</section></section>
+<section>
+<section id="concluding-remarks" class="title-slide slide level1 center">
+<h1>Concluding remarks</h1>
+
+</section>
+<section id="core-lessons-to-remember" class="slide level2">
+<h2>Core lessons to remember</h2>
+<p>Before coding a web scraper, think to yourself:</p>
+<ul>
+<li><p>Are the data available through other routes?</p></li>
+<li><p>Are the data produced by an organization that is invested in the problem long-term?</p></li>
+<li><p>If scraping from a graph, what is the risk that it will be changed?</p></li>
+<li><p>Is the time spent coding worth the payoff?</p></li>
+</ul>
+</section>
+<section id="thank-you" class="slide level2">
+<h2>Thank You!</h2>
+<p>Please contact Manu Alcala or Jameson Carter if you would like to discuss either of these projects or scoping whether a use-case is reasonable.</p>
 <p>When you click the <strong>Render</strong> button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
 </div>
-</section>
-<section id="thank-you" class="slide level2" data-background-video="web-surfer.mp4" data-background-video-loop="true" data-background-size="50px">
-<h2>Thank You!</h2>
 <div class="footer footer-default">
 
 </div>
-</section>
+</section></section>
     </div>
   </div>
 

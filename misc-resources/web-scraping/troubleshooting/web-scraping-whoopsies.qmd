@@ -1,6 +1,8 @@
 ---
 title: "Web Scraping Whoopsies"
+title-block-banner: true
 author: "Manu Alcala + Jameson Carter"
+date: "October 18, 2023"
 format: 
     revealjs: 
         slide-number: c/t
@@ -9,13 +11,13 @@ format:
 editor: visual
 ---
 
-## What is web scraping? {video-loop="true"}
+## What is web scraping?
 
 static vs dynamic
 
 scraping vs crawling
 
-## When is it worth it? {video-loop="true"}
+## When is it worth it?
 
 commonly produced highly standardized data
 
@@ -25,7 +27,7 @@ no download available, cannot get through to data provider
 
 format remains consistent
 
-## What makes it hard? (can be multiple slides) {video-loop="true"}
+## What makes it hard? (can be multiple slides)
 
 takes time to code
 
@@ -35,34 +37,107 @@ not always desired from site maintainers
 
 difficulty is variable and hard to predict
 
+# Example 1. Scraping state education sites
+
 ## Demonstrative example {video-loop="true"}
 
 Slides describing florida example
 
-## Scraping Medicaid enrollment data from KFF dashboard {video-loop="true"}
+# Example 2. Scraping Medicaid enrollment data
 
-Since Spring 2023, states have been disenrolling Medicaid beneficiaries who were previously eligible due to since-expired provisions passed during the pandemic.
+## Why Medicaid enrollment data?
 
-We wanted to know, how does a state's disenrollment rate relate to policy options that states utilized to attempt a smooth transition?
+Since Spring 2023, states have been disenrolling Medicaid beneficiaries who no longer qualify since the Public Health Emergency was ended.
 
-To answer this, we required data.
-
-## Decentralized data systems strike again
-
-State agencies reporting data in 50 ways with varying success...
-
-::: {layout-ncol=2} 
-![Unreadable PDFs abound (this example from Louisiana)](louisiana-horrible.png)
-
-![Even the clearest source was provided in a PDF (New York)](ny-good.png)
+::: {layout-ncol="1"}
+![](kff-fig.png)
 :::
 
-## KFF research assistants come to the rescue
+## Why are the data interesting?
+
+In anticipation, many states implemented policy changes to smooth the transition.
+
+To understand the success of these policies, we wanted **time-series enrollment data for all 50 states**... from a Medicaid data system that is largely decentralized.
+
+## Unreadable PDFs abound!
+
+::: {layout-ncol="2"}
+![An example from Louisiana](louisiana-horrible.png)
+
+![and another from Ohio](ohio-horrible.png)
+:::
+
+## A sigh of relief...
+
+Why page through PDFs when another organization's RAs can do it for you?
+
+::: {layout-ncol="1"}
+![](kff-page.png)
+:::
+
+## 1. Identify this is a scrape-able dynamic page
+
+One URL with data you can only get by clicking each option!
+
+::: {layout-ncol="1"}
+![](kff-page-click.png)
+:::
+
+## 2. Confirm HTML actually contains the data
+
+::: {layout-ncol="1"}
+![](html-plot.png)
+:::
+
+## 3. Code for 30 hours! {#fun-slide background-video="web-surfer.mp4" background-video-loop="true" background-size="50px"}
+
+```{css, echo=FALSE}
+#fun-slide,
+#fun-slide h2{
+ color: blue;
+ font-size: 200px;
+ font-style: italic;
+ font-family: cursive;
+}
+```
+
+## 4. Bask in the glow of automated scraping
+
+Whenever new data were released in the following 2 months, I re-ran the code and got a well-formatted excel file as output.
+
+::: {layout-ncol="1"}
+![](example-scraped.png)
+:::
+
+## Then, trouble in paradise...
+
+After a few months of running this scraper successfully, I noticed:
+
+-   The data were **no longer being updated** on the dashboard
+
+-   The labels containing data were **changed from numbers to character strings**, for example
+1,800,000 would be changed to "1.8M" 
+
+# Concluding remarks
+
+## Core lessons to remember
+
+Before coding a web scraper, think to yourself:
+
+-   Are the data available through other routes?
+
+-   Are the data produced by an organization that is invested in the problem long-term?
+
+-   If scraping from a graph, what is the risk that it will be changed?
+
+-   Is the time spent coding worth the payoff?
+
+## Thank You!
+
+Please contact Manu Alcala or Jameson Carter if you would like to discuss either of these projects or scoping whether a use-case is reasonable.
 
 When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
 
 ```{r}
 1 + 1
 ```
-
-## Thank You!  {background-video="web-surfer.mp4" background-video-loop="true" background-size="50px"}
