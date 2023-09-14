@@ -12,10 +12,13 @@ editor: visual
 ---
 
 ## What is web scraping?
+Broadly, web scraping is the process of automatically pulling data from websites.
+There are a few distinctions which define the problem:
 
-static vs dynamic
+-   *Static vs. Dynamic* web pages require different code packages to scrape.
+  -   For example, selenium is a common dynamic web scraping library and scrapy is a common static web scraping library.
 
-scraping vs crawling
+-   
 
 ## When is it worth it?
 
@@ -62,6 +65,7 @@ To understand the success of these policies, we wanted **time-series enrollment 
 ## Unreadable PDFs abound!
 
 ::: {layout-ncol="2"}
+
 ![An example from Louisiana](images/louisiana-horrible.png)
 
 ![and another from Ohio](images/ohio-horrible.png)
@@ -125,24 +129,30 @@ Whenever new data were released in the following 2 months, I re-ran [the code](h
 
 # Concluding remarks
 
-## Core lessons to remember
+## Core questions to explore before scraping anything
 
-Before coding a web scraper, think to yourself:
+**Availability of data**
 
 -   Are the data available through other routes?
 
 -   Are the data produced by an organization that is invested in the problem long-term?
 
--   If scraping from a graph, what is the risk that it will be changed?
+**Frequency of scraping**
+
+-   Will I need to scrape the data multiple times?
+
+-   What is the risk that the item scraped from the site will be changed? 
+
+**Time-value tradeoffs**
 
 -   Is the time spent coding worth the payoff?
 
-## Thank You!
+-   Will collecting data automatically save time on quality assurance?
 
-Please contact Manu Alcala or Jameson Carter if you would like to discuss either of these projects or scoping whether a use-case is reasonable.
+## Discussion
 
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+The remainder of the time is reserved for group discussion!
 
-```{r}
-1 + 1
-```
+- Have you ever wondered whether a specific site is scrapeable?
+
+Please contact [Manu Alcala](mailto:malcalakovalski@urban.org) or [Jameson Carter](mailto:jamcarter@urban.org) if you would like to discuss either of these projects or scope whether a use-case is reasonable.
