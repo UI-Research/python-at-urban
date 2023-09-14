@@ -103,7 +103,7 @@ One URL with data you can only get by clicking each option!
 
 ## 4. Bask in the glow of automated scraping
 
-Whenever new data were released in the following 2 months, I re-ran the code and got a well-formatted excel file as output.
+Whenever new data were released in the following 2 months, I re-ran [the code](https://github.com/UI-Research/web-scraping/blob/master/kff_unwinding.py) and got a well-formatted excel file as output.
 
 ::: {layout-ncol="1"}
 ![](example-scraped.png)
@@ -117,7 +117,7 @@ Whenever new data were released in the following 2 months, I re-ran the code and
 
 ## What happened?
 
-2 months later, KFF **stopped updating** the dashboard.
+2 months later, KFF **stopped updating** the dashboard and **changed how existing data was reported** on graphs.
 
 ::: {layout-ncol="1"}
 ![](broken-egg.png)
