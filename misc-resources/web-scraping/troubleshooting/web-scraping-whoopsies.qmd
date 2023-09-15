@@ -9,33 +9,35 @@ format:
         width: 1250
         height: 800
 editor: visual
+engine: knitr
 ---
 
 ## What is web scraping?
+
 Broadly, it is the process of automatically pulling data from websites by reading their underlying code. Doing this gets complicated fast:
 
-* *Static* websites contain information in HTML code which **does not change** when you, the user, interact with it.
-* *Dynamic* websites have information in HTML code which **does change** as you interact with it.
-* *Static* vs. *Dynamic* websites require different code packages to scrape.
-  + For example, [selenium](https://www.selenium.dev/) is a common dynamic web scraping library and [scrapy](https://scrapy.org/) is a common static web scraping library.
-  + This is because a static scraper simply has to understand what it is looking for in the HTML. A dynamic scraper needs to simulate a human interacting with the site.
+-   *Static* websites contain information in HTML code which **does not change** when you, the user, interact with it.
+-   *Dynamic* websites have information in HTML code which **does change** as you interact with it.
+-   *Static* vs. *Dynamic* websites require different code packages to scrape.
+    -   For example, [selenium](https://www.selenium.dev/) is a common dynamic web scraping library and [scrapy](https://scrapy.org/) is a common static web scraping library.
+    -   This is because a static scraper simply has to understand what it is looking for in the HTML. A dynamic scraper needs to simulate a human interacting with the site.
 
 ## When is it worth it?
 
-* Other data collection efforts are impossible or prone to human error
-* Getting new data releases quickly is valuable
-* Creating reproducible and reliable processes eases collaboration / quality assurance
-* Time spent coding < time spent obtaining data in other ways + time spent on quality assurance
+-   Other data collection efforts are impossible or prone to human error
+-   Getting new data releases quickly is valuable
+-   Creating reproducible and reliable processes eases collaboration / quality assurance
+-   Time spent coding \< time spent obtaining data in other ways + time spent on quality assurance
 
 ## What makes it hard? (can be multiple slides)
 
-* It is difficult to predict how much time a web scraping task will take.
+-   It is difficult to predict how much time a web scraping task will take.
 
-* Sites might change, introducing need to update.
+-   Sites might change, introducing need to update.
 
-* Site maintainers may not be okay with data being scraped
+-   Site maintainers may not be okay with data being scraped
 
-* Sites might be removed or stop being maintained.
+-   Sites might be removed or stop being maintained.
 
 # Example 1. Scraping state education sites
 
@@ -62,7 +64,6 @@ To understand the success of these policies, we wanted **time-series enrollment 
 ## Unreadable PDFs abound!
 
 ::: {layout-ncol="2"}
-
 ![An example from Louisiana](images/louisiana-horrible.png)
 
 ![and another from Ohio](images/ohio-horrible.png)
@@ -100,6 +101,7 @@ One URL with data you can only get by clicking each option!
  font-style: italic;
  font-family: cursive;
 }
+
 ```
 
 ## 4. Bask in the glow of automated scraping
@@ -138,7 +140,7 @@ Whenever new data were released in the following 2 months, I re-ran [the code](h
 
 -   Will I need to scrape the data multiple times?
 
--   What is the risk that the item scraped from the site will be changed? 
+-   What is the risk that the item scraped from the site will be changed?
 
 **Time-value tradeoffs**
 
