@@ -26,12 +26,26 @@ Broadly, it is the process of automatically pulling data from websites by readin
     -   For example, [selenium](https://www.selenium.dev/) is a common dynamic web scraping library and [scrapy](https://scrapy.org/) is a common static web scraping library.
     -   This is because a static scraper simply has to understand what it is looking for in the HTML. A dynamic scraper needs to simulate a human interacting with the site.
 
+::: notes
+Generally, web scraping is the process of automatically reading the content of websites, in our case to get data. Within a website's underlying code, there might be something that you want to access. For example, a large table published on a website with no download button. But getting that hypothetical table depends on how the website is set up. Static sites are relatively easy to scrape because all of the information is available to you through the code which built the site, at all times. Dynamic sites work a little differently: they require you, the user, to click on buttons and interact with the site.
+
+Because of this, the tools we use differ. Static scrapers usually pull the sites' code directly and then parse that code to extract relevant information. Dynamic scrapers simulate a human being by clicking on the right series of buttons, to trick the site into providing its data, which can then be parsed. You will hear us mention both scrapy and selenium today. Selenium is used for dynamic sites and scrapy is used for static sites .
+:::
+
 ## When is it worth it?
 
 -   Other data collection efforts are impossible or prone to human error
+    -   Creating reproducible and reliable processes eases collaboration / quality assurance
 -   Getting new data releases quickly is valuable
--   Creating reproducible and reliable processes eases collaboration / quality assurance
 -   Time spent coding \< time spent obtaining data in other ways + time spent on quality assurance
+
+::: notes
+As you might have guessed, this takes some time. Before getting into it, you should consider whether other methods of data collection are error-prone or so daunting that you could never justify doing it by hand. You have emailed the owner of the data to no avail and you fear that manually copying 1000 entries could be subject to error (or a waste of time). Also, it is easier to collaborate with code-based processes, explaining how you hand-generated tables can sometimes feel like more trouble than its worth!
+
+Additionally, consider whether getting new data quickly is valuable. For example, if a government site releases data regularly you may want to have a process ready to extract those data. Web scraping is great for this.
+
+Finally, note that when planning these things it might seem like a bunch of code on the front-end. But if the time spent coding is less than time spent obtaining data in other ways PLUS time spent on quality assurance of those methods, it could be well worth it! Validating processes is easier with code.
+:::
 
 ## What makes it hard?
 
@@ -39,9 +53,17 @@ Broadly, it is the process of automatically pulling data from websites by readin
 
 -   Sites might change, introducing need to update.
 
--   Site maintainers may not be okay with data being scraped.
+    -   Sites might be removed, stop being maintained, or completely overhauled.
 
--   Sites might be removed or stop being maintained.
+-   Site maintainers may not be okay with data being scraped. Quick plug for the TECH team's [Automated Data Guidelines](https://urbanorg.app.box.com/file/162920667208?s=mam9kpf48mu92f4ktpyuw218yf8j45w0).
+
+::: notes
+But it isn't always the right solution! It can be hard. First, it is difficult to predict the time needed to complete a web scraping task. This is because websites are often designed in different ways, however the more you do this the easier it gets.
+
+Sites change all the time! Which means web scraping code can be unstable. Ideally, it would be better to access data through something like an API if the organization offers one.
+
+Finally, site maintainers might not be okay with their data being scraped. Thankfully, Urban has some guidelines available to help insulate you from repercussions. Next, I will dive into an example discussing some of our trials/tribulations with scraping and then pass it off to Manu.
+:::
 
 # Example 1. Scraping Medicaid enrollment data
 
