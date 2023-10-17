@@ -33,13 +33,13 @@ Broadly, it is the process of automatically pulling data from websites by readin
 -   Creating reproducible and reliable processes eases collaboration / quality assurance
 -   Time spent coding \< time spent obtaining data in other ways + time spent on quality assurance
 
-## What makes it hard? (can be multiple slides)
+## What makes it hard?
 
 -   It is difficult to predict how much time a web scraping task will take.
 
 -   Sites might change, introducing need to update.
 
--   Site maintainers may not be okay with data being scraped
+-   Site maintainers may not be okay with data being scraped.
 
 -   Sites might be removed or stop being maintained.
 
@@ -47,7 +47,7 @@ Broadly, it is the process of automatically pulling data from websites by readin
 
 ## Why Medicaid enrollment data?
 
-Since Spring 2023, states have been disenrolling Medicaid beneficiaries who no longer qualify since the Public Health Emergency was ended.
+Since Spring 2023, states have been dis-enrolling Medicaid beneficiaries who no longer qualify since the Public Health Emergency was ended.
 
 ::: {layout-ncol="1"}
 ![](images/kff-fig.png)
