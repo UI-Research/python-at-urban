@@ -18,8 +18,7 @@ engine: knitr
 
 ## What is web scraping?
 
-Broadly, it is the process of automatically pulling data from websites by
-reading their underlying code. Doing this gets complicated fast:
+Broadly, it is the process of automatically pulling data from websites by reading their underlying code. Doing this gets complicated fast:
 
 -   *Static* websites contain information in HTML code which **does not change**
     when you, the user, interact with it.
@@ -196,23 +195,29 @@ existing data was reported** on graphs.
 ![](images/broken-egg.png)
 :::
 
-# Example 2. Scraping Course Descriptions
+# Example 2. Scraping Course Catalogs
 
-## Work Based Learning (WBL)
+::: notes
 
-Work-based learning can include internships, clinicals, co-ops and other
-opportunities to gain experience in a work setting.
+Clearly, web scraping can be a very powerful tool for unlocking novel data sources that aren't readily available. 
 
-They are especially helpful to community college students
+But, before you go on and try to scrape the entire web, I want to share a cautionary tale about the pitfalls of getting too carried away and going down a rabbit hole.
+:::
 
-We sought to create a national dataset of WBL prevalance by scraping course
-descriptions
+## Why course catalog data?
 
-## Course description data
+- States are increasingly interested work-based learning (WBL) as an important strategy for helping students prepare for and access good jobs, but measurement has been limited
 
--   No centralized source, need to scrape each school individually
--   No general pattern to where course descriptions can be found, how they are
-    arranged, or what format they're in
+- To understand the prevalance and types of WBL, we wanted **course-level data from community colleges across the country**
+
+
+:::  notes
+
+WBL opportunites are things like internships, apprenticeships, co-ops, and clinical experiences that many state governments have become interested in expanding as a strategy to help students prepare for good jobs. Community colleges have a long history of implementing WBL, but measurement has been virtually non-existant. We wanted to offer a better understanding of the prevalance and types of WBL by collecting course-level data from community colleges across the country and searching for keywords associated with WBL.
+
+:::
+
+## Not all catalogs are the same
 
 ::: {layout-ncol="2"}
 ![An example of course descriptions listed under department
@@ -223,79 +228,82 @@ format](images/nfc-course-descriptions.png)
 :::
 
 ::: notes
+This is quite challenging since we needed to scrape catalogs for over a thousand schools, with no general pattern to how they are arranged or what format they're in
+
+Although a lot of catalogs were static, targeting the HTML code for each one would've been tremendously burdensome and vulnerable to changes
+
+So we wanted to develop a more general strategy that could navigate from a home url to a catalog and extract all relevant text
 :::
 
-## Are we doomed?
+## Web crawling adventures
 
--   How do we find all the relevant links?
--   How can we target HTML code when each website has an entirely different one?
+- **Scrapy** is a web scraping and web crawling framework to extract structured data from websites
+- It uses *spiders*, which are self-contained web crawlers that follow links according to your instructions 
 
-## Web Crawling with Scrapy
 
--   **Scrapy** is a web scraping framework designed for large-scale web scraping
-    projects
--   It excels particularly in **web crawling**, i.e. traversing links and
-    navigating websites in accordance with specified rules.
--   It has several helpful features to respect scraping restrictions, avoid
-    overwhelming servers, and pre-process scraped data
+::: notes
 
-## Initial Web Scraping Attempt
+Given the complexity of our problem, we needed a really powerful tool that could scale well. I got really excited about Scrapy since it's a framework designed specifically for scraping data at scale. In addition to extracting and storing web data, it uses self-contained web crawlers called Spiders which can follow links according to rules you give it. In addition, it offers game changing features for more complex projects where you might need to manage cookies, remove duplicated web pages, write to a database, cache results, be careful about not overwhelming servers, and respecting mantainers rules for what data you can scrape.
 
-Starting from a homepage, we used Scrapy to follow links containing keywords
-like "catalog" or "course descriptions"
+So I decided it was worth learning and wanted to create a crawler that could start from a home page and follow links that contained keywords related to course catalogs. After much pain and confusion, I finally got my spider to do what I wanted! 
 
-For each link, we scraped basic metadata and all the text present
+:::
+
+## Scrapy go brrrrr... {#scrapy-run background-video="images/scrapy-going-brr.mov" background-video-loop="true" background-size="50px"}
+
+
+```{css, echo=FALSE}
+
+#scrapy-run h2{
+ color: #fdbf11;
+ font-size: 200px;
+}
+
+```
+
+::: notes
+I forgot to mention that Scrapy is also whicked fast!!! It can scrape around 300 URLs concurrently in no more than a minute depending on the size 
+:::
+
+## Whoopsie...
+
 
 ::: {layout-ncol="1"}
 ![Example output for one college](images/scrapy-output.png)
 :::
 
-## Whoopsie...
-
-After a lot of hard work refining our approach, our data was a hot mess:
-
--   We did not get **any** data from about 1/3 of the schools
--   We couldn't uniquely identify courses which made it impossible to filter out
-    duplicates
--   We couldn't verify whether we had found all course descriptions
-
 ::: notes
--   About 1/3 of the time, our crawler got stuck at a dynamic page, failed to
-    find any courses, and moved on to the next college without scraping any data
 
--   For one school, we "found" 1,000 examples of WBL but when we examined it's
-    site realized it only offered 80 courses a semester.
+**Narators voice**: it did not do what I wanted. 
+
+After a lot of hard work and many many hours refining this approach, our data was still a hot mess: 
+
+Our crawler failed to collect **any** data for around 1/3 of schools, which was bad. But given that no data on WBL exists, it still could've been useful if the remaining data were usable. But alas, the rest of our data had all sorts of problems that made us nervous about using it. Our approach of grabbing the whole webpage and processing the text later made sense initially, but often multiple courses are listed on a page and we couldn't single them out courses without directly targeting the HTML. Another major problem was that we couldn't even verify whether we had found all course descriptions. 
+
+So clearly, there were many many challenges with scraping at this scale that we didn't consider in advance and we decided to narrow our focus to a single state instead. 
 :::
 
-## A different approach
-
--   We decided to lower our ambition and hone-in on a single state instead
-
+## A new direction
 ::: {.layout-ncol="1}
 ![](images/selenium.gif)
 :::
 
 ::: notes
--   The scale of our research question was too large to contend with issues in
-    both site navigation and text extraction.
--   Instead, we decided to narrow our focus to just one state
--   We chose Florida because it's DOE website contains all postsecondary course
-    offerings in a dynamic page
+
+Once we honed-in on a few states specifically known for WBL initatives, we discovered that Florida's DOE has a data portal of all postsecondary course offerings. This data is hosted through a dynamic page in which users have to click through a series of filters until arriving at specific course-level information. 
 :::
 
-## Disaster Averted
+## Selenium and BeautifulSoup to the rescue!
 
--   We used **Selenium** to navigate to each course until finding a static page
-    containing course descriptions.
--   We used **BeautifulSoup** next to parse specific HTML tags (which were
-    standard across sites)
 
 ::: {.layout-ncol="1"}
 ![](images/course-descriptions-data.png)
 :::
 
 ::: notes
-Put bullets and table side by side
+This was amazing because it meant that if we scraped it we could confidently capture the universe of WBL in Florida. Scraping a single web page, even a dynamic one, isn't nearly as challenging and we could use simpler libraries like Selenium to simulate the human navigation and BeautifulSoup to parse the specific HTML we cared about.
+
+In the end, our research was still useful for understanding WBL at community colleges since we were able to leverage a data source that was centralized but not easily accessible and didn't have to worry as much about data quality issues. 
 :::
 
 # Concluding remarks
@@ -321,6 +329,17 @@ Put bullets and table side by side
 
 -   Will collecting data automatically save time on quality assurance?
 
+::: notes
+So web scraping is a really powerful skill that can be useful for research but you should ask yourself some important questions before you go down a rabbit hole
+
+- Are there easier ways to access your data?
+- How confident are you that the organization hosting the data is invested in mantaining it?
+
+- If it's a one-off it might be overkill unless it's the only way
+- How consequential would a breaking change to the website you're scraping for your application?
+
+- And finally, make sure you know that the time spent working on your code is worth it before you drive yourself crazy and consider what types of quality assurances are needed for your purposes
+:::
 # Questions?
 
 The remainder of the time is reserved for group discussion!
