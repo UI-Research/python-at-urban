@@ -20,62 +20,31 @@ engine: knitr
 
 Broadly, it is the process of automatically pulling data from websites by reading their underlying code. Doing this gets complicated fast:
 
--   *Static* websites contain information in HTML code which **does not change**
-    when you, the user, interact with it.
--   *Dynamic* websites have information in HTML code which **does change** as
-    you interact with it.
+-   *Static* websites contain information in HTML code which **does not change** when you, the user, interact with it.
+-   *Dynamic* websites have information in HTML code which **does change** as you interact with it.
 -   *Static* vs. *Dynamic* websites require different code packages to scrape.
-    -   For example, [selenium](https://www.selenium.dev/) is a common dynamic
-        web scraping library and [scrapy](https://scrapy.org/) is a common
-        static web scraping library.
-    -   This is because a static scraper simply has to understand what it is
-        looking for in the HTML. A dynamic scraper needs to simulate a human
-        interacting with the site.
+    -   For example, [selenium](https://www.selenium.dev/) is a common dynamic web scraping library and [scrapy](https://scrapy.org/) is a common static web scraping library.
+    -   This is because a static scraper simply has to understand what it is looking for in the HTML. A dynamic scraper needs to simulate a human interacting with the site.
 
 ::: notes
-Generally, web scraping is the process of automatically reading the content of
-websites, in our case to get data. Within a website's underlying code, there
-might be something that you want to access. For example, a large table published
-on a website with no download button. But getting that hypothetical table
-depends on how the website is set up. Static sites are relatively easy to scrape
-because all of the information is available to you through the code which built
-the site, at all times. Dynamic sites work a little differently: they require
-you, the user, to click on buttons and interact with the site.
+Generally, web scraping is the process of automatically reading the content of websites, in our case to get data. Within a website's underlying code, there might be something that you want to access. For example, a large table published on a website with no download button. But getting that hypothetical table depends on how the website is set up. Static sites are relatively easy to scrape because all of the information is available to you through the code which built the site, at all times. Dynamic sites work a little differently: they require you, the user, to click on buttons and interact with the site.
 
-Because of this, the tools we use differ. Static scrapers usually pull the
-sites' code directly and then parse that code to extract relevant information.
-Dynamic scrapers simulate a human being by clicking on the right series of
-buttons, to trick the site into providing its data, which can then be parsed.
-You will hear us mention both scrapy and selenium today. Selenium is used for
-dynamic sites and scrapy is used for static sites .
+Because of this, the tools we use differ. Static scrapers usually pull the sites' code directly and then parse that code to extract relevant information. Dynamic scrapers simulate a human being by clicking on the right series of buttons, to trick the site into providing its data, which can then be parsed. You will hear us mention both scrapy and selenium today. Selenium is used for dynamic sites and scrapy is used for static sites .
 :::
 
 ## When is it worth it?
 
 -   Other data collection efforts are impossible or prone to human error
-    -   Creating reproducible and reliable processes eases collaboration /
-        quality assurance
+    -   Creating reproducible and reliable processes eases collaboration / quality assurance
 -   Getting new data releases quickly is valuable
--   Time spent coding \< time spent obtaining data in other ways + time spent on
-    quality assurance
+-   Time spent coding \< time spent obtaining data in other ways + time spent on quality assurance
 
 ::: notes
-As you might have guessed, this takes some time. Before getting into it, you
-should consider whether other methods of data collection are error-prone or so
-daunting that you could never justify doing it by hand. You have emailed the
-owner of the data to no avail and you fear that manually copying 1000 entries
-could be subject to error (or a waste of time). Also, it is easier to
-collaborate with code-based processes, explaining how you hand-generated tables
-can sometimes feel like more trouble than its worth!
+As you might have guessed, this takes some time. Before getting into it, you should consider whether other methods of data collection are error-prone or so daunting that you could never justify doing it by hand. You have emailed the owner of the data to no avail and you fear that manually copying 1000 entries could be subject to error (or a waste of time). Also, it is easier to collaborate with code-based processes, explaining how you hand-generated tables can sometimes feel like more trouble than its worth!
 
-Additionally, consider whether getting new data quickly is valuable. For
-example, if a government site releases data regularly you may want to have a
-process ready to extract those data. Web scraping is great for this.
+Additionally, consider whether getting new data quickly is valuable. For example, if a government site releases data regularly you may want to have a process ready to extract those data. Web scraping is great for this.
 
-Finally, note that when planning these things it might seem like a bunch of code
-on the front-end. But if the time spent coding is less than time spent obtaining
-data in other ways PLUS time spent on quality assurance of those methods, it
-could be well worth it! Validating processes is easier with code.
+Finally, note that when planning these things it might seem like a bunch of code on the front-end. But if the time spent coding is less than time spent obtaining data in other ways PLUS time spent on quality assurance of those methods, it could be well worth it! Validating processes is easier with code.
 :::
 
 ## What makes it hard?
@@ -86,46 +55,39 @@ could be well worth it! Validating processes is easier with code.
 
     -   Sites might be removed, stop being maintained, or completely overhauled.
 
--   Site maintainers may not be okay with data being scraped. Quick plug for the
-    TECH team's [Automated Data
-    Guidelines](https://urbanorg.app.box.com/file/162920667208?s=mam9kpf48mu92f4ktpyuw218yf8j45w0).
+-   Site maintainers may not be okay with data being scraped. Quick plug for the TECH team's [Automated Data Guidelines](https://urbanorg.app.box.com/file/162920667208?s=mam9kpf48mu92f4ktpyuw218yf8j45w0).
 
 ::: notes
-But it isn't always the right solution! It can be hard. First, it is difficult
-to predict the time needed to complete a web scraping task. This is because
-websites are often designed in different ways, however the more you do this the
-easier it gets.
+But it isn't always the right solution! It can be hard. First, it is difficult to predict the time needed to complete a web scraping task. This is because websites are often designed in different ways, however the more you do this the easier it gets.
 
-Sites change all the time! Which means web scraping code can be unstable.
-Ideally, it would be better to access data through something like an API if the
-organization offers one.
+Sites change all the time! Which means web scraping code can be unstable. Ideally, it would be better to access data through something like an API if the organization offers one.
 
-Finally, site maintainers might not be okay with their data being scraped.
-Thankfully, Urban has some guidelines available to help insulate you from
-repercussions. Next, I will dive into an example discussing some of our
-trials/tribulations with scraping and then pass it off to Manu.
+Finally, site maintainers might not be okay with their data being scraped. Thankfully, Urban has some guidelines available to help insulate you from repercussions. Next, I will dive into an example discussing some of our trials/tribulations with scraping and then pass it off to Manu.
 :::
 
 # Example 1. Scraping Medicaid enrollment data
 
 ## Why Medicaid enrollment data?
 
-Since Spring 2023, states have been dis-enrolling Medicaid beneficiaries who no
-longer qualify since the Public Health Emergency was ended.
+Since Spring 2023, states have been dis-enrolling Medicaid beneficiaries who no longer qualify since the Public Health Emergency was ended.
 
 ::: {layout-ncol="1"}
 ![](images/kff-fig.png)
 :::
 
+::: notes
+Alright so before I get into it let's set the scene. This past spring, states started disenrolling folks from Medicaid rolls due to the expiration of the Public Health Emergency declaration. Over the course of the pandemic, enrollment increased notably due to a policy that allowed Medicaid beneficiaries to remain on the program even if they no longer qualified. Here you see the initial decrease as states started the disenrollment process.
+:::
+
 ## Why are the data interesting?
 
-In anticipation of ["the great
-unwinding,"](https://www.brookings.edu/articles/medicaid-and-the-great-unwinding-a-high-stakes-implementation-challenge/)
-many states implemented policy changes to smooth the transition.
+In anticipation of ["the great unwinding,"](https://www.brookings.edu/articles/medicaid-and-the-great-unwinding-a-high-stakes-implementation-challenge/) many states implemented policy changes to smooth the transition.
 
-To understand the success of these policies, we wanted **time-series enrollment
-data for all 50 states**... from a Medicaid data system that is largely
-decentralized.
+To understand the success of these policies, we wanted **time-series enrollment data for all 50 states**... from a Medicaid data system that is largely decentralized.
+
+::: notes
+We were interested in how successfully states were able to smoothly transition away from this policy. Which brings us to the data. To examine how well states handled the disenrollment, we first needed time-series enrollment data (like in the previous slide) except for among all 50 states. As you are all aware, collecting data from 50 totally distinct state data systems is a classic Urban use-case.
+:::
 
 ## Unreadable PDFs abound!
 
@@ -137,7 +99,7 @@ decentralized.
 
 ## A sigh of relief...
 
-Why page through PDFs when another organization's RAs can do it for you?
+Why page through PDFs when another organization can do it for you?
 
 ::: {layout-ncol="1"}
 ![](images/kff-page.png)
@@ -157,6 +119,10 @@ One URL with data you can only get by clicking each option!
 ![](images/html-plot.png)
 :::
 
+::: notes
+Now that we know that this is 1. a dynamic page and 2. it contains information that we need. Next comes the fun part.
+:::
+
 ## 3. Code for 30 hours! {#fun-slide background-video="images/web-surfer.mp4" background-video-loop="true" background-size="50px"}
 
 ```{css, echo=FALSE}
@@ -170,14 +136,20 @@ One URL with data you can only get by clicking each option!
 
 ```
 
+::: notes
+Coding! Sadly as much as I wish I were a cool hedgehog surfing with ice cream this is not a live video of me coding. I like to think of it as a visualization of the inside of my head feels while I am coding. Seems I have chosen the right profession. Once this stage of the process was over I hit the beach.
+:::
+
 ## 4. Bask in the glow of automated scraping
 
-Whenever new data were released in the following 2 months, I re-ran [the
-code](https://github.com/UI-Research/web-scraping/blob/master/kff_unwinding.py)
-and got a well-formatted excel file as output.
+Whenever new data were released in the following 2 months, I re-ran [the code](https://github.com/UI-Research/web-scraping/blob/master/kff_unwinding.py) and got a well-formatted excel file as output.
 
 ::: {layout-ncol="1"}
 ![](images/example-scraped.png)
+:::
+
+::: notes
+And basked in the glow of automated scraping. For the next 2 months this was easy as cake. Whenever I noticed Kaiser updated their site I just ran the scraper with no changes and voila! This output was generated. This was helpful for our team as we tracked the Medicaid unwinding data and as the policy conversation developed.
 :::
 
 ## Little did I know, trouble was coming
@@ -186,45 +158,46 @@ and got a well-formatted excel file as output.
 ![](images/trouble-in-paradise.png)
 :::
 
+::: notes
+You know what they say, all good things must come to an end. The policy conversation started shifting and the risk that they would abandon this tracking project started to increase. This would mean turning back toward the unreadable PDFs which is something nobody wants.
+:::
+
 ## What happened?
 
-2 months later, KFF **stopped updating** the dashboard and **changed how
-existing data was reported** on graphs.
+2 months later, KFF **stopped updating** the dashboard and **changed how existing data was reported** on graphs.
 
 ::: {layout-ncol="1"}
 ![](images/broken-egg.png)
 :::
 
+::: notes
+And then it finally happened. They pulled the plug and destroyed the scraper.
+:::
+
 # Example 2. Scraping Course Catalogs
 
 ::: notes
-
-Clearly, web scraping can be a very powerful tool for unlocking novel data sources that aren't readily available. 
+Clearly, web scraping can be a very powerful tool for unlocking novel data sources that aren't readily available.
 
 But, before you go on and try to scrape the entire web, I want to share a cautionary tale about the pitfalls of getting too carried away and going down a rabbit hole.
 :::
 
 ## Why course catalog data?
 
-- States are increasingly interested work-based learning (WBL) as an important strategy for helping students prepare for and access good jobs, but measurement has been limited
+-   States are increasingly interested work-based learning (WBL) as an important strategy for helping students prepare for and access good jobs, but measurement has been limited
 
-- To understand the prevalance and types of WBL, we wanted **course-level data from community colleges across the country**
+-   To understand the prevalance and types of WBL, we wanted **course-level data from community colleges across the country**
 
-
-:::  notes
-
+::: notes
 WBL opportunites are things like internships, apprenticeships, co-ops, and clinical experiences that many state governments have become interested in expanding as a strategy to help students prepare for good jobs. Community colleges have a long history of implementing WBL, but measurement has been virtually non-existant. We wanted to offer a better understanding of the prevalance and types of WBL by collecting course-level data from community colleges across the country and searching for keywords associated with WBL.
-
 :::
 
 ## Not all catalogs are the same
 
 ::: {layout-ncol="2"}
-![An example of course descriptions listed under department
-pages](images/bc-course-descriptions.png)
+![An example of course descriptions listed under department pages](images/bc-course-descriptions.png)
 
-![And an example containing links to course catalogs in .pdf
-format](images/nfc-course-descriptions.png)
+![And an example containing links to course catalogs in .pdf format](images/nfc-course-descriptions.png)
 :::
 
 ::: notes
@@ -237,20 +210,16 @@ So we wanted to develop a more general strategy that could navigate from a home 
 
 ## Web crawling adventures
 
-- **Scrapy** is a web scraping and web crawling framework to extract structured data from websites
-- It uses *spiders*, which are self-contained web crawlers that follow links according to your instructions 
-
+-   **Scrapy** is a web scraping and web crawling framework to extract structured data from websites
+-   It uses *spiders*, which are self-contained web crawlers that follow links according to your instructions
 
 ::: notes
-
 Given the complexity of our problem, we needed a really powerful tool that could scale well. I got really excited about Scrapy since it's a framework designed specifically for scraping data at scale. In addition to extracting and storing web data, it uses self-contained web crawlers called Spiders which can follow links according to rules you give it. In addition, it offers game changing features for more complex projects where you might need to manage cookies, remove duplicated web pages, write to a database, cache results, be careful about not overwhelming servers, and respecting mantainers rules for what data you can scrape.
 
-So I decided it was worth learning and wanted to create a crawler that could start from a home page and follow links that contained keywords related to course catalogs. After much pain and confusion, I finally got my spider to do what I wanted! 
-
+So I decided it was worth learning and wanted to create a crawler that could start from a home page and follow links that contained keywords related to course catalogs. After much pain and confusion, I finally got my spider to do what I wanted!
 :::
 
 ## Scrapy go brrrrr... {#scrapy-run background-video="images/scrapy-going-brr.mov" background-video-loop="true" background-size="50px"}
-
 
 ```{css, echo=FALSE}
 
@@ -262,39 +231,36 @@ So I decided it was worth learning and wanted to create a crawler that could sta
 ```
 
 ::: notes
-I forgot to mention that Scrapy is also whicked fast!!! It can scrape around 300 URLs concurrently in no more than a minute depending on the size 
+I forgot to mention that Scrapy is also whicked fast!!! It can scrape around 300 URLs concurrently in no more than a minute depending on the size
 :::
 
 ## Whoopsie...
-
 
 ::: {layout-ncol="1"}
 ![Example output for one college](images/scrapy-output.png)
 :::
 
 ::: notes
+**Narators voice**: it did not do what I wanted.
 
-**Narators voice**: it did not do what I wanted. 
+After a lot of hard work and many many hours refining this approach, our data was still a hot mess:
 
-After a lot of hard work and many many hours refining this approach, our data was still a hot mess: 
+Our crawler failed to collect **any** data for around 1/3 of schools, which was bad. But given that no data on WBL exists, it still could've been useful if the remaining data were usable. But alas, the rest of our data had all sorts of problems that made us nervous about using it. Our approach of grabbing the whole webpage and processing the text later made sense initially, but often multiple courses are listed on a page and we couldn't single them out courses without directly targeting the HTML. Another major problem was that we couldn't even verify whether we had found all course descriptions.
 
-Our crawler failed to collect **any** data for around 1/3 of schools, which was bad. But given that no data on WBL exists, it still could've been useful if the remaining data were usable. But alas, the rest of our data had all sorts of problems that made us nervous about using it. Our approach of grabbing the whole webpage and processing the text later made sense initially, but often multiple courses are listed on a page and we couldn't single them out courses without directly targeting the HTML. Another major problem was that we couldn't even verify whether we had found all course descriptions. 
-
-So clearly, there were many many challenges with scraping at this scale that we didn't consider in advance and we decided to narrow our focus to a single state instead. 
+So clearly, there were many many challenges with scraping at this scale that we didn't consider in advance and we decided to narrow our focus to a single state instead.
 :::
 
 ## A new direction
+
 ::: {.layout-ncol="1}
 ![](images/selenium.gif)
 :::
 
 ::: notes
-
-Once we honed-in on a few states specifically known for WBL initatives, we discovered that Florida's DOE has a data portal of all postsecondary course offerings. This data is hosted through a dynamic page in which users have to click through a series of filters until arriving at specific course-level information. 
+Once we honed-in on a few states specifically known for WBL initatives, we discovered that Florida's DOE has a data portal of all postsecondary course offerings. This data is hosted through a dynamic page in which users have to click through a series of filters until arriving at specific course-level information.
 :::
 
 ## Selenium and BeautifulSoup to the rescue!
-
 
 ::: {.layout-ncol="1"}
 ![](images/course-descriptions-data.png)
@@ -303,7 +269,7 @@ Once we honed-in on a few states specifically known for WBL initatives, we disco
 ::: notes
 This was amazing because it meant that if we scraped it we could confidently capture the universe of WBL in Florida. Scraping a single web page, even a dynamic one, isn't nearly as challenging and we could use simpler libraries like Selenium to simulate the human navigation and BeautifulSoup to parse the specific HTML we cared about.
 
-In the end, our research was still useful for understanding WBL at community colleges since we were able to leverage a data source that was centralized but not easily accessible and didn't have to worry as much about data quality issues. 
+In the end, our research was still useful for understanding WBL at community colleges since we were able to leverage a data source that was centralized but not easily accessible and didn't have to worry as much about data quality issues.
 :::
 
 # Concluding remarks
@@ -314,8 +280,7 @@ In the end, our research was still useful for understanding WBL at community col
 
 -   Are the data available through other routes?
 
--   Are the data produced by an organization that is invested in the problem
-    long-term?
+-   Are the data produced by an organization that is invested in the problem long-term?
 
 **Frequency of scraping**
 
@@ -332,20 +297,21 @@ In the end, our research was still useful for understanding WBL at community col
 ::: notes
 So web scraping is a really powerful skill that can be useful for research but you should ask yourself some important questions before you go down a rabbit hole
 
-- Are there easier ways to access your data?
-- How confident are you that the organization hosting the data is invested in mantaining it?
+-   Are there easier ways to access your data?
 
-- If it's a one-off it might be overkill unless it's the only way
-- How consequential would a breaking change to the website you're scraping for your application?
+-   How confident are you that the organization hosting the data is invested in mantaining it?
 
-- And finally, make sure you know that the time spent working on your code is worth it before you drive yourself crazy and consider what types of quality assurances are needed for your purposes
+-   If it's a one-off it might be overkill unless it's the only way
+
+-   How consequential would a breaking change to the website you're scraping for your application?
+
+-   And finally, make sure you know that the time spent working on your code is worth it before you drive yourself crazy and consider what types of quality assurances are needed for your purposes
 :::
+
 # Questions?
 
 The remainder of the time is reserved for group discussion!
 
 # Thank you!
 
-Please contact [Manu Alcalá](mailto:malcalakovalski@urban.org) or [Jameson
-Carter](mailto:jamcarter@urban.org) if you would like to discuss either of these
-projects or scope whether a use-case is reasonable.
+Please contact [Manu Alcalá](mailto:malcalakovalski@urban.org) or [Jameson Carter](mailto:jamcarter@urban.org) if you would like to discuss either of these projects or scope whether a use-case is reasonable.
