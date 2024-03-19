@@ -1,0 +1,107 @@
+---
+title: "Intro to Web Scraping"
+author: "Judah Axelrod and Amy Rogin"
+format:
+    revealjs: 
+        slide-number: c/t
+        width: 1250
+        height: 800
+---
+
+## Bootcamp Curriculum
+- Week 1: Intro to Web Scraping
+- Week 2: How to scrape from static web pages
+- Week 3: How to scrape from dynamic web pages
+- Week 4: Putting together a full web scraping workflow
+- Week 5: Dealing with obstacles
+
+## What is web scraping?
+
+- Web scraping is the use of programming to extract structured text or data from a website 
+- It is generally used to automate tasks that would take too long (or be too error-prone) to feasibly do manually 
+- There are two main categories of web scraping tasks: (1) Collecting text data from one or more web pages and (2) automating the download of a number of files from a website
+
+## How does Urban use web scraping?
+
+- Collecting thousands of community college course descriptions from the [FLDOE website](https://www.fldoe.org/)
+- Downloading hundreds of CSV files from the [Centers for Medicare & Medicaid Services website](https://data.cms.gov/tools/mapping-medicare-disparities-by-population) that all required clicking different dropdowns from a menu of options
+- Collecting the contact info for all notaries in Mississippi by clicking through thousands of pages on the [Secretary of State website](https://www.sos.ms.gov/notarysearch/notarysearch.aspx) 
+- Pulling voting history information from the [North Carolina State Board of Election website](https://vt.ncsbe.gov/RegLkup/) by searching for thousands of registered voters 
+
+## What are some drawbacks of web scraping?
+- Not all sites can be legally or responsibly scraped
+- Repeated requests to a website can lead to rate limiting (i.e. capping the number of requests over a certain period of time)
+- Depending on the task and site layout, complexity can vary widely
+- Web scraping code can be brittle as websites change over time 
+
+## What questions should I be asking at the outset?
+- Can I get the data without web scraping? (e.g. Is there an API or download option? Can you contact the website owner to request access to the data?)
+- Am I legally allowed to scrape the website? Are there any site/rate limits or responsible web scraping considerations?
+- How many datasets or pieces of text need to be scraped?
+- Is webpage layout consistent or unstandardized?
+- Are there Captchas, pop-ups, or ads blocking the content you want?
+- Does the webpage have slow or inconsistent load times?
+- What tools/packages are needed for the job? (We will learn this throughout the workshop!)
+
+## What are the variables that affect how difficult a web scraping task is?
+1. How many different websites are involved in the web scraping process?
+2. Does the website have dynamic content or only static content?
+3. Is it easy to extract the info we want once we reach the desired webpage?
+
+## 1. Different Webpages
+- Intuitively, scraping information from one website is simpler than doing so from many websites
+- If the layouts of the sites are different, difficulty vastly increases
+  - **Rule of thumb**: Think of this as a unique web scraping task for each uniquely structured website
+- Web crawlers such as `scrapy` exist to traverse many websites and grab all relevant information, but without easy ways to filter through that metadata, this can quickly become infeasible
+- For jobs that take a long time to run (e.g. more than a few hours), gracefully logging and handling issues can add complexity 
+
+## 2. Static vs Dynamic Content
+- For a static page like a [Wikipedia article](https://en.wikipedia.org/wiki/Urban_Institute), packages like `BeautifulSoup` or `pandas` can grab HTML text without too much complexity by parsing HTML tags
+- For pages with dynamic content like clickable buttons or dropdown menus, the `Selenium` package is needed and the complexity goes up
+  - **Rule of thumb**: Would a human user need to take any actions (besides scrolling up or down) to navigate to the desired info, or is it immediately available on the webpage?
+
+## 3. Identifying Desired Information
+- Possible future task: scraping area median income from [HUD website](https://www.huduser.gov/portal/datasets/il.html)
+- Upside: Only one webpage, can use `Selenium` to navigate dropdowns
+- Downside: Numbers we want to grab can be in different places within each webpage
+
+
+## Responsible Web Scraping Guidelines
+1. Check the robots.txt file - let's look at an example: [https://www.urban.org/robots.txt](https://www.urban.org/robots.txt) 
+2. Consult Urban's [Automated Data Collection Guidelines](https://urbanorg.account.box.com/login?redirect_url=https%3A%2F%2Furbanorg.app.box.com%2Fs%2Fmam9kpf48mu92f4ktpyuw218yf8j45w0).
+3. Use Headers (we'll see this in action next week)
+```code
+headers = {'user-agent': 'Urban Institute Research Data Collector ([your_e-mail]@urban.org)'}
+```
+4. Use Site Monitor to ensure web scraping does not strain the website
+
+## Site Monitor
+- A tool created by Urban to ensure responsible web scraping practices
+- The actual code for Site Monitor lives [here](https://github.com/UrbanInstitute/SiteMonitor/blob/master/site_monitor.py) in this GitHub repository
+- Example code to test strain on a website
+```code
+from site_monitor import *
+import requests
+
+sm = SiteMonitor(burn_in=20)
+
+for i in range(100):
+	print(i)
+	url = "https://flscns.fldoe.org/PbInstituteCourseSearch.aspx"
+	response = requests.get(url)
+	delay = sm.track_request(response)
+
+# Display the report of response times in graph format
+sm.report('display')
+```
+## Example Output from Site Monitor
+![](images/site_monitor_output.png){fig-align='center'}
+
+## Homework: Installations for Next Time
+- Install Python via Anaconda - see guidance from PUG's Python Installation training [here](https://ui-research.github.io/python-at-urban/content/installation.html)
+- Install the following Python packages: `requests`, `beautifulsoup4`, `lxml`, and `selenium`
+- Launch a new Jupyter Notebook if you've never done so before - see guidance from PUG's Intro to Python training [here](https://ui-research.github.io/python-at-urban/content/intro-to-python.html)
+
+## Next Session
+- How to scrape text from static webpages using BeautifulSoup
+- Our first interactive workshop!
