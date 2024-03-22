@@ -1,3 +1,19 @@
+# Setup 
+
+Load the packages we'll need
+
+```python
+from bs4 import BeautifulSoup
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+from selenium.common.exceptions import WebDriverException
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import Select, WebDriverWait
+import pandas as pd
+import re
+```
 # Overview
 
 Today we'll be digging into how to get started with a web scraping task and how to structure your thinking about approaching the task. For the remainder of the boot camp we'll be working on scraping state-level health insurance premium values from the KFF [Health Insurance Marketplace Calculator](https://www.kff.org/interactive/subsidy-calculator/). In this example, the project team needs the cost of the Sliver Plan Premium for each county for people aged 14, 20, 40, and 60. The final output should look something like this:
@@ -152,6 +168,8 @@ Now that we have a list of each of the interactive steps we need to take, find t
 
 ```
 
+**ANSWERS**
+
 ```python
 # Select state dropdown
 select_dropdown(identifier='//*[@id="state-dd"]', driver = driver,value='il')
@@ -170,6 +188,12 @@ select_dropdown(identifier='//*[@id="subsidy-form"]/div[2]/div[3]/div[3]/div/sel
 # Submit
 click_button(identifier='//*[@id="subsidy-form"]/p/input[2]', driver = driver)
 ```
+### TASK 3
+Now that we have the page set up how we want it, it's time to SCRAPE THAT DATA. To do that, we'll use the `BeautifulSoup` package.
+
+**What unique HTML element can we target on the page that would give use the cost of the Silver Plan without financial assistance?**
+
+Hint: If the data shows up in the same order each time, we can use `BeautifulSoup` to find *all* elements on the page with the same class and then select the X element in the list that is the value we're looking for. 
 
 
 ```python
@@ -177,28 +201,21 @@ click_button(identifier='//*[@id="subsidy-form"]/p/input[2]', driver = driver)
 # Beautiful Soup setup using the desired URL
 html = driver.page_source
 soup = BeautifulSoup(html, 'html.parser')  # we use the 'lxml' parser here to scrape this page, which is very fast
-bold_blue = str(soup.find_all('span', class_ = "bold-blue")[4])# select the 4th element which has the value we want 
 
-try:
-    premium_val = str(soup.find_all('span', class_ = "bold-blue")[4])# select the 4th element which has the value we want 
-except:
-    driver.quit()
-    number = None
+# Find all elements with class "bold-blue" and select the 4th element which has the value we want
+premium_val = str(soup.find_all('span', class_ = "bold-blue")[4])
 
+# once we have the element we want we need to do a bit of data cleaning to get the number
+# this uses regular expressions, which extract characters based on a specified pattern
 extracted_number = re.search(r'\$([\d,]+(?:\.\d{1,2})?)', bold_blue)
 
-if extracted_number:
-    number = float(extracted_number.group())
-    print(number) 
+# Extract the matched group (number with $ and commas)
+matched_string = extracted_number.group(0)
 
-if extracted_number:
-    # Extract the matched group (number with $ and commas)
-    matched_string = extracted_number.group(0)
-
-    # Remove $ and commas from the matched string
-    clean_number = matched_string.replace('$', '').replace(',', '')
+# Remove $ and commas from the matched string
+clean_number = matched_string.replace('$', '').replace(',', '')
     
-    # Convert the cleaned string to a numeric value (float or int)
-    numeric_value = float(clean_number)  # 
+# Convert the cleaned string to a numeric value (float or int)
+numeric_value = float(clean_number)  # 
 ```
 
