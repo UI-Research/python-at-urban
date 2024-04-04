@@ -97,6 +97,12 @@ sm.report('display')
 ## Example Output from Site Monitor
 ![](images/site_monitor_output.png){fig-align='center'}
 
+## A note on \~AI\~
+- We don't expect you to understand 100% of the code throughout this bootcamp.
+- We want to emphasize the idea of concepts > syntax.
+- Urban is still working through testing of its guidelines for use of AI, and while things are murky, we want to focus on building Python and web scraping intuition.
+- This workshop will not use Copilot or ChatGPT, though we acknowledge the utility of those tools *if you are asking from a place of conceptual understanding*.
+
 ## Homework: Installations for Next Time
 - Install Python via Anaconda - see guidance from PUG's Python Installation training [here](https://ui-research.github.io/python-at-urban/content/installation.html)
 - Install the following Python packages: `requests`, `beautifulsoup4`, `lxml`, and `selenium`
