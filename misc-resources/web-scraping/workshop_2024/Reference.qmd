@@ -1,0 +1,59 @@
+---
+title: "Reference File"
+format: html
+editor: visual
+---
+
+## State Zip Code Data
+
+```{r}
+# script to clean zip/state csv file for
+# use in web scraping 
+library(tidyverse)
+library(jsonlite)
+library(tidylog)
+
+# read in data
+zip_data <- read_csv("data/zip-state.csv") %>% 
+	# filter out zctas
+	filter(str_detect(zipcode, "^[0-9]+$"),
+				 !is.na(city)) %>% 
+	# get one zip code per county
+	distinct(state, county, .keep_all = TRUE) %>% 
+	mutate(state_abbr = str_to_lower(state_abbr)) %>% 
+	# select just state abbreviation and zip codes
+	select(state_abbr, county, zipcode)
+
+# limit to small sample for workshop 
+zip_data_small <- zip_data %>% 
+	sample_n(10)
+
+write_csv(zip_data_small, "data/zip_data_small.csv")
+```
+
+## Nested Dictionary
+
+```{python}
+import pandas as pd
+
+# Read in csv of states, counties, and zip codes (one zip per county)
+ # Assuming you have a CSV file with columns 'State' and 'ZIP Code'
+csv_file_path = 'data/zip_data_small.csv'
+
+# read in csv
+raw_csv = pd.read_csv(csv_file_path, dtype={'zipcode': str})
+
+# Create a nested dictionary
+state_counties_zipcodes = {}
+
+for index, row in raw_csv.iterrows():
+    state = row['state_abbr']
+    county = row['county']
+    zipcode = row['zipcode']
+
+    if state not in state_counties_zipcodes:
+        state_counties_zipcodes[state] = {}
+
+    state_counties_zipcodes[state][county] = zipcode
+
+```
