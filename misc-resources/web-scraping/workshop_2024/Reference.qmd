@@ -9,12 +9,15 @@ editor: visual
 ```{r}
 # script to clean zip/state csv file for
 # use in web scraping 
+library(here)
 library(tidyverse)
 library(jsonlite)
 library(tidylog)
 
 # read in data
-zip_data <- read_csv("data/zip-state.csv") %>% 
+# Read in the file zip-state.csv using the here package
+file_path = here("misc-resources", "web-scraping", "workshop_2024", "data")
+zip_data <- read_csv(here(file_path, "zip-state.csv")) %>%
 	# filter out zctas
 	filter(str_detect(zipcode, "^[0-9]+$"),
 				 !is.na(city)) %>% 
@@ -28,20 +31,23 @@ zip_data <- read_csv("data/zip-state.csv") %>%
 zip_data_small <- zip_data %>% 
 	sample_n(10)
 
-write_csv(zip_data_small, "data/zip_data_small.csv")
+write_csv(zip_data_small, here(file_path, "zip_data_small.csv"))
 ```
 
 ## Nested Dictionary
 
 ```{python}
+import json
 import pandas as pd
 
 # Read in csv of states, counties, and zip codes (one zip per county)
  # Assuming you have a CSV file with columns 'State' and 'ZIP Code'
-csv_file_path = 'data/zip_data_small.csv'
+csv_file_path = 'misc-resources/web-scraping/workshop_2024/data/zip_data_small.csv'
 
 # read in csv
 raw_csv = pd.read_csv(csv_file_path, dtype={'zipcode': str})
+# Convert csv to json
+raw_json = raw_csv.to_json(orient='records')
 
 # Create a nested dictionary
 state_counties_zipcodes = {}
@@ -55,5 +61,9 @@ for index, row in raw_csv.iterrows():
         state_counties_zipcodes[state] = {}
 
     state_counties_zipcodes[state][county] = zipcode
+
+# Save out to json file
+with open('misc-resources/web-scraping/workshop_2024/data/zip_data_small.json', 'w') as f:
+    json.dump(state_counties_zipcodes, f, indent=4)
 
 ```
