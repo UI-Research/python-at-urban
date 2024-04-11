@@ -28,6 +28,7 @@ zip_data <- read_csv(here(file_path, "zip-state.csv")) %>%
 	select(state_abbr, county, zipcode)
 
 # limit to small sample for workshop 
+set.seed(1)
 zip_data_small <- zip_data %>% 
 	sample_n(10)
 

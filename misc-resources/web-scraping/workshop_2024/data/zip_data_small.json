@@ -1,30 +1,30 @@
 {
-    "ok": {
-        "Major": "73718",
-        "Wagoner": "74014"
+    "ky": {
+        "Bourbon": "40348"
     },
-    "nc": {
-        "Harnett": "27501"
+    "il": {
+        "Marion": "62801",
+        "Kane": "60109"
+    },
+    "ok": {
+        "Pawnee": "74020"
+    },
+    "ks": {
+        "Harvey": "67020"
+    },
+    "mo": {
+        "Buchanan": "64401"
+    },
+    "ga": {
+        "Dooly": "31007"
+    },
+    "sc": {
+        "Abbeville": "29620"
     },
     "co": {
-        "El Paso": "80106"
+        "Kit Carson": "80805"
     },
-    "fl": {
-        "Collier": "34102"
-    },
-    "ak": {
-        "Skagway-Hoonah-Angoon Census Area": "99820"
-    },
-    "tn": {
-        "Putnam": "38501"
-    },
-    "ky": {
-        "Bell": "40813"
-    },
-    "ca": {
-        "Plumas": "95923"
-    },
-    "tx": {
-        "Jeff Davis": "79734"
+    "md": {
+        "Wicomico": "21801"
     }
 }
