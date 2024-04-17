@@ -35,7 +35,7 @@ format:
 - Web scraping code can be brittle as websites change over time 
 
 ## What questions should I be asking at the outset?
-- Can I get the data without web scraping? (e.g. Is there an API or download option? Can you contact the website owner to request access to the data?)
+- Can I get the data without web scraping? (e.g. Is there an API or download option? Can you contact the site owner to request access?)
 - Am I legally allowed to scrape the website? Are there any site/rate limits or responsible web scraping considerations?
 - How many datasets or pieces of text need to be scraped?
 - Is webpage layout consistent or unstandardized?
@@ -44,9 +44,9 @@ format:
 - What tools/packages are needed for the job? (We will learn this throughout the workshop!)
 
 ## What are the variables that affect how difficult a web scraping task is?
-1. How many different websites are involved in the web scraping process?
+1. How many different websites or pages are involved in the web scraping process?
 2. Does the website have dynamic content or only static content?
-3. Is it easy to extract the info we want once we reach the desired webpage?
+3. Is it straightforward to extract the info we want once we reach the desired webpage?
 
 ## 1. Different Webpages
 - Intuitively, scraping information from one website is simpler than doing so from many websites
@@ -107,7 +107,8 @@ sm.report('display')
 - Install Python via Anaconda - see guidance from PUG's Python Installation training [here](https://ui-research.github.io/python-at-urban/content/installation.html)
 - Install the following Python packages: `requests`, `beautifulsoup4`, `lxml`, and `selenium`
 - Launch a new Jupyter Notebook if you've never done so before - see guidance from PUG's Intro to Python training [here](https://ui-research.github.io/python-at-urban/content/intro-to-python.html)
+- If you have any issues, please use the #python-users channel and we'd love to help. Someone else probably has the same question!
 
 ## Next Session
 - How to scrape text from static webpages using BeautifulSoup
-- Our first interactive workshop!
+- Diving into some Python code!
