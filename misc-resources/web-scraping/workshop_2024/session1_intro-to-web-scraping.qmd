@@ -34,6 +34,11 @@ format:
 - Depending on the task and site layout, complexity can vary widely
 - Web scraping code can be brittle as websites change over time 
 
+## Why is this web scraping bootcamp being taught in Python?
+- Python ecosystem more mature, flexible, and better-suited for dynamic web pages
+- Functionality in R is growing and evolving (e.g. the `rvest` package)
+- We may consider R tools for future versions of this workshop
+
 ## What questions should I be asking at the outset?
 - Can I get the data without web scraping? (e.g. Is there an API or download option? Can you contact the site owner to request access?)
 - Am I legally allowed to scrape the website? Are there any site/rate limits or responsible web scraping considerations?
