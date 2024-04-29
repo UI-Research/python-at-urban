@@ -1,0 +1,698 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Intro to Web Scraping &#8212; Python Users Group</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/main.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ipynb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Web Scraping with Static Pages" href="web-scraping-static.html" />
+    <link rel="prev" title="Intro to Pandas" href="intro-to-pandas.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/ui-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Users Group</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Python Users Group
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="why-python.html">
+   Why Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installing Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro-to-python.html">
+   Intro to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro-to-pandas.html">
+   Intro to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Intro to Web Scraping
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="web-scraping-static.html">
+   Web Scraping with Static Pages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="web-scraping-dynamic.html">
+   Web Scraping with Dynamic Pages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python-aws.html">
+   AWS &amp; Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="technical-support.html">
+   Technical Support
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="resources.html">
+   Resources
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/content/web-scraping-intro.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-web-scraping">
+   What is web scraping?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-does-urban-use-web-scraping">
+   How does Urban use web scraping?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-are-some-drawbacks-of-web-scraping">
+   What are some drawbacks of web scraping?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-is-this-web-scraping-bootcamp-being-taught-in-python">
+   Why is this web scraping bootcamp being taught in Python?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-questions-should-i-be-asking-at-the-outset">
+   What questions should I be asking at the outset?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-are-the-variables-that-affect-how-difficult-a-web-scraping-task-is">
+   What are the variables that affect how difficult a web scraping task is?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#different-webpages">
+   1. Different Webpages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#static-vs-dynamic-content">
+   2. Static vs Dynamic Content
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#identifying-desired-information">
+   3. Identifying Desired Information
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#responsible-web-scraping-guidelines">
+   Responsible Web Scraping Guidelines
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#site-monitor">
+   Site Monitor
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-output-from-site-monitor">
+   Example Output from Site Monitor
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-note-on-ai">
+   A note on ~AI~
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#homework-installations-for-next-time">
+   Homework: Installations for Next Time
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#next-session">
+   Next Session
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Intro to Web Scraping</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-web-scraping">
+   What is web scraping?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-does-urban-use-web-scraping">
+   How does Urban use web scraping?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-are-some-drawbacks-of-web-scraping">
+   What are some drawbacks of web scraping?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-is-this-web-scraping-bootcamp-being-taught-in-python">
+   Why is this web scraping bootcamp being taught in Python?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-questions-should-i-be-asking-at-the-outset">
+   What questions should I be asking at the outset?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-are-the-variables-that-affect-how-difficult-a-web-scraping-task-is">
+   What are the variables that affect how difficult a web scraping task is?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#different-webpages">
+   1. Different Webpages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#static-vs-dynamic-content">
+   2. Static vs Dynamic Content
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#identifying-desired-information">
+   3. Identifying Desired Information
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#responsible-web-scraping-guidelines">
+   Responsible Web Scraping Guidelines
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#site-monitor">
+   Site Monitor
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-output-from-site-monitor">
+   Example Output from Site Monitor
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#a-note-on-ai">
+   A note on ~AI~
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#homework-installations-for-next-time">
+   Homework: Installations for Next Time
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#next-session">
+   Next Session
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="intro-to-web-scraping">
+<h1>Intro to Web Scraping<a class="headerlink" href="#intro-to-web-scraping" title="Permalink to this headline">#</a></h1>
+<section id="what-is-web-scraping">
+<h2>What is web scraping?<a class="headerlink" href="#what-is-web-scraping" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Web scraping is the use of programming to extract structured text or data from a website</p></li>
+<li><p>It is generally used to automate tasks that would take too long (or be too error-prone) to feasibly do manually</p></li>
+<li><p>There are two main categories of web scraping tasks: (1) Collecting text data from one or more web pages and (2) automating the download of a number of files from a website</p></li>
+</ul>
+</section>
+<section id="how-does-urban-use-web-scraping">
+<h2>How does Urban use web scraping?<a class="headerlink" href="#how-does-urban-use-web-scraping" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Collecting thousands of community college course descriptions from the <a class="reference external" href="https://www.fldoe.org/">FLDOE website</a></p></li>
+<li><p>Downloading hundreds of CSV files from the <a class="reference external" href="https://data.cms.gov/tools/mapping-medicare-disparities-by-population">Centers for Medicare &amp; Medicaid Services website</a> that all required clicking different dropdowns from a menu of options</p></li>
+<li><p>Collecting the contact info for all notaries in Mississippi by clicking through thousands of pages on the <a class="reference external" href="https://www.sos.ms.gov/notarysearch/notarysearch.aspx">Secretary of State website</a></p></li>
+<li><p>Pulling voting history information from the <a class="reference external" href="https://vt.ncsbe.gov/RegLkup/">North Carolina State Board of Election website</a> by searching for thousands of registered voters</p></li>
+</ul>
+</section>
+<section id="what-are-some-drawbacks-of-web-scraping">
+<h2>What are some drawbacks of web scraping?<a class="headerlink" href="#what-are-some-drawbacks-of-web-scraping" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Not all sites can be legally or responsibly scraped</p></li>
+<li><p>Repeated requests to a website can lead to rate limiting (i.e. capping the number of requests over a certain period of time)</p></li>
+<li><p>Depending on the task and site layout, complexity can vary widely</p></li>
+<li><p>Web scraping code can be brittle as websites change over time</p></li>
+</ul>
+</section>
+<section id="why-is-this-web-scraping-bootcamp-being-taught-in-python">
+<h2>Why is this web scraping bootcamp being taught in Python?<a class="headerlink" href="#why-is-this-web-scraping-bootcamp-being-taught-in-python" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Python ecosystem more mature, flexible, and better-suited for dynamic web pages</p></li>
+<li><p>Functionality in R is growing and evolving (e.g. the <code class="docutils literal notranslate"><span class="pre">rvest</span></code> package)</p></li>
+<li><p>We may consider R tools for future versions of this workshop</p></li>
+</ul>
+</section>
+<section id="what-questions-should-i-be-asking-at-the-outset">
+<h2>What questions should I be asking at the outset?<a class="headerlink" href="#what-questions-should-i-be-asking-at-the-outset" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Can I get the data without web scraping? (e.g. Is there an API or download option? Can you contact the site owner to request access?)</p></li>
+<li><p>Am I legally allowed to scrape the website? Are there any site/rate limits or responsible web scraping considerations?</p></li>
+<li><p>How many datasets or pieces of text need to be scraped?</p></li>
+<li><p>Is webpage layout consistent or unstandardized?</p></li>
+<li><p>Are there Captchas, pop-ups, or ads blocking the content you want?</p></li>
+<li><p>Does the webpage have slow or inconsistent load times?</p></li>
+<li><p>What tools/packages are needed for the job? (We will learn this throughout the workshop!)</p></li>
+</ul>
+</section>
+<section id="what-are-the-variables-that-affect-how-difficult-a-web-scraping-task-is">
+<h2>What are the variables that affect how difficult a web scraping task is?<a class="headerlink" href="#what-are-the-variables-that-affect-how-difficult-a-web-scraping-task-is" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>How many different websites or pages are involved in the web scraping process?</p></li>
+<li><p>Does the website have dynamic content or only static content?</p></li>
+<li><p>Is it straightforward to extract the info we want once we reach the desired webpage?</p></li>
+</ol>
+</section>
+<section id="different-webpages">
+<h2>1. Different Webpages<a class="headerlink" href="#different-webpages" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Intuitively, scraping information from one website is simpler than doing so from many websites</p></li>
+<li><p>If the layouts of the sites are different, difficulty vastly increases</p>
+<ul>
+<li><p><strong>Rule of thumb</strong>: Think of this as a unique web scraping task for each uniquely structured website</p></li>
+</ul>
+</li>
+<li><p>Web crawlers such as <code class="docutils literal notranslate"><span class="pre">scrapy</span></code> exist to traverse many websites and grab all relevant information, but without easy ways to filter through that metadata, this can quickly become infeasible</p></li>
+<li><p>For jobs that take a long time to run (e.g. more than a few hours), gracefully logging and handling issues can add complexity</p></li>
+</ul>
+</section>
+<section id="static-vs-dynamic-content">
+<h2>2. Static vs Dynamic Content<a class="headerlink" href="#static-vs-dynamic-content" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>For a static page like a <a class="reference external" href="https://en.wikipedia.org/wiki/Urban_Institute">Wikipedia article</a>, packages like <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> or <code class="docutils literal notranslate"><span class="pre">pandas</span></code> can grab HTML text without too much complexity by parsing HTML tags</p></li>
+<li><p>For pages with dynamic content like clickable buttons or dropdown menus, the <code class="docutils literal notranslate"><span class="pre">Selenium</span></code> package is needed and the complexity goes up</p>
+<ul>
+<li><p><strong>Rule of thumb</strong>: Would a human user need to take any actions (besides scrolling up or down) to navigate to the desired info, or is it immediately available on the webpage?</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="identifying-desired-information">
+<h2>3. Identifying Desired Information<a class="headerlink" href="#identifying-desired-information" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Possible future task: scraping area median income from <a class="reference external" href="https://www.huduser.gov/portal/datasets/il.html">HUD website</a></p></li>
+<li><p>Upside: Only one webpage, can use <code class="docutils literal notranslate"><span class="pre">Selenium</span></code> to navigate dropdowns</p></li>
+<li><p>Downside: Numbers we want to grab can be in different places within each webpage</p></li>
+</ul>
+</section>
+<section id="responsible-web-scraping-guidelines">
+<h2>Responsible Web Scraping Guidelines<a class="headerlink" href="#responsible-web-scraping-guidelines" title="Permalink to this headline">#</a></h2>
+<ol class="simple">
+<li><p>Check the robots.txt file - let’s look at an example: <a class="reference external" href="https://www.urban.org/robots.txt">https://www.urban.org/robots.txt</a></p></li>
+<li><p>Consult Urban’s <a class="reference external" href="https://urbanorg.account.box.com/login?redirect_url=https%3A%2F%2Furbanorg.app.box.com%2Fs%2Fmam9kpf48mu92f4ktpyuw218yf8j45w0">Automated Data Collection Guidelines</a>.</p></li>
+<li><p>Use Headers (we’ll see this in action next week)</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">headers</span> <span class="pre">=</span> <span class="pre">{'user-agent':</span> <span class="pre">'Urban</span> <span class="pre">Institute</span> <span class="pre">Research</span> <span class="pre">Data</span> <span class="pre">Collector</span> <span class="pre">([your_e-mail]&#64;urban.org)'}</span></code></p>
+<ol class="simple">
+<li><p>Use Site Monitor to ensure web scraping does not strain the website</p></li>
+</ol>
+</section>
+<section id="site-monitor">
+<h2>Site Monitor<a class="headerlink" href="#site-monitor" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>A tool created by Urban to ensure responsible web scraping practices</p></li>
+<li><p>The actual code for Site Monitor lives <a class="reference external" href="https://github.com/UrbanInstitute/SiteMonitor/blob/master/site_monitor.py">here</a> in this GitHub repository</p></li>
+<li><p>Example code to test strain on a website</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">site_monitor</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">sm</span> <span class="o">=</span> <span class="n">SiteMonitor</span><span class="p">(</span><span class="n">burn_in</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">):</span>
+	<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://flscns.fldoe.org/PbInstituteCourseSearch.aspx&quot;</span>
+	<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+	<span class="n">delay</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">track_request</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="c1"># Display the report of response times in graph format</span>
+<span class="n">sm</span><span class="o">.</span><span class="n">report</span><span class="p">(</span><span class="s1">&#39;display&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="example-output-from-site-monitor">
+<h2>Example Output from Site Monitor<a class="headerlink" href="#example-output-from-site-monitor" title="Permalink to this headline">#</a></h2>
+<p><img alt="" src="content/images/site_monitor_output.png" />{fig-align=’center’}</p>
+</section>
+<section id="a-note-on-ai">
+<h2>A note on ~AI~<a class="headerlink" href="#a-note-on-ai" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>We don’t expect you to understand 100% of the code throughout this bootcamp.</p></li>
+<li><p>We want to emphasize the idea of concepts &gt; syntax.</p></li>
+<li><p>Urban is still working through testing of its guidelines for use of AI, and while things are murky, we want to focus on building Python and web scraping intuition.</p></li>
+<li><p>This workshop will not use Copilot or ChatGPT, though we acknowledge the utility of those tools <em>if you are asking from a place of conceptual understanding</em>.</p></li>
+</ul>
+</section>
+<section id="homework-installations-for-next-time">
+<h2>Homework: Installations for Next Time<a class="headerlink" href="#homework-installations-for-next-time" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Install Python via Anaconda - see guidance from PUG’s Python Installation training <a class="reference external" href="https://ui-research.github.io/python-at-urban/content/installation.html">here</a></p></li>
+<li><p>Install the following Python packages: <code class="docutils literal notranslate"><span class="pre">requests</span></code>, <code class="docutils literal notranslate"><span class="pre">beautifulsoup4</span></code>, <code class="docutils literal notranslate"><span class="pre">lxml</span></code>, and <code class="docutils literal notranslate"><span class="pre">selenium</span></code></p></li>
+<li><p>Launch a new Jupyter Notebook if you’ve never done so before - see guidance from PUG’s Intro to Python training <a class="reference external" href="https://ui-research.github.io/python-at-urban/content/intro-to-python.html">here</a></p></li>
+<li><p>If you have any issues, please use the #python-users channel and we’d love to help. Someone else probably has the same question!</p></li>
+<li><p>Sign up for GitHub using <a class="reference external" href="https://ui-research.github.io/reproducibility-at-urban/git-installation.html">this guide</a> if you haven’t so that you can access these workshop materials!</p></li>
+</ul>
+</section>
+<section id="next-session">
+<h2>Next Session<a class="headerlink" href="#next-session" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>How to scrape text from static webpages using BeautifulSoup</p></li>
+<li><p>Diving into some Python code!</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="intro-to-pandas.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Intro to Pandas</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="web-scraping-static.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Web Scraping with Static Pages</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -35,13 +35,16 @@ import time
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-Cell [0;32mIn[1], line 3[0m
-[1;32m      1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mbs4[39;00m [38;5;28;01mimport[39;00m BeautifulSoup
-[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mos[39;00m
-[0;32m----> 3[0m [38;5;28;01mfrom[39;00m [38;5;21;01mselenium[39;00m [38;5;28;01mimport[39;00m webdriver
+Cell [0;32mIn[1], line 6[0m
 [1;32m      4[0m [38;5;28;01mfrom[39;00m [38;5;21;01mselenium[39;00m[38;5;21;01m.[39;00m[38;5;21;01mwebdriver[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcommon[39;00m[38;5;21;01m.[39;00m[38;5;21;01mby[39;00m [38;5;28;01mimport[39;00m By
 [1;32m      5[0m [38;5;28;01mfrom[39;00m [38;5;21;01mselenium[39;00m[38;5;21;01m.[39;00m[38;5;21;01mwebdriver[39;00m[38;5;21;01m.[39;00m[38;5;21;01mchrome[39;00m[38;5;21;01m.[39;00m[38;5;21;01mservice[39;00m [38;5;28;01mimport[39;00m Service 
+[0;32m----> 6[0m [38;5;28;01mfrom[39;00m [38;5;21;01mwebdriver_manager[39;00m[38;5;21;01m.[39;00m[38;5;21;01mchrome[39;00m [38;5;28;01mimport[39;00m ChromeDriverManager
+[1;32m      7[0m [38;5;66;03m## NOTE: Some users may want to try a Firefox Driver instead;[39;00m
+[1;32m      8[0m [38;5;66;03m## Can comment above two lines and uncomment the below two lines[39;00m
+[1;32m      9[0m [38;5;66;03m# from selenium.webdriver.firefox.service import Service[39;00m
+[1;32m     10[0m [38;5;66;03m# from webdriver_manager.firefox import GeckoDriverManager[39;00m
+[1;32m     11[0m [38;5;28;01mfrom[39;00m [38;5;21;01mselenium[39;00m[38;5;21;01m.[39;00m[38;5;21;01mwebdriver[39;00m[38;5;21;01m.[39;00m[38;5;21;01msupport[39;00m [38;5;28;01mimport[39;00m expected_conditions [38;5;28;01mas[39;00m EC
 
-[0;31mModuleNotFoundError[0m: No module named 'selenium'
-ModuleNotFoundError: No module named 'selenium'
+[0;31mModuleNotFoundError[0m: No module named 'webdriver_manager'
+ModuleNotFoundError: No module named 'webdriver_manager'
 

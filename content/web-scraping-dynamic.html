@@ -137,6 +137,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="web-scraping-intro.html">
+   Intro to Web Scraping
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="web-scraping-static.html">
    Web Scraping with Static Pages
   </a>
@@ -613,14 +618,17 @@ title="Print to PDF"
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">os</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">selenium.webdriver.chrome.service</span> <span class="kn">import</span> <span class="n">Service</span> 
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">webdriver_manager.chrome</span> <span class="kn">import</span> <span class="n">ChromeDriverManager</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1">## NOTE: Some users may want to try a Firefox Driver instead;</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1">## Can comment above two lines and uncomment the below two lines</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># from selenium.webdriver.firefox.service import Service</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># from webdriver_manager.firefox import GeckoDriverManager</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">selenium.webdriver.support</span> <span class="kn">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">EC</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;selenium&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;webdriver_manager&#39;
 </pre></div>
 </div>
 </div>
