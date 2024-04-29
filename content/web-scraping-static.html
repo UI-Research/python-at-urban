@@ -1,0 +1,899 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Web Scraping with Static Pages &#8212; Python Users Group</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/main.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ipynb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="AWS &amp; Python" href="python-aws.html" />
+    <link rel="prev" title="Intro to Pandas" href="intro-to-pandas.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/ui-logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Users Group</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Python Users Group
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="why-python.html">
+   Why Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation.html">
+   Installing Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro-to-python.html">
+   Intro to Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro-to-pandas.html">
+   Intro to Pandas
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Web Scraping with Static Pages
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="python-aws.html">
+   AWS &amp; Python
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="technical-support.html">
+   Technical Support
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="resources.html">
+   Resources
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/UI-Research/python-at-urban/master?urlpath=tree/docs/content/web-scraping-static.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/content/web-scraping-static.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example">
+   Example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inspecting-a-web-page-to-learn-more-about-it">
+   Inspecting a Web Page to learn more about it
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#html-tags">
+   HTML Tags
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-a-request-to-a-webpage">
+   Making a request to a webpage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extracting-the-text">
+   Extracting the text
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manipulating-the-text-into-a-useful-format">
+   Manipulating the text into a useful format
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bonus">
+   BONUS:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#looking-ahead">
+     Looking Ahead
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Web Scraping with Static Pages</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example">
+   Example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inspecting-a-web-page-to-learn-more-about-it">
+   Inspecting a Web Page to learn more about it
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#html-tags">
+   HTML Tags
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#making-a-request-to-a-webpage">
+   Making a request to a webpage
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extracting-the-text">
+   Extracting the text
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#manipulating-the-text-into-a-useful-format">
+   Manipulating the text into a useful format
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bonus">
+   BONUS:
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#looking-ahead">
+     Looking Ahead
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="web-scraping-with-static-pages">
+<h1>Web Scraping with Static Pages<a class="headerlink" href="#web-scraping-with-static-pages" title="Permalink to this headline">#</a></h1>
+<p>Today we will be learning how to scrape text from a static webpage. By static, we mean that the webpage does not change its content based on user input (e.g. clicks, textboxes, etc.). We will cover the following concepts today:</p>
+<ul class="simple">
+<li><p>Inspecting a webpage</p></li>
+<li><p>What are HTML tags and why are they important?</p></li>
+<li><p>How to use the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library to get the HTML content of a webpage</p></li>
+<li><p>How to use the <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> library to parse the HTML content and extract just the parts we want</p></li>
+<li><p>Getting the final output into a workable format using <code class="docutils literal notranslate"><span class="pre">Pandas</span></code></p></li>
+</ul>
+<section id="example">
+<h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h2>
+<p>Our example web page will be the Wikipedia page listing National Parks in the United States: <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_national_parks_of_the_United_States">https://en.wikipedia.org/wiki/List_of_national_parks_of_the_United_States</a>. We’ll use this example to showcase a few different approaches to scraping text from a static webpage.
+Let’s say we wanted to generate a list of National Parks and their state/territory, which would look something like this:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Park</p></th>
+<th class="head"><p>State/Territory</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Acadia</p></td>
+<td><p>Maine</p></td>
+</tr>
+<tr class="row-odd"><td><p>American Samoa</p></td>
+<td><p>American Samoa</p></td>
+</tr>
+<tr class="row-even"><td><p>Arches</p></td>
+<td><p>Utah</p></td>
+</tr>
+<tr class="row-odd"><td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="inspecting-a-web-page-to-learn-more-about-it">
+<h2>Inspecting a Web Page to learn more about it<a class="headerlink" href="#inspecting-a-web-page-to-learn-more-about-it" title="Permalink to this headline">#</a></h2>
+<p>By right clicking on a web page and selecting “Inspect” or “Inspect Element” you can see the HTML and CSS that makes up the page.
+You can also right click on the specific text or data elements that you want to extract and select “Inspect” to see the HTML and CSS that makes up that specific element.
+Let’s start by right clicking on “Acadia” and clicking “Inspect”. We will see several HTML tags (indicated with &lt;&gt; symbols), including the one corresponding to where the name appears:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">th</span> <span class="na">scope</span><span class="o">=</span><span class="s">&quot;row&quot;</span><span class="p">&gt;</span> == $0
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/wiki/Acadia_National_Park&quot;</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;Acadia National Park&quot;</span><span class="p">&gt;</span>Acadia<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Similarly, for its state, we have:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/wiki/Maine&quot;</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;Maine&quot;</span><span class="p">&gt;</span>Maine<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+[...]
+</pre></div>
+</div>
+<p>So what does any of this mean?</p>
+</section>
+<section id="html-tags">
+<h2>HTML Tags<a class="headerlink" href="#html-tags" title="Permalink to this headline">#</a></h2>
+<p>Websites are built using HTML tags. Tags are used to create the structure of a website and indicate different headings, paragraphs, lists, links, images, and more.</p>
+<p>Tags are signified with an opening tag, like <code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code>, and a closing tag, like <code class="docutils literal notranslate"><span class="pre">&lt;/h1&gt;</span></code>. The closing tag is the same as the opening tag, but with a forward slash <code class="docutils literal notranslate"><span class="pre">/</span></code> before the tag name. The text between the opening and closing tags is the content of the tag. A few common HTML tags are listed below:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;h2&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;h3&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;h4&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;h5&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;h6&gt;</span></code>: Headings in decreasing order of size</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>: Paragraph</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code>: Link</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ul&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;ol&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;li&gt;</span></code>: Unordered list, ordered list, and list item</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;tr&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;th&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;td&gt;</span></code>: Table, table row, table header, table cell</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code>: Image</p></li>
+</ul>
+<p>So turning back to our example above, we see that national park names are enclosed in a <code class="docutils literal notranslate"><span class="pre">&lt;th&gt;</span></code> tag and the corresponding names seem to be enclosed in <code class="docutils literal notranslate"><span class="pre">&lt;td&gt;</span></code>. We can also see both of these tags are nested within a <code class="docutils literal notranslate"><span class="pre">&lt;tr&gt;</span></code> tag (table row), which is itself nested within a <code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code> tag. This is a common structure for tables in HTML and helpful to know for when we start extracting data.</p>
+</section>
+<section id="making-a-request-to-a-webpage">
+<h2>Making a request to a webpage<a class="headerlink" href="#making-a-request-to-a-webpage" title="Permalink to this headline">#</a></h2>
+<p>To get the HTML content from this page, we can use the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library in Python. The <code class="docutils literal notranslate"><span class="pre">requests.get()</span></code> function will return a <code class="docutils literal notranslate"><span class="pre">Response</span></code> object, which contains the HTML content of the webpage.</p>
+<p>When we print the response object, the number will tell us if the request was successful. See <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">this link</a> more detailed information on the possible numbers, but generally any response in the 200s means the request was successful.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the requests package</span>
+<span class="kn">import</span> <span class="nn">requests</span> 
+<span class="c1"># Set headers to let website know who we are</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;user-agent&#39;</span><span class="p">:</span> <span class="s1">&#39;Urban Institute Research Data Collector (jaxelrod@urban.org)&#39;</span><span class="p">}</span>
+<span class="c1"># Save our URL name</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://en.wikipedia.org/wiki/List_of_national_parks_of_the_United_States&#39;</span>
+<span class="c1"># Send a GET request to the URL and save the response</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="c1"># The response of 200 means that the page was downloaded successfully. Other responses could be </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Response [200]&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="extracting-the-text">
+<h2>Extracting the text<a class="headerlink" href="#extracting-the-text" title="Permalink to this headline">#</a></h2>
+<p>Now that we have the URL stored in a response object, we can use the <code class="docutils literal notranslate"><span class="pre">BeautifulSoup</span></code> library to parse through and extract only the text we want. Since we know that the park names are enclosed in <code class="docutils literal notranslate"><span class="pre">&lt;th&gt;</span></code>, we can use the <code class="docutils literal notranslate"><span class="pre">find_all()</span></code> function to extract all instances of these tags. Let’s start here to see what happens:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
+<span class="n">table_headers</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;th&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">table_headers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;th scope=&quot;col&quot;&gt;Name
+&lt;/th&gt;, &lt;th class=&quot;unsortable&quot; scope=&quot;col&quot;&gt;Image
+&lt;/th&gt;, &lt;th scope=&quot;col&quot;&gt;Location
+&lt;/th&gt;, &lt;th scope=&quot;col&quot;&gt;Date established as park&lt;sup class=&quot;reference&quot; id=&quot;cite_ref-12&quot;&gt;&lt;a href=&quot;#cite_note-12&quot;&gt;[12]&lt;/a&gt;&lt;/sup&gt;
+&lt;/th&gt;, &lt;th scope=&quot;col&quot;&gt;Area (2023)&lt;sup class=&quot;reference&quot; id=&quot;cite_ref-acreage_report_8-1&quot;&gt;&lt;a href=&quot;#cite_note-acreage_report-8&quot;&gt;[8]&lt;/a&gt;&lt;/sup&gt;
+&lt;/th&gt;, &lt;th scope=&quot;col&quot;&gt;Recreation visitors (2022)&lt;sup class=&quot;reference&quot; id=&quot;cite_ref-:0_11-2&quot;&gt;&lt;a href=&quot;#cite_note-:0-11&quot;&gt;[11]&lt;/a&gt;&lt;/sup&gt;
+&lt;/th&gt;, &lt;th class=&quot;unsortable&quot; scope=&quot;col&quot;&gt;Description
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Acadia_National_Park&quot; title=&quot;Acadia National Park&quot;&gt;Acadia&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/National_Park_of_American_Samoa&quot; title=&quot;National Park of American Samoa&quot;&gt;American Samoa&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Arches_National_Park&quot; title=&quot;Arches National Park&quot;&gt;Arches&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Badlands_National_Park&quot; title=&quot;Badlands National Park&quot;&gt;Badlands&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Biscayne_National_Park&quot; title=&quot;Biscayne National Park&quot;&gt;Biscayne&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Black_Canyon_of_the_Gunnison_National_Park&quot; title=&quot;Black Canyon of the Gunnison National Park&quot;&gt;Black Canyon of the Gunnison&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Bryce_Canyon_National_Park&quot; title=&quot;Bryce Canyon National Park&quot;&gt;Bryce Canyon&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Canyonlands_National_Park&quot; title=&quot;Canyonlands National Park&quot;&gt;Canyonlands&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Capitol_Reef_National_Park&quot; title=&quot;Capitol Reef National Park&quot;&gt;Capitol Reef&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Crater_Lake_National_Park&quot; title=&quot;Crater Lake National Park&quot;&gt;Crater Lake&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Cuyahoga_Valley_National_Park&quot; title=&quot;Cuyahoga Valley National Park&quot;&gt;Cuyahoga Valley&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Gates_of_the_Arctic_National_Park_and_Preserve&quot; title=&quot;Gates of the Arctic National Park and Preserve&quot;&gt;Gates of the Arctic&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Gateway_Arch_National_Park&quot; title=&quot;Gateway Arch National Park&quot;&gt;Gateway Arch&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Great_Basin_National_Park&quot; title=&quot;Great Basin National Park&quot;&gt;Great Basin&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Great_Sand_Dunes_National_Park_and_Preserve&quot; title=&quot;Great Sand Dunes National Park and Preserve&quot;&gt;Great Sand Dunes&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Guadalupe_Mountains_National_Park&quot; title=&quot;Guadalupe Mountains National Park&quot;&gt;Guadalupe Mountains&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Hot_Springs_National_Park&quot; title=&quot;Hot Springs National Park&quot;&gt;Hot Springs&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Indiana_Dunes_National_Park&quot; title=&quot;Indiana Dunes National Park&quot;&gt;Indiana Dunes&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Katmai_National_Park_and_Preserve&quot; title=&quot;Katmai National Park and Preserve&quot;&gt;Katmai&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Kenai_Fjords_National_Park&quot; title=&quot;Kenai Fjords National Park&quot;&gt;Kenai Fjords&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Kobuk_Valley_National_Park&quot; title=&quot;Kobuk Valley National Park&quot;&gt;Kobuk Valley&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Lake_Clark_National_Park_and_Preserve&quot; title=&quot;Lake Clark National Park and Preserve&quot;&gt;Lake Clark&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Lassen_Volcanic_National_Park&quot; title=&quot;Lassen Volcanic National Park&quot;&gt;Lassen Volcanic&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Mount_Rainier_National_Park&quot; title=&quot;Mount Rainier National Park&quot;&gt;Mount Rainier&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/New_River_Gorge_National_Park_and_Preserve&quot; title=&quot;New River Gorge National Park and Preserve&quot;&gt;New River Gorge&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/North_Cascades_National_Park&quot; title=&quot;North Cascades National Park&quot;&gt;North Cascades&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Petrified_Forest_National_Park&quot; title=&quot;Petrified Forest National Park&quot;&gt;Petrified Forest&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Pinnacles_National_Park&quot; title=&quot;Pinnacles National Park&quot;&gt;Pinnacles&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Saguaro_National_Park&quot; title=&quot;Saguaro National Park&quot;&gt;Saguaro&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Shenandoah_National_Park&quot; title=&quot;Shenandoah National Park&quot;&gt;Shenandoah&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Theodore_Roosevelt_National_Park&quot; title=&quot;Theodore Roosevelt National Park&quot;&gt;Theodore Roosevelt&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Virgin_Islands_National_Park&quot; title=&quot;Virgin Islands National Park&quot;&gt;Virgin Islands&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Voyageurs_National_Park&quot; title=&quot;Voyageurs National Park&quot;&gt;Voyageurs&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/White_Sands_National_Park&quot; title=&quot;White Sands National Park&quot;&gt;White Sands&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Wind_Cave_National_Park&quot; title=&quot;Wind Cave National Park&quot;&gt;Wind Cave&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Zion_National_Park&quot; title=&quot;Zion National Park&quot;&gt;Zion&lt;/a&gt;
+&lt;/th&gt;, &lt;th&gt;State&lt;/th&gt;, &lt;th&gt;Total parks&lt;/th&gt;, &lt;th&gt;Exclusive parks&lt;/th&gt;, &lt;th&gt;Shared parks
+&lt;/th&gt;, &lt;th class=&quot;navbox-title&quot; colspan=&quot;3&quot; scope=&quot;col&quot; style=&quot;background:#bbeb85;;background:#abdb75;&quot;&gt;&lt;link href=&quot;mw-data:TemplateStyles:r1129693374&quot; rel=&quot;mw-deduplicated-inline-style&quot;/&gt;&lt;style data-mw-deduplicate=&quot;TemplateStyles:r1063604349&quot;&gt;.mw-parser-output .navbar{display:inline;font-size:88%;font-weight:normal}.mw-parser-output .navbar-collapse{float:left;text-align:left}.mw-parser-output .navbar-boxtext{word-spacing:0}.mw-parser-output .navbar ul{display:inline-block;white-space:nowrap;line-height:inherit}.mw-parser-output .navbar-brackets::before{margin-right:-0.125em;content:&quot;[ &quot;}.mw-parser-output .navbar-brackets::after{margin-left:-0.125em;content:&quot; ]&quot;}.mw-parser-output .navbar li{word-spacing:-0.125em}.mw-parser-output .navbar a&gt;span,.mw-parser-output .navbar a&gt;abbr{text-decoration:inherit}.mw-parser-output .navbar-mini abbr{font-variant:small-caps;border-bottom:none;text-decoration:none;cursor:inherit}.mw-parser-output .navbar-ct-full{font-size:114%;margin:0 7em}.mw-parser-output .navbar-ct-mini{font-size:114%;margin:0 4em}&lt;/style&gt;&lt;div class=&quot;navbar plainlinks hlist navbar-mini&quot;&gt;&lt;ul&gt;&lt;li class=&quot;nv-view&quot;&gt;&lt;a href=&quot;/wiki/Template:National_parks_of_the_United_States&quot; title=&quot;Template:National parks of the United States&quot;&gt;&lt;abbr style=&quot;background:#bbeb85;;background:#abdb75;;background:none transparent;border:none;box-shadow:none;padding:0;&quot; title=&quot;View this template&quot;&gt;v&lt;/abbr&gt;&lt;/a&gt;&lt;/li&gt;&lt;li class=&quot;nv-talk&quot;&gt;&lt;a href=&quot;/wiki/Template_talk:National_parks_of_the_United_States&quot; title=&quot;Template talk:National parks of the United States&quot;&gt;&lt;abbr style=&quot;background:#bbeb85;;background:#abdb75;;background:none transparent;border:none;box-shadow:none;padding:0;&quot; title=&quot;Discuss this template&quot;&gt;t&lt;/abbr&gt;&lt;/a&gt;&lt;/li&gt;&lt;li class=&quot;nv-edit&quot;&gt;&lt;a href=&quot;/wiki/Special:EditPage/Template:National_parks_of_the_United_States&quot; title=&quot;Special:EditPage/Template:National parks of the United States&quot;&gt;&lt;abbr style=&quot;background:#bbeb85;;background:#abdb75;;background:none transparent;border:none;box-shadow:none;padding:0;&quot; title=&quot;Edit this template&quot;&gt;e&lt;/abbr&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div id=&quot;National_parks_of_the_United_States&quot; style=&quot;font-size:114%;margin:0 4em&quot;&gt;&lt;a class=&quot;mw-selflink selflink&quot;&gt;National parks of the United States&lt;/a&gt;&lt;/div&gt;&lt;/th&gt;, &lt;th class=&quot;navbox-title&quot; colspan=&quot;2&quot; scope=&quot;col&quot; style=&quot;background:#bbeb85;;background:#abdb75;&quot;&gt;&lt;link href=&quot;mw-data:TemplateStyles:r1129693374&quot; rel=&quot;mw-deduplicated-inline-style&quot;/&gt;&lt;link href=&quot;mw-data:TemplateStyles:r1063604349&quot; rel=&quot;mw-deduplicated-inline-style&quot;/&gt;&lt;div class=&quot;navbar plainlinks hlist navbar-mini&quot;&gt;&lt;ul&gt;&lt;li class=&quot;nv-view&quot;&gt;&lt;a href=&quot;/wiki/Template:US_Protected_Areas&quot; title=&quot;Template:US Protected Areas&quot;&gt;&lt;abbr style=&quot;background:#bbeb85;;background:#abdb75;;background:none transparent;border:none;box-shadow:none;padding:0;&quot; title=&quot;View this template&quot;&gt;v&lt;/abbr&gt;&lt;/a&gt;&lt;/li&gt;&lt;li class=&quot;nv-talk&quot;&gt;&lt;a href=&quot;/wiki/Template_talk:US_Protected_Areas&quot; title=&quot;Template talk:US Protected Areas&quot;&gt;&lt;abbr style=&quot;background:#bbeb85;;background:#abdb75;;background:none transparent;border:none;box-shadow:none;padding:0;&quot; title=&quot;Discuss this template&quot;&gt;t&lt;/abbr&gt;&lt;/a&gt;&lt;/li&gt;&lt;li class=&quot;nv-edit&quot;&gt;&lt;a href=&quot;/wiki/Special:EditPage/Template:US_Protected_Areas&quot; title=&quot;Special:EditPage/Template:US Protected Areas&quot;&gt;&lt;abbr style=&quot;background:#bbeb85;;background:#abdb75;;background:none transparent;border:none;box-shadow:none;padding:0;&quot; title=&quot;Edit this template&quot;&gt;e&lt;/abbr&gt;&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;div id=&quot;Federal_protected_areas_in_the_United_States&quot; style=&quot;font-size:114%;margin:0 4em&quot;&gt;&lt;a href=&quot;/wiki/Protected_areas_of_the_United_States&quot; title=&quot;Protected areas of the United States&quot;&gt;Federal protected areas in the United States&lt;/a&gt;&lt;/div&gt;&lt;/th&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that the output definitely seems to contain the national park names! But also probably some other stuff we don’t want. One useful trick is to try to narrow your search to <em>just</em> the table or object that contains the info you want; in this case, note that the HTML of the table we want actually contains a caption. We can search for that caption and then use the <code class="docutils literal notranslate"><span class="pre">find_parent</span></code> function to find the table that contains it. Then, within just that table, we can once again search for the table headers. Let’s try this now:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
+<span class="c1"># Find the caption</span>
+<span class="n">caption</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;caption&#39;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;List of U.S. national parks</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Find its parent table</span>
+     <span class="o">=</span> <span class="n">caption</span><span class="o">.</span><span class="n">find_parent</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+<span class="c1"># Find the table headers that make up that table</span>
+<span class="n">table_headers</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;th&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">table_headers</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+    <span class="o">=</span> <span class="n">caption</span><span class="o">.</span><span class="n">find_parent</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: unexpected indent
+</pre></div>
+</div>
+</div>
+</div>
+<p>Okay, now we’ve narrowed things down nicely. But how do we actually pull the text from this word salad? We can do this using the <code class="docutils literal notranslate"><span class="pre">get_text()</span></code> function and a simple Python <code class="docutils literal notranslate"><span class="pre">for</span></code> loop:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create an empty list that we will store text in</span>
+<span class="n">table_header_text</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1"># Loop over all of the table headers BeautifulSoup has found for us</span>
+<span class="k">for</span> <span class="n">header</span> <span class="ow">in</span> <span class="n">table_headers</span><span class="p">:</span>
+    <span class="c1"># Add the text of the header to our list using get_text()</span>
+    <span class="n">table_header_text</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">header</span><span class="o">.</span><span class="n">get_text</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">table_header_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Name\n&#39;, &#39;Image\n&#39;, &#39;Location\n&#39;, &#39;Date established as park[12]\n&#39;, &#39;Area (2023)[8]\n&#39;, &#39;Recreation visitors (2022)[11]\n&#39;, &#39;Description\n&#39;, &#39;Acadia\n&#39;, &#39;American Samoa\n&#39;, &#39;Arches\n&#39;, &#39;Badlands\n&#39;, &#39;Biscayne\n&#39;, &#39;Black Canyon of the Gunnison\n&#39;, &#39;Bryce Canyon\n&#39;, &#39;Canyonlands\n&#39;, &#39;Capitol Reef\n&#39;, &#39;Crater Lake\n&#39;, &#39;Cuyahoga Valley\n&#39;, &#39;Gates of the Arctic\n&#39;, &#39;Gateway Arch\n&#39;, &#39;Great Basin\n&#39;, &#39;Great Sand Dunes\n&#39;, &#39;Guadalupe Mountains\n&#39;, &#39;Hot Springs\n&#39;, &#39;Indiana Dunes\n&#39;, &#39;Katmai\n&#39;, &#39;Kenai Fjords\n&#39;, &#39;Kobuk Valley\n&#39;, &#39;Lake Clark\n&#39;, &#39;Lassen Volcanic\n&#39;, &#39;Mount Rainier\n&#39;, &#39;New River Gorge\n&#39;, &#39;North Cascades\n&#39;, &#39;Petrified Forest\n&#39;, &#39;Pinnacles\n&#39;, &#39;Saguaro\n&#39;, &#39;Shenandoah\n&#39;, &#39;Theodore Roosevelt\n&#39;, &#39;Virgin Islands\n&#39;, &#39;Voyageurs\n&#39;, &#39;White Sands\n&#39;, &#39;Wind Cave\n&#39;, &#39;Zion\n&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nearly done! Two more quick things to clean this up. First, we remove all of the extraneous matches at the beginning of our list. Second, we remove the newline character from the end of each string.</p>
+<p>(Remember, Python starts indexing at 0, and we want to exclude the first 7 items.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get items in our list starting from the 8th item</span>
+<span class="n">national_park_names</span> <span class="o">=</span> <span class="n">table_header_text</span><span class="p">[</span><span class="mi">7</span><span class="p">:]</span>
+<span class="c1"># Strip whitespace from the beginning and end of each item</span>
+<span class="n">national_park_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">park</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">park</span> <span class="ow">in</span> <span class="n">national_park_names</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">national_park_names</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">national_park_names</span><span class="p">)</span><span class="si">}</span><span class="s1"> entries&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Acadia&#39;, &#39;American Samoa&#39;, &#39;Arches&#39;, &#39;Badlands&#39;, &#39;Biscayne&#39;, &#39;Black Canyon of the Gunnison&#39;, &#39;Bryce Canyon&#39;, &#39;Canyonlands&#39;, &#39;Capitol Reef&#39;, &#39;Crater Lake&#39;, &#39;Cuyahoga Valley&#39;, &#39;Gates of the Arctic&#39;, &#39;Gateway Arch&#39;, &#39;Great Basin&#39;, &#39;Great Sand Dunes&#39;, &#39;Guadalupe Mountains&#39;, &#39;Hot Springs&#39;, &#39;Indiana Dunes&#39;, &#39;Katmai&#39;, &#39;Kenai Fjords&#39;, &#39;Kobuk Valley&#39;, &#39;Lake Clark&#39;, &#39;Lassen Volcanic&#39;, &#39;Mount Rainier&#39;, &#39;New River Gorge&#39;, &#39;North Cascades&#39;, &#39;Petrified Forest&#39;, &#39;Pinnacles&#39;, &#39;Saguaro&#39;, &#39;Shenandoah&#39;, &#39;Theodore Roosevelt&#39;, &#39;Virgin Islands&#39;, &#39;Voyageurs&#39;, &#39;White Sands&#39;, &#39;Wind Cave&#39;, &#39;Zion&#39;]
+36 entries
+</pre></div>
+</div>
+</div>
+</div>
+<p>Woohoo! Now let’s move on to the state/territory names, which we recall live inside <code class="docutils literal notranslate"><span class="pre">&lt;td&gt;</span></code> tags. Conveniently, we don’t have to start from the <code class="docutils literal notranslate"><span class="pre">soup</span></code> object that contains <em>all</em> the webpage’s HTML, but can start again from the <code class="docutils literal notranslate"><span class="pre">table</span></code> object we created above which contains just the table we want. Let’s try this now:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">table_cells</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">)</span>
+<span class="c1"># print(table_cells)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The print statement is commented out because the output returned is so long, but try it yourself to see! This is not uncommon for very HTML-rich pages.</p>
+<p>We can see that the returned HTML definitely contains the state/territory names, but also has a lot of other extraneous text. Again, this is a useful real-life example, because there are in practice lots of other elements that might share the type of tag with the data you want. How can we get more specific?</p>
+<p>Yet again, we can use the <code class="docutils literal notranslate"><span class="pre">find_parent</span></code> trick. Note that beneath each state/territory name is a set of coordinates that have a unique <code class="docutils literal notranslate"><span class="pre">&lt;small&gt;</span></code> tag, unlike the other text in <code class="docutils literal notranslate"><span class="pre">&lt;td&gt;</span></code> tags. So we can:</p>
+<ol class="simple">
+<li><p>Search for the small tags</p></li>
+<li><p>Find all td tags that are parents of these small tags</p></li>
+<li><p>Extract just the location from each td tag</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#1. Get small tags</span>
+<span class="n">small_tags</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;small&#39;</span><span class="p">)</span>
+<span class="n">td_tags</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c1">#2. Loop over small tags and get their parent td tags</span>
+<span class="k">for</span> <span class="n">small_tag</span> <span class="ow">in</span> <span class="n">small_tags</span><span class="p">:</span>
+    <span class="n">td_tags</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">small_tag</span><span class="o">.</span><span class="n">find_parent</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">))</span>
+
+<span class="c1">#3. Extract just the title text from the td tags</span>
+<span class="n">states_and_territories</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">tag</span> <span class="ow">in</span> <span class="n">td_tags</span><span class="p">:</span>
+    <span class="n">states_and_territories</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">tag</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">])</span> <span class="c1"># The .a[&#39;title&#39;] is needed to get just the text under the &#39;title&#39; attribute; otherwise this would include the coordinates too!</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">states_and_territories</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">states_and_territories</span><span class="p">)</span><span class="si">}</span><span class="s1"> entries&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Maine&#39;, &#39;American Samoa&#39;, &#39;Utah&#39;, &#39;South Dakota&#39;, &#39;Texas&#39;, &#39;Florida&#39;, &#39;Colorado&#39;, &#39;Utah&#39;, &#39;Utah&#39;, &#39;Utah&#39;, &#39;New Mexico&#39;, &#39;California&#39;, &#39;South Carolina&#39;, &#39;Oregon&#39;, &#39;Ohio&#39;, &#39;California&#39;, &#39;Alaska&#39;, &#39;Florida&#39;, &#39;Florida&#39;, &#39;Alaska&#39;, &#39;Missouri&#39;, &#39;Montana&#39;, &#39;Alaska&#39;, &#39;Arizona&#39;, &#39;Wyoming&#39;, &#39;Nevada&#39;, &#39;Colorado&#39;, &#39;North Carolina&#39;, &#39;Texas&#39;, &#39;Hawaii&#39;, &#39;Hawaii&#39;, &#39;Arkansas&#39;, &#39;Indiana&#39;, &#39;Michigan&#39;, &#39;California&#39;, &#39;Alaska&#39;, &#39;Alaska&#39;, &#39;California&#39;, &#39;Alaska&#39;, &#39;Alaska&#39;, &#39;California&#39;, &#39;Kentucky&#39;, &#39;Colorado&#39;, &#39;Washington (state)&#39;, &#39;West Virginia&#39;, &#39;Washington (state)&#39;, &#39;Washington (state)&#39;, &#39;Arizona&#39;, &#39;California&#39;, &#39;California&#39;, &#39;Colorado&#39;, &#39;Arizona&#39;, &#39;California&#39;, &#39;Virginia&#39;, &#39;North Dakota&#39;, &#39;United States Virgin Islands&#39;, &#39;Minnesota&#39;, &#39;New Mexico&#39;, &#39;South Dakota&#39;, &#39;Alaska&#39;, &#39;Wyoming&#39;, &#39;California&#39;, &#39;Utah&#39;]
+63 entries
+</pre></div>
+</div>
+</div>
+</div>
+<p>And we’re 100% fini…OH NO! We have a problem! Why do we have 63 locations but only 37 parks? Well, it looks like some of the national parks are missing, specifically those that have symbols next to them on Wikipedia. Upon inspection, these are actually in <code class="docutils literal notranslate"><span class="pre">&lt;td&gt;</span></code> tags, not <code class="docutils literal notranslate"><span class="pre">&lt;th&gt;</span></code> tags. However, it appears they all contain <code class="docutils literal notranslate"><span class="pre">scope=&quot;row&quot;</span></code>. This is one more nifty feature of Beautiful Soup - the ability to feed in custom attributes that fit the quirks of our use case. Here’s the syntax for how we do it:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">national_parks_extra_tags</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;td&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;scope&#39;</span><span class="p">:</span> <span class="s1">&#39;row&#39;</span><span class="p">})</span>
+<span class="n">national_parks_extra</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">park</span> <span class="ow">in</span> <span class="n">national_parks_extra_tags</span><span class="p">:</span>
+    <span class="n">national_parks_extra</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">park</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">national_parks_extra</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Big Bend †&#39;, &#39;Carlsbad Caverns *&#39;, &#39;Channel Islands †&#39;, &#39;Congaree †&#39;, &#39;Death Valley †&#39;, &#39;Denali †&#39;, &#39;Dry Tortugas †&#39;, &#39;Everglades ‡&#39;, &#39;Glacier ‡&#39;, &#39;Glacier Bay ‡&#39;, &#39;Grand Canyon *&#39;, &#39;Grand Teton †&#39;, &#39;Great Smoky Mountains ‡&#39;, &#39;Haleakalā †&#39;, &#39;Hawaiʻi Volcanoes ‡&#39;, &#39;Isle Royale †&#39;, &#39;Joshua Tree †&#39;, &#39;Kings Canyon †&#39;, &#39;Mammoth Cave ‡&#39;, &#39;Mesa Verde *&#39;, &#39;Olympic ‡&#39;, &#39;Redwood *&#39;, &#39;Rocky Mountain †&#39;, &#39;Sequoia †&#39;, &#39;Wrangell–St.\xa0Elias *&#39;, &#39;Yellowstone ‡&#39;, &#39;Yosemite *&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, let’s append the two lists of national parks together and re-sort them in alphabetical order. Finally, we’ve got both of our lists of 63 entries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">national_parks_combined</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">national_park_names</span> <span class="o">+</span> <span class="n">national_parks_extra</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">national_parks_combined</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">national_parks_combined</span><span class="p">)</span><span class="si">}</span><span class="s1"> entries&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Acadia&#39;, &#39;American Samoa&#39;, &#39;Arches&#39;, &#39;Badlands&#39;, &#39;Big Bend †&#39;, &#39;Biscayne&#39;, &#39;Black Canyon of the Gunnison&#39;, &#39;Bryce Canyon&#39;, &#39;Canyonlands&#39;, &#39;Capitol Reef&#39;, &#39;Carlsbad Caverns *&#39;, &#39;Channel Islands †&#39;, &#39;Congaree †&#39;, &#39;Crater Lake&#39;, &#39;Cuyahoga Valley&#39;, &#39;Death Valley †&#39;, &#39;Denali †&#39;, &#39;Dry Tortugas †&#39;, &#39;Everglades ‡&#39;, &#39;Gates of the Arctic&#39;, &#39;Gateway Arch&#39;, &#39;Glacier Bay ‡&#39;, &#39;Glacier ‡&#39;, &#39;Grand Canyon *&#39;, &#39;Grand Teton †&#39;, &#39;Great Basin&#39;, &#39;Great Sand Dunes&#39;, &#39;Great Smoky Mountains ‡&#39;, &#39;Guadalupe Mountains&#39;, &#39;Haleakalā †&#39;, &#39;Hawaiʻi Volcanoes ‡&#39;, &#39;Hot Springs&#39;, &#39;Indiana Dunes&#39;, &#39;Isle Royale †&#39;, &#39;Joshua Tree †&#39;, &#39;Katmai&#39;, &#39;Kenai Fjords&#39;, &#39;Kings Canyon †&#39;, &#39;Kobuk Valley&#39;, &#39;Lake Clark&#39;, &#39;Lassen Volcanic&#39;, &#39;Mammoth Cave ‡&#39;, &#39;Mesa Verde *&#39;, &#39;Mount Rainier&#39;, &#39;New River Gorge&#39;, &#39;North Cascades&#39;, &#39;Olympic ‡&#39;, &#39;Petrified Forest&#39;, &#39;Pinnacles&#39;, &#39;Redwood *&#39;, &#39;Rocky Mountain †&#39;, &#39;Saguaro&#39;, &#39;Sequoia †&#39;, &#39;Shenandoah&#39;, &#39;Theodore Roosevelt&#39;, &#39;Virgin Islands&#39;, &#39;Voyageurs&#39;, &#39;White Sands&#39;, &#39;Wind Cave&#39;, &#39;Wrangell–St.\xa0Elias *&#39;, &#39;Yellowstone ‡&#39;, &#39;Yosemite *&#39;, &#39;Zion&#39;]
+63 entries
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="manipulating-the-text-into-a-useful-format">
+<h2>Manipulating the text into a useful format<a class="headerlink" href="#manipulating-the-text-into-a-useful-format" title="Permalink to this headline">#</a></h2>
+<p>As a final step, we will convert these two lists we’ve scraped into a pandas dataframe (for R users, analogous to a tibble). This example will be light on the pandas-specific code, but this is often an important part of web scraping. BeautifulSoup is a powerful tool, but it sometimes outputs data in a format that is not immediately useful, even with some of the tricks we applied above. Pandas can help us clean and manipulate this data into a more useful format.</p>
+<p>Note: Pandas even has a built-in function to read HTML tables directly from a webpage, which can be a nice starting point for certain examples (like this one believe it or not). BeautifulSoup is your workhorse for static webpage scraping, but this is worth knowing about if you’re a pandas user. You’d be surprised how far the two lines below will get you:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_html</span><span class="p">(</span><span class="s1">&#39;https://en.wikipedia.org/wiki/List_of_national_parks_of_the_United_States&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">][[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Location&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+<p>Web scraping with pandas is outside the scope of our lesson here, but worth exploring. Back to our example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert this into a pandas dataframe</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;National Park&#39;</span><span class="p">:</span> <span class="n">national_parks_combined</span><span class="p">,</span>
+    <span class="s1">&#39;State&#39;</span><span class="p">:</span> <span class="n">states_and_territories</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>           National Park           State
+0                 Acadia           Maine
+1         American Samoa  American Samoa
+2                 Arches            Utah
+3               Badlands    South Dakota
+4             Big Bend †           Texas
+..                   ...             ...
+58             Wind Cave    South Dakota
+59  Wrangell–St. Elias *          Alaska
+60         Yellowstone ‡         Wyoming
+61            Yosemite *      California
+62                  Zion            Utah
+
+[63 rows x 2 columns]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="bonus">
+<h2>BONUS:<a class="headerlink" href="#bonus" title="Permalink to this headline">#</a></h2>
+<p>Some of our more adventurous participants may have caught early on that national parks can be in multiple states and territories.</p>
+<p>For instance, the Great Smoky Mountains are in both North Carolina and Tennessee. Let’s tweak the above code to handle that, starting at #3.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">27</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>National Park    Great Smoky Mountains ‡
+State                     North Carolina
+Name: 27, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">states_and_territories</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="c1"># Enumerate allows us to loop over a list and get the index (in this case, &quot;park_number&quot;) of the item as well</span>
+<span class="k">for</span> <span class="n">park_number</span><span class="p">,</span> <span class="n">tag</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">td_tags</span><span class="p">):</span>
+    <span class="c1"># Before, we were just getting the first &#39;a&#39; tag, now let&#39;s get all of them for a given table cell</span>
+    <span class="n">a_tags</span> <span class="o">=</span> <span class="n">tag</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+    <span class="c1"># Get the titles of each location in a list, except for the last one which is extraneous info</span>
+    <span class="n">locations</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">a_tags</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="c1"># Create a dictionary where the key is the national park name and the value is the list of locations</span>
+    <span class="n">dict_key</span> <span class="o">=</span> <span class="n">national_parks_combined</span><span class="p">[</span><span class="n">park_number</span><span class="p">]</span>
+    <span class="n">states_and_territories</span><span class="p">[</span><span class="n">dict_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">locations</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">states_and_territories</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">states_and_territories</span><span class="p">,</span> 
+                             <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Acadia&#39;: [&#39;Maine&#39;], &#39;American Samoa&#39;: [&#39;American Samoa&#39;], &#39;Arches&#39;: [&#39;Utah&#39;], &#39;Badlands&#39;: [&#39;South Dakota&#39;], &#39;Big Bend †&#39;: [&#39;Texas&#39;], &#39;Biscayne&#39;: [&#39;Florida&#39;], &#39;Black Canyon of the Gunnison&#39;: [&#39;Colorado&#39;], &#39;Bryce Canyon&#39;: [&#39;Utah&#39;], &#39;Canyonlands&#39;: [&#39;Utah&#39;], &#39;Capitol Reef&#39;: [&#39;Utah&#39;], &#39;Carlsbad Caverns *&#39;: [&#39;New Mexico&#39;], &#39;Channel Islands †&#39;: [&#39;California&#39;], &#39;Congaree †&#39;: [&#39;South Carolina&#39;], &#39;Crater Lake&#39;: [&#39;Oregon&#39;], &#39;Cuyahoga Valley&#39;: [&#39;Ohio&#39;], &#39;Death Valley †&#39;: [&#39;California&#39;, &#39;Nevada&#39;], &#39;Denali †&#39;: [&#39;Alaska&#39;], &#39;Dry Tortugas †&#39;: [&#39;Florida&#39;], &#39;Everglades ‡&#39;: [&#39;Florida&#39;], &#39;Gates of the Arctic&#39;: [&#39;Alaska&#39;], &#39;Gateway Arch&#39;: [&#39;Missouri&#39;], &#39;Glacier Bay ‡&#39;: [&#39;Montana&#39;], &#39;Glacier ‡&#39;: [&#39;Alaska&#39;], &#39;Grand Canyon *&#39;: [&#39;Arizona&#39;], &#39;Grand Teton †&#39;: [&#39;Wyoming&#39;], &#39;Great Basin&#39;: [&#39;Nevada&#39;], &#39;Great Sand Dunes&#39;: [&#39;Colorado&#39;], &#39;Great Smoky Mountains ‡&#39;: [&#39;North Carolina&#39;, &#39;Tennessee&#39;], &#39;Guadalupe Mountains&#39;: [&#39;Texas&#39;], &#39;Haleakalā †&#39;: [&#39;Hawaii&#39;], &#39;Hawaiʻi Volcanoes ‡&#39;: [&#39;Hawaii&#39;], &#39;Hot Springs&#39;: [&#39;Arkansas&#39;], &#39;Indiana Dunes&#39;: [&#39;Indiana&#39;], &#39;Isle Royale †&#39;: [&#39;Michigan&#39;], &#39;Joshua Tree †&#39;: [&#39;California&#39;], &#39;Katmai&#39;: [&#39;Alaska&#39;], &#39;Kenai Fjords&#39;: [&#39;Alaska&#39;], &#39;Kings Canyon †&#39;: [&#39;California&#39;], &#39;Kobuk Valley&#39;: [&#39;Alaska&#39;], &#39;Lake Clark&#39;: [&#39;Alaska&#39;], &#39;Lassen Volcanic&#39;: [&#39;California&#39;], &#39;Mammoth Cave ‡&#39;: [&#39;Kentucky&#39;], &#39;Mesa Verde *&#39;: [&#39;Colorado&#39;], &#39;Mount Rainier&#39;: [&#39;Washington&#39;], &#39;New River Gorge&#39;: [&#39;West Virginia&#39;], &#39;North Cascades&#39;: [&#39;Washington&#39;], &#39;Olympic ‡&#39;: [&#39;Washington&#39;], &#39;Petrified Forest&#39;: [&#39;Arizona&#39;], &#39;Pinnacles&#39;: [&#39;California&#39;], &#39;Redwood *&#39;: [&#39;California&#39;], &#39;Rocky Mountain †&#39;: [&#39;Colorado&#39;], &#39;Saguaro&#39;: [&#39;Arizona&#39;], &#39;Sequoia †&#39;: [&#39;California&#39;], &#39;Shenandoah&#39;: [&#39;Virginia&#39;], &#39;Theodore Roosevelt&#39;: [&#39;North Dakota&#39;], &#39;Virgin Islands&#39;: [&#39;U.S. Virgin Islands&#39;], &#39;Voyageurs&#39;: [&#39;Minnesota&#39;], &#39;White Sands&#39;: [&#39;New Mexico&#39;], &#39;Wind Cave&#39;: [&#39;South Dakota&#39;], &#39;Wrangell–St.\xa0Elias *&#39;: [&#39;Alaska&#39;], &#39;Yellowstone ‡&#39;: [&#39;Wyoming&#39;, &#39;Montana&#39;, &#39;Idaho&#39;], &#39;Yosemite *&#39;: [&#39;California&#39;], &#39;Zion&#39;: [&#39;Utah&#39;]}
+                                   0        1      2
+Acadia                         Maine     None   None
+American Samoa        American Samoa     None   None
+Arches                          Utah     None   None
+Badlands                South Dakota     None   None
+Big Bend †                     Texas     None   None
+...                              ...      ...    ...
+Wind Cave               South Dakota     None   None
+Wrangell–St. Elias *          Alaska     None   None
+Yellowstone ‡                Wyoming  Montana  Idaho
+Yosemite *                California     None   None
+Zion                            Utah     None   None
+
+[63 rows x 3 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<section id="looking-ahead">
+<h3>Looking Ahead<a class="headerlink" href="#looking-ahead" title="Permalink to this headline">#</a></h3>
+<p>Next week we’ll introduce Selenium for scraping dynamic content. We’ll be scraping this website, so a quick perusal to familiarize yourself could be helpful: <a class="reference external" href="https://www.kff.org/interactive/subsidy-calculator/">https://www.kff.org/interactive/subsidy-calculator/</a></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="intro-to-pandas.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Intro to Pandas</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="python-aws.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">AWS &amp; Python</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
