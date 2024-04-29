@@ -8,6 +8,7 @@ chapters:
 - file: content/installation
 - file: content/intro-to-python
 - file: content/intro-to-pandas
+- file: content/web-scraping-static
 - file: content/python-aws 
 - file: content/technical-support
 - file: content/resources
