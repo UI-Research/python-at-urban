@@ -4,3 +4,6 @@ numpy
 boto3
 openpyxl
 lxml_html_clean
+selenium
+beautifulsoup4
+requests
