@@ -1,19 +1,4 @@
----
-title: "Intro to Web Scraping"
-author: "Judah Axelrod and Amy Rogin"
-format:
-    revealjs: 
-        slide-number: c/t
-        width: 1250
-        height: 800
----
-
-## Bootcamp Curriculum
-- Week 1: Intro to Web Scraping
-- Week 2: How to scrape from static web pages
-- Week 3: How to scrape from dynamic web pages
-- Week 4: Putting together a full web scraping workflow
-- Week 5: Dealing with obstacles
+# Intro to Web Scraping
 
 ## What is web scraping?
 
@@ -75,16 +60,16 @@ format:
 1. Check the robots.txt file - let's look at an example: [https://www.urban.org/robots.txt](https://www.urban.org/robots.txt) 
 2. Consult Urban's [Automated Data Collection Guidelines](https://urbanorg.account.box.com/login?redirect_url=https%3A%2F%2Furbanorg.app.box.com%2Fs%2Fmam9kpf48mu92f4ktpyuw218yf8j45w0).
 3. Use Headers (we'll see this in action next week)
-```code
-headers = {'user-agent': 'Urban Institute Research Data Collector ([your_e-mail]@urban.org)'}
-```
+
+`headers = {'user-agent': 'Urban Institute Research Data Collector ([your_e-mail]@urban.org)'}`
+
 4. Use Site Monitor to ensure web scraping does not strain the website
 
 ## Site Monitor
 - A tool created by Urban to ensure responsible web scraping practices
 - The actual code for Site Monitor lives [here](https://github.com/UrbanInstitute/SiteMonitor/blob/master/site_monitor.py) in this GitHub repository
 - Example code to test strain on a website
-```code
+```
 from site_monitor import *
 import requests
 
