@@ -1,0 +1,170 @@
+from bs4 import BeautifulSoup
+import os
+import json
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service 
+from webdriver_manager.chrome import ChromeDriverManager
+## NOTE: Some users may want to try a Firefox Driver instead;
+## Can comment above two lines and uncomment the below two lines
+# from selenium.webdriver.firefox.service import Service
+# from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import Select, WebDriverWait
+import pandas as pd
+import re
+import time
+
+def click_button(identifier, driver, by=By.XPATH, timeout=15):   
+    '''
+    This function waits until a button is clickable and then clicks on it.`
+
+    Inputs:
+        identifier (string): The Id, XPath, or other way of identifying the element to be clicked on
+        by (By object): How to identify the identifier (Options include By.XPATH, By.ID, By.Name and others).
+            Make sure 'by' and 'identifier' correspond to one other as they are used as a tuple pair below.
+        timeout (int): How long to wait for the object to be clickable
+
+    Returns:
+        None (just clicks on button)
+    '''
+
+    element_clickable = EC.element_to_be_clickable((by, identifier))
+    element = WebDriverWait(driver, timeout=timeout).until(element_clickable)
+    driver.execute_script("arguments[0].click();", element)
+
+
+def select_dropdown(identifier, driver,  by=By.XPATH, value=None, option=None,  index=None):
+    '''
+    This function clicks on the correct dropdown option in a dropdown object.
+    It first waits until the element becomes selectable before locating the proper drop down menu. Then it selects the proper option.
+    If the page doesn't load within 15 seconds, it will return a timeout message.
+
+    Inputs:
+        id (string): This is the HTML 'value' of the dropdown menu to be selected, 
+            found through inspecting the web page.
+        value (string): The value to select from the dropdown menu.
+        index (int): If index is not None, function assumes we want to select an option by its index instead of by specific value. 
+            In this case, should specify that value = None.
+    
+    Returns:
+        None (just selects the right item in the dropdown menu)
+    '''
+    element_clickable = EC.element_to_be_clickable((by, identifier))
+    element = WebDriverWait(driver, timeout=15).until(element_clickable)
+    if value is not None:
+        Select(element).select_by_value(value)
+    elif option is not None: 
+        Select(element).select_by_visible_text(option)
+    else:
+        Select(element).select_by_index(index)
+
+def enter_text(identifier, text, driver, by=By.XPATH):
+    element_clickable = EC.element_to_be_clickable((by, identifier))
+    element = WebDriverWait(driver, timeout=15).until(element_clickable)
+     # Clear the text from the text box (zip code wasn't overwritting)
+    element.clear()
+    element.send_keys(text)
+
+
+def is_textbox_empty(driver, textbox_id):
+    '''
+    This function checks if a text box is empty
+    Use this for the income variable so that we don't rewrite it
+    every loop
+    '''
+    textbox = driver.find_element('xpath',textbox_id)
+    textbox_value = textbox.get_attribute("value")
+
+    return not bool(textbox_value)
+
+def setup_page(state, driver, zipcode):
+    '''
+     This functions sets up the initial page conditions that don't need to change with each iteration through the age groups 
+
+     Inputs: 
+        zipcode is input to the dropdown menus on the website. 
+            Each time this function is called below, it is for a different cut of the data.
+        counter (int): Counts how many times this function has been called in the script below
+        driver: Specify the driver with the web page we are navigating 
+
+    Returns: 
+        Nothing, just sets up the page
+     '''
+	# function to set state, county, and income which don't change when looping through a county
+    # pring the state and zip code to the console 
+    print(f'State = {state}, zip Code ={zipcode}')
+    
+     # Select state dropdown
+    select_dropdown(identifier='//*[@id="state-dd"]',driver = driver, value=state)
+    # Enter zip code
+    enter_text(identifier='//*[@id="zip-wrapper"]/div/input', driver = driver, text = zipcode)
+        # if there's an option to select a county, select the county associated with the zip code
+        # Attempt to locate and click the dropdown element
+
+        # Enter yearly household income
+    if is_textbox_empty(driver=driver, textbox_id='//*[@id="subsidy-form"]/div[2]/div[1]/div[2]/div[2]/input'):
+        # enter income value if the text box does not already have text 
+        enter_text(identifier='//*[@id="subsidy-form"]/div[2]/div[1]/div[2]/div[2]/input', driver = driver, text = '100000') # this stays the same each time
+    
+    # Is coverage available from your or your spouse's job? 
+    click_button(identifier='//*[@id="employer-coverage-0"]', driver = driver,) # this stays the same each time
+
+
+def scrape_data(age, driver):
+     '''
+     This functions scrapes the price of the silver plan premium (without financial help) for non-smoking 14, 20, 40, and 60 year old people for each county nationally and saves it as a dataframe 
+
+     Inputs: 
+        age: an input to the dropdown menus on the website. 
+            Each time this function is called below, it is for a different cut of the data.
+        driver: Specify the driver with the web page we are navigating 
+
+    Returns: 
+        The Silver Plan Premium for the specified age
+     '''
+     # print the age that we are scraping to the console
+     print(f'age = {age}')
+
+     # Number of adults (21 to 64) enrolled in Marketplace coverage? (changes based on input age)
+     if age in [19 ,39]: # fill in with these are the indexes for 40yo and 60yo
+        # set number of kids to 0
+        select_dropdown(identifier='//*[@id="subsidy-form"]/div[2]/div[3]/div[3]/div/select',driver = driver, index = '0')
+        # set number of adults to 1
+        select_dropdown(identifier='//*[@id="subsidy-form"]/div[2]/div[3]/div[1]/div/select',driver = driver, value = "1")
+        # Age? (index is age minus 21)
+        select_dropdown(identifier='//*[@id="subsidy-form"]/div[2]/div[3]/div[2]/div/div[1]/select', driver = driver,index = age)
+     else: 
+        # set number of adults to 0
+        select_dropdown(identifier='//*[@id="subsidy-form"]/div[2]/div[3]/div[1]/div/select',driver = driver, value = "0")
+        # Number of children (20 and younger) enrolling in Marketplace coverage
+        select_dropdown(identifier='//*[@id="subsidy-form"]/div[2]/div[3]/div[3]/div/select',driver = driver, index = '1')
+        select_dropdown(identifier='//*[@id="subsidy-form"]/div[2]/div[3]/div[4]/div/div[1]/select',driver = driver, index = age)
+        
+     # print update to console    
+     print('Found data download button now clicking it')
+     # Submit
+     click_button(identifier='//*[@id="subsidy-form"]/p/input[2]', driver = driver,)
+
+     time.sleep(1)       
+     print('Now scraping data')
+
+     ##--- Beautiful Soup ---###
+     # Beautiful Soup setup using the desired URL
+     html = driver.page_source
+     soup = BeautifulSoup(html, 'html.parser')  # we use the 'lxml' parser here to scrape this page, which is very fast
+     
+     premium_val = str(soup.find_all('span', class_ = "bold-blue")[4])# select the 4th element which has the value we want 
+
+     
+     extracted_number = re.search(r'\$([\d,]+(?:\.\d{1,2})?)', premium_val)
+     
+    # Extract the matched group (number with $ and commas)
+     matched_string = extracted_number.group(0)
+    # Remove $ and commas from the matched string
+     clean_number = matched_string.replace('$', '').replace(',', '')
+    # Convert the cleaned string to a numeric value (float or int)
+     number = float(clean_number) 
+     print(number)
+        
+     return (number)
