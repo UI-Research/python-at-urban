@@ -605,7 +605,7 @@ Let’s start by right clicking on “Acadia” and clicking “Inspect”. We w
 <span class="c1"># Find the caption</span>
 <span class="n">caption</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;caption&#39;</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;List of U.S. national parks</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="c1"># Find its parent table</span>
-     <span class="o">=</span> <span class="n">caption</span><span class="o">.</span><span class="n">find_parent</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">caption</span><span class="o">.</span><span class="n">find_parent</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
 <span class="c1"># Find the table headers that make up that table</span>
 <span class="n">table_headers</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;th&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">table_headers</span><span class="p">)</span>
@@ -613,10 +613,54 @@ Let’s start by right clicking on “Acadia” and clicking “Inspect”. We w
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
-    <span class="o">=</span> <span class="n">caption</span><span class="o">.</span><span class="n">find_parent</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
-    <span class="o">^</span>
-<span class="ne">IndentationError</span>: unexpected indent
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;th scope=&quot;col&quot;&gt;Name
+&lt;/th&gt;, &lt;th class=&quot;unsortable&quot; scope=&quot;col&quot;&gt;Image
+&lt;/th&gt;, &lt;th scope=&quot;col&quot;&gt;Location
+&lt;/th&gt;, &lt;th scope=&quot;col&quot;&gt;Date established as park&lt;sup class=&quot;reference&quot; id=&quot;cite_ref-12&quot;&gt;&lt;a href=&quot;#cite_note-12&quot;&gt;[12]&lt;/a&gt;&lt;/sup&gt;
+&lt;/th&gt;, &lt;th scope=&quot;col&quot;&gt;Area (2023)&lt;sup class=&quot;reference&quot; id=&quot;cite_ref-acreage_report_8-1&quot;&gt;&lt;a href=&quot;#cite_note-acreage_report-8&quot;&gt;[8]&lt;/a&gt;&lt;/sup&gt;
+&lt;/th&gt;, &lt;th scope=&quot;col&quot;&gt;Recreation visitors (2022)&lt;sup class=&quot;reference&quot; id=&quot;cite_ref-:0_11-2&quot;&gt;&lt;a href=&quot;#cite_note-:0-11&quot;&gt;[11]&lt;/a&gt;&lt;/sup&gt;
+&lt;/th&gt;, &lt;th class=&quot;unsortable&quot; scope=&quot;col&quot;&gt;Description
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Acadia_National_Park&quot; title=&quot;Acadia National Park&quot;&gt;Acadia&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/National_Park_of_American_Samoa&quot; title=&quot;National Park of American Samoa&quot;&gt;American Samoa&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Arches_National_Park&quot; title=&quot;Arches National Park&quot;&gt;Arches&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Badlands_National_Park&quot; title=&quot;Badlands National Park&quot;&gt;Badlands&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Biscayne_National_Park&quot; title=&quot;Biscayne National Park&quot;&gt;Biscayne&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Black_Canyon_of_the_Gunnison_National_Park&quot; title=&quot;Black Canyon of the Gunnison National Park&quot;&gt;Black Canyon of the Gunnison&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Bryce_Canyon_National_Park&quot; title=&quot;Bryce Canyon National Park&quot;&gt;Bryce Canyon&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Canyonlands_National_Park&quot; title=&quot;Canyonlands National Park&quot;&gt;Canyonlands&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Capitol_Reef_National_Park&quot; title=&quot;Capitol Reef National Park&quot;&gt;Capitol Reef&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Crater_Lake_National_Park&quot; title=&quot;Crater Lake National Park&quot;&gt;Crater Lake&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Cuyahoga_Valley_National_Park&quot; title=&quot;Cuyahoga Valley National Park&quot;&gt;Cuyahoga Valley&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Gates_of_the_Arctic_National_Park_and_Preserve&quot; title=&quot;Gates of the Arctic National Park and Preserve&quot;&gt;Gates of the Arctic&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Gateway_Arch_National_Park&quot; title=&quot;Gateway Arch National Park&quot;&gt;Gateway Arch&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Great_Basin_National_Park&quot; title=&quot;Great Basin National Park&quot;&gt;Great Basin&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Great_Sand_Dunes_National_Park_and_Preserve&quot; title=&quot;Great Sand Dunes National Park and Preserve&quot;&gt;Great Sand Dunes&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Guadalupe_Mountains_National_Park&quot; title=&quot;Guadalupe Mountains National Park&quot;&gt;Guadalupe Mountains&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Hot_Springs_National_Park&quot; title=&quot;Hot Springs National Park&quot;&gt;Hot Springs&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Indiana_Dunes_National_Park&quot; title=&quot;Indiana Dunes National Park&quot;&gt;Indiana Dunes&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Katmai_National_Park_and_Preserve&quot; title=&quot;Katmai National Park and Preserve&quot;&gt;Katmai&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Kenai_Fjords_National_Park&quot; title=&quot;Kenai Fjords National Park&quot;&gt;Kenai Fjords&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Kobuk_Valley_National_Park&quot; title=&quot;Kobuk Valley National Park&quot;&gt;Kobuk Valley&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Lake_Clark_National_Park_and_Preserve&quot; title=&quot;Lake Clark National Park and Preserve&quot;&gt;Lake Clark&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Lassen_Volcanic_National_Park&quot; title=&quot;Lassen Volcanic National Park&quot;&gt;Lassen Volcanic&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Mount_Rainier_National_Park&quot; title=&quot;Mount Rainier National Park&quot;&gt;Mount Rainier&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/New_River_Gorge_National_Park_and_Preserve&quot; title=&quot;New River Gorge National Park and Preserve&quot;&gt;New River Gorge&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/North_Cascades_National_Park&quot; title=&quot;North Cascades National Park&quot;&gt;North Cascades&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Petrified_Forest_National_Park&quot; title=&quot;Petrified Forest National Park&quot;&gt;Petrified Forest&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Pinnacles_National_Park&quot; title=&quot;Pinnacles National Park&quot;&gt;Pinnacles&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Saguaro_National_Park&quot; title=&quot;Saguaro National Park&quot;&gt;Saguaro&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Shenandoah_National_Park&quot; title=&quot;Shenandoah National Park&quot;&gt;Shenandoah&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Theodore_Roosevelt_National_Park&quot; title=&quot;Theodore Roosevelt National Park&quot;&gt;Theodore Roosevelt&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Virgin_Islands_National_Park&quot; title=&quot;Virgin Islands National Park&quot;&gt;Virgin Islands&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Voyageurs_National_Park&quot; title=&quot;Voyageurs National Park&quot;&gt;Voyageurs&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/White_Sands_National_Park&quot; title=&quot;White Sands National Park&quot;&gt;White Sands&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Wind_Cave_National_Park&quot; title=&quot;Wind Cave National Park&quot;&gt;Wind Cave&lt;/a&gt;
+&lt;/th&gt;, &lt;th scope=&quot;row&quot;&gt;&lt;a href=&quot;/wiki/Zion_National_Park&quot; title=&quot;Zion National Park&quot;&gt;Zion&lt;/a&gt;
+&lt;/th&gt;]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1998/2762383118.py:4: DeprecationWarning: The &#39;text&#39; argument to find()-type methods is deprecated. Use &#39;string&#39; instead.
+  caption = soup.find(&#39;caption&#39;, text=&quot;List of U.S. national parks\n&quot;)
 </pre></div>
 </div>
 </div>
