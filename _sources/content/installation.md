@@ -23,13 +23,13 @@ There are a number of different code editors or integrated development environme
 
 Anaconda comes with a package management system called `conda`. To install a package, open your command prompt and run 
 
-`conda install {package-name}`
+`conda install package-name`
 
 Note that this must be done from the command line and **not** the Python session (in contrast to package management in R).
 
 Base Python has its own package management tool called `pip`. If a package is not available with `conda install`, you can try running 
 
-`pip install {package-name}`
+`pip install package-name`
 
 You should always try running `conda install` first, as this will do a better job of resolving package dependency issues.
 
