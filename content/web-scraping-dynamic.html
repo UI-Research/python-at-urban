@@ -604,6 +604,8 @@ title="Print to PDF"
 <span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
 <span class="kn">from</span> <span class="nn">selenium.webdriver.chrome.service</span> <span class="kn">import</span> <span class="n">Service</span> 
 <span class="kn">from</span> <span class="nn">webdriver_manager.chrome</span> <span class="kn">import</span> <span class="n">ChromeDriverManager</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.chrome.options</span> <span class="kn">import</span> <span class="n">Options</span>
+
 <span class="c1">## NOTE: Some users may want to try a Firefox Driver instead;</span>
 <span class="c1">## Can comment above two lines and uncomment the below two lines</span>
 <span class="c1"># from selenium.webdriver.firefox.service import Service</span>
@@ -612,6 +614,12 @@ title="Print to PDF"
 <span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">Select</span><span class="p">,</span> <span class="n">WebDriverWait</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1"># Set Chrome options - NOTE: you can remove these options and still have the code work when running things locally</span>
+<span class="n">options</span> <span class="o">=</span> <span class="n">Options</span><span class="p">()</span>
+<span class="n">options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--headless&quot;</span><span class="p">)</span>  <span class="c1"># Run Chrome in headless mode</span>
+<span class="n">options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--no-sandbox&quot;</span><span class="p">)</span>
+<span class="n">options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--disable-dev-shm-usage&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -694,23 +702,23 @@ title="Print to PDF"
   <span class="p">(</span><span class="n">session</span> <span class="ow">not</span> <span class="n">created</span><span class="p">:</span> <span class="n">DevToolsActivePort</span> <span class="n">file</span> <span class="n">doesn</span><span class="s1">&#39;t exist)</span>
   <span class="p">(</span><span class="n">The</span> <span class="n">process</span> <span class="n">started</span> <span class="kn">from</span> <span class="nn">chrome</span> <span class="n">location</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">google</span><span class="o">/</span><span class="n">chrome</span><span class="o">/</span><span class="n">chrome</span> <span class="ow">is</span> <span class="n">no</span> <span class="n">longer</span> <span class="n">running</span><span class="p">,</span> <span class="n">so</span> <span class="n">ChromeDriver</span> <span class="ow">is</span> <span class="n">assuming</span> <span class="n">that</span> <span class="n">Chrome</span> <span class="n">has</span> <span class="n">crashed</span><span class="o">.</span><span class="p">)</span>
 <span class="ne">Stacktrace</span>:
-<span class="c1">#0 0x5616bcd82cb3 &lt;unknown&gt;</span>
-<span class="c1">#1 0x5616bca714a7 &lt;unknown&gt;</span>
-<span class="c1">#2 0x5616bcaa5a26 &lt;unknown&gt;</span>
-<span class="c1">#3 0x5616bcaa1980 &lt;unknown&gt;</span>
-<span class="c1">#4 0x5616bcaea7b0 &lt;unknown&gt;</span>
-<span class="c1">#5 0x5616bcade1b3 &lt;unknown&gt;</span>
-<span class="c1">#6 0x5616bcaaf24a &lt;unknown&gt;</span>
-<span class="c1">#7 0x5616bcaafc1e &lt;unknown&gt;</span>
-<span class="c1">#8 0x5616bcd46fdb &lt;unknown&gt;</span>
-<span class="c1">#9 0x5616bcd4af2b &lt;unknown&gt;</span>
-<span class="c1">#10 0x5616bcd330f1 &lt;unknown&gt;</span>
-<span class="c1">#11 0x5616bcd4ba92 &lt;unknown&gt;</span>
-<span class="c1">#12 0x5616bcd17faf &lt;unknown&gt;</span>
-<span class="c1">#13 0x5616bcd71e08 &lt;unknown&gt;</span>
-<span class="c1">#14 0x5616bcd71fe0 &lt;unknown&gt;</span>
-<span class="c1">#15 0x5616bcd81e04 &lt;unknown&gt;</span>
-<span class="c1">#16 0x7f02b3094ac3 &lt;unknown&gt;</span>
+<span class="c1">#0 0x55999bdbbcb3 &lt;unknown&gt;</span>
+<span class="c1">#1 0x55999baaa4a7 &lt;unknown&gt;</span>
+<span class="c1">#2 0x55999badea26 &lt;unknown&gt;</span>
+<span class="c1">#3 0x55999bada980 &lt;unknown&gt;</span>
+<span class="c1">#4 0x55999bb237b0 &lt;unknown&gt;</span>
+<span class="c1">#5 0x55999bb171b3 &lt;unknown&gt;</span>
+<span class="c1">#6 0x55999bae824a &lt;unknown&gt;</span>
+<span class="c1">#7 0x55999bae8c1e &lt;unknown&gt;</span>
+<span class="c1">#8 0x55999bd7ffdb &lt;unknown&gt;</span>
+<span class="c1">#9 0x55999bd83f2b &lt;unknown&gt;</span>
+<span class="c1">#10 0x55999bd6c0f1 &lt;unknown&gt;</span>
+<span class="c1">#11 0x55999bd84a92 &lt;unknown&gt;</span>
+<span class="c1">#12 0x55999bd50faf &lt;unknown&gt;</span>
+<span class="c1">#13 0x55999bdaae08 &lt;unknown&gt;</span>
+<span class="c1">#14 0x55999bdaafe0 &lt;unknown&gt;</span>
+<span class="c1">#15 0x55999bdbae04 &lt;unknown&gt;</span>
+<span class="c1">#16 0x7f09e4a94ac3 &lt;unknown&gt;</span>
 </pre></div>
 </div>
 </div>
