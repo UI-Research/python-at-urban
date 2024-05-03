@@ -614,12 +614,6 @@ title="Print to PDF"
 <span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">Select</span><span class="p">,</span> <span class="n">WebDriverWait</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">time</span>
-
-<span class="c1"># Set Chrome options - NOTE: you can remove these options and still have the code work when running things locally</span>
-<span class="n">options</span> <span class="o">=</span> <span class="n">Options</span><span class="p">()</span>
-<span class="n">options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--headless&quot;</span><span class="p">)</span>  <span class="c1"># Run Chrome in headless mode</span>
-<span class="n">options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--no-sandbox&quot;</span><span class="p">)</span>
-<span class="n">options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--disable-dev-shm-usage&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -631,7 +625,8 @@ title="Print to PDF"
 <p>Next, we need to specify the URL that we want the driver to navigate to. The following chunk of code specifies that we want to navigate to the Health Insurance Marketplace Calculator, and then opens a web browser and navigates to the page.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">service</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">executable_path</span><span class="o">=</span><span class="n">ChromeDriverManager</span><span class="p">()</span><span class="o">.</span><span class="n">install</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span> #Hides output
+<span class="n">service</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">executable_path</span><span class="o">=</span><span class="n">ChromeDriverManager</span><span class="p">()</span><span class="o">.</span><span class="n">install</span><span class="p">())</span>
 <span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">service</span><span class="p">)</span>
 <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.kff.org/interactive/subsidy-calculator/&quot;</span>
 <span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
@@ -639,86 +634,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">SessionNotCreatedException</span><span class="g g-Whitespace">                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">service</span> <span class="o">=</span> <span class="n">Service</span><span class="p">(</span><span class="n">executable_path</span><span class="o">=</span><span class="n">ChromeDriverManager</span><span class="p">()</span><span class="o">.</span><span class="n">install</span><span class="p">())</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">service</span><span class="o">=</span><span class="n">service</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://www.kff.org/interactive/subsidy-calculator/&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/selenium/webdriver/chrome/webdriver.py:45,</span> in <span class="ni">WebDriver.__init__</span><span class="nt">(self, options, service, keep_alive)</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="n">service</span> <span class="o">=</span> <span class="n">service</span> <span class="k">if</span> <span class="n">service</span> <span class="k">else</span> <span class="n">Service</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="n">options</span> <span class="o">=</span> <span class="n">options</span> <span class="k">if</span> <span class="n">options</span> <span class="k">else</span> <span class="n">Options</span><span class="p">()</span>
-<span class="ne">---&gt; </span><span class="mi">45</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span>     <span class="n">browser_name</span><span class="o">=</span><span class="n">DesiredCapabilities</span><span class="o">.</span><span class="n">CHROME</span><span class="p">[</span><span class="s2">&quot;browserName&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="n">vendor_prefix</span><span class="o">=</span><span class="s2">&quot;goog&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span>     <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span>     <span class="n">service</span><span class="o">=</span><span class="n">service</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span>     <span class="n">keep_alive</span><span class="o">=</span><span class="n">keep_alive</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/selenium/webdriver/chromium/webdriver.py:66,</span> in <span class="ni">ChromiumDriver.__init__</span><span class="nt">(self, browser_name, vendor_prefix, options, service, keep_alive)</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span> <span class="n">executor</span> <span class="o">=</span> <span class="n">ChromiumRemoteConnection</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span>     <span class="n">remote_server_addr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">service</span><span class="o">.</span><span class="n">service_url</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span>     <span class="n">browser_name</span><span class="o">=</span><span class="n">browser_name</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span>     <span class="n">ignore_proxy</span><span class="o">=</span><span class="n">options</span><span class="o">.</span><span class="n">_ignore_local_proxy</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">63</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">65</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">66</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">command_executor</span><span class="o">=</span><span class="n">executor</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">67</span> <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">68</span>     <span class="bp">self</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py:208,</span> in <span class="ni">WebDriver.__init__</span><span class="nt">(self, command_executor, keep_alive, file_detector, options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">206</span> <span class="bp">self</span><span class="o">.</span><span class="n">_authenticator_id</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">207</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_client</span><span class="p">()</span>
-<span class="ne">--&gt; </span><span class="mi">208</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_session</span><span class="p">(</span><span class="n">capabilities</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py:292,</span> in <span class="ni">WebDriver.start_session</span><span class="nt">(self, capabilities)</span>
-<span class="g g-Whitespace">    </span><span class="mi">285</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Creates a new session with the desired capabilities.</span>
-<span class="g g-Whitespace">    </span><span class="mi">286</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">287</span><span class="sd"> :Args:</span>
-<span class="g g-Whitespace">    </span><span class="mi">288</span><span class="sd">  - capabilities - a capabilities dict to start the session with.</span>
-<span class="g g-Whitespace">    </span><span class="mi">289</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">291</span> <span class="n">caps</span> <span class="o">=</span> <span class="n">_create_caps</span><span class="p">(</span><span class="n">capabilities</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">292</span> <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">Command</span><span class="o">.</span><span class="n">NEW_SESSION</span><span class="p">,</span> <span class="n">caps</span><span class="p">)[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">293</span> <span class="bp">self</span><span class="o">.</span><span class="n">session_id</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sessionId&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">294</span> <span class="bp">self</span><span class="o">.</span><span class="n">caps</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;capabilities&quot;</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/selenium/webdriver/remote/webdriver.py:347,</span> in <span class="ni">WebDriver.execute</span><span class="nt">(self, driver_command, params)</span>
-<span class="g g-Whitespace">    </span><span class="mi">345</span> <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">command_executor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">driver_command</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">346</span> <span class="k">if</span> <span class="n">response</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">347</span>     <span class="bp">self</span><span class="o">.</span><span class="n">error_handler</span><span class="o">.</span><span class="n">check_response</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">348</span>     <span class="n">response</span><span class="p">[</span><span class="s2">&quot;value&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_unwrap_value</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">349</span>     <span class="k">return</span> <span class="n">response</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.18/x64/lib/python3.8/site-packages/selenium/webdriver/remote/errorhandler.py:229,</span> in <span class="ni">ErrorHandler.check_response</span><span class="nt">(self, response)</span>
-<span class="g g-Whitespace">    </span><span class="mi">227</span>         <span class="n">alert_text</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="s2">&quot;alert&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;text&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">228</span>     <span class="k">raise</span> <span class="n">exception_class</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">screen</span><span class="p">,</span> <span class="n">stacktrace</span><span class="p">,</span> <span class="n">alert_text</span><span class="p">)</span>  <span class="c1"># type: ignore[call-arg]  # mypy is not smart enough here</span>
-<span class="ne">--&gt; </span><span class="mi">229</span> <span class="k">raise</span> <span class="n">exception_class</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">screen</span><span class="p">,</span> <span class="n">stacktrace</span><span class="p">)</span>
-
-<span class="ne">SessionNotCreatedException</span>: Message: session not created: Chrome failed to start: exited normally.
-  <span class="p">(</span><span class="n">session</span> <span class="ow">not</span> <span class="n">created</span><span class="p">:</span> <span class="n">DevToolsActivePort</span> <span class="n">file</span> <span class="n">doesn</span><span class="s1">&#39;t exist)</span>
-  <span class="p">(</span><span class="n">The</span> <span class="n">process</span> <span class="n">started</span> <span class="kn">from</span> <span class="nn">chrome</span> <span class="n">location</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">google</span><span class="o">/</span><span class="n">chrome</span><span class="o">/</span><span class="n">chrome</span> <span class="ow">is</span> <span class="n">no</span> <span class="n">longer</span> <span class="n">running</span><span class="p">,</span> <span class="n">so</span> <span class="n">ChromeDriver</span> <span class="ow">is</span> <span class="n">assuming</span> <span class="n">that</span> <span class="n">Chrome</span> <span class="n">has</span> <span class="n">crashed</span><span class="o">.</span><span class="p">)</span>
-<span class="ne">Stacktrace</span>:
-<span class="c1">#0 0x55999bdbbcb3 &lt;unknown&gt;</span>
-<span class="c1">#1 0x55999baaa4a7 &lt;unknown&gt;</span>
-<span class="c1">#2 0x55999badea26 &lt;unknown&gt;</span>
-<span class="c1">#3 0x55999bada980 &lt;unknown&gt;</span>
-<span class="c1">#4 0x55999bb237b0 &lt;unknown&gt;</span>
-<span class="c1">#5 0x55999bb171b3 &lt;unknown&gt;</span>
-<span class="c1">#6 0x55999bae824a &lt;unknown&gt;</span>
-<span class="c1">#7 0x55999bae8c1e &lt;unknown&gt;</span>
-<span class="c1">#8 0x55999bd7ffdb &lt;unknown&gt;</span>
-<span class="c1">#9 0x55999bd83f2b &lt;unknown&gt;</span>
-<span class="c1">#10 0x55999bd6c0f1 &lt;unknown&gt;</span>
-<span class="c1">#11 0x55999bd84a92 &lt;unknown&gt;</span>
-<span class="c1">#12 0x55999bd50faf &lt;unknown&gt;</span>
-<span class="c1">#13 0x55999bdaae08 &lt;unknown&gt;</span>
-<span class="c1">#14 0x55999bdaafe0 &lt;unknown&gt;</span>
-<span class="c1">#15 0x55999bdbae04 &lt;unknown&gt;</span>
-<span class="c1">#16 0x7f09e4a94ac3 &lt;unknown&gt;</span>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UsageError: unrecognized arguments: output
 </pre></div>
 </div>
 </div>
