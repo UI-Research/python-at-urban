@@ -95,7 +95,7 @@ sm.report('display')
 
 ## Homework: Installations for Next Time
 - Install Python via Anaconda - see guidance from PUG's Python Installation training [here](https://ui-research.github.io/python-at-urban/content/installation.html)
-- Install the following Python packages: `requests`, `beautifulsoup4`, `lxml`, and `selenium`
+- Install the following Python packages: `requests`, `beautifulsoup4`, `lxml`, `selenium`, and `webdriver-manager`.
 - Launch a new Jupyter Notebook if you've never done so before - see guidance from PUG's Intro to Python training [here](https://ui-research.github.io/python-at-urban/content/intro-to-python.html)
 - If you have any issues, please use the #python-users channel and we'd love to help. Someone else probably has the same question!
 - Sign up for GitHub using [this guide](https://ui-research.github.io/reproducibility-at-urban/git-installation.html) if you haven't so that you can access these workshop materials!

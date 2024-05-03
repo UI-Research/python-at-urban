@@ -7,3 +7,4 @@ lxml_html_clean
 selenium
 beautifulsoup4
 requests
+webdriver-manager
