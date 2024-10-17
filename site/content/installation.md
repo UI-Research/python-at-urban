@@ -40,7 +40,7 @@ If you are working on a computer that already has Anaconda installed (and predat
 - `conda install package-name`
 
 ## Running Code Interactively
-To run Python code in Quarto notebooks or IPython notebooks (.ipynb files), we recommend installing the Jupyter package. You can do this by running `pip install ipykernel` from the command line.)
+To run Python code in Quarto notebooks or IPython notebooks (.ipynb files), we recommend installing the ipykernel package. You can do this by running `pip install ipykernel` from the command line.)
 
 We also recommend installing the following from the `Extensions` section of VS Code:
 - Python
