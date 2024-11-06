@@ -26,8 +26,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/main.css" />
     <link rel="stylesheet" type="text/css" href="../_static/ipynb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/main.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -299,8 +299,12 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installing-anaconda">
-   Installing Anaconda
+  <a class="reference internal nav-link" href="#we-now-recommend-against-using-anaconda-due-to-its-terms-of-service">
+   We now recommend
+   <strong>
+    against
+   </strong>
+   using Anaconda due to its terms of service.
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -311,6 +315,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#installing-packages">
    Installing Packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-code-interactively">
+   Running Code Interactively
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -338,8 +347,12 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installing-anaconda">
-   Installing Anaconda
+  <a class="reference internal nav-link" href="#we-now-recommend-against-using-anaconda-due-to-its-terms-of-service">
+   We now recommend
+   <strong>
+    against
+   </strong>
+   using Anaconda due to its terms of service.
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -350,6 +363,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#installing-packages">
    Installing Packages
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#running-code-interactively">
+   Running Code Interactively
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -369,34 +387,53 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="installing-python">
 <h1>Installing Python<a class="headerlink" href="#installing-python" title="Permalink to this headline">#</a></h1>
-<section id="installing-anaconda">
-<h2>Installing Anaconda<a class="headerlink" href="#installing-anaconda" title="Permalink to this headline">#</a></h2>
-<p>There are countless ways to install Python, which can make knowing how to get started notoriously intimidating. For new users at Urban, we strongly recommend <a class="reference external" href="https://docs.anaconda.com/anaconda/user-guide/getting-started/">Anaconda</a> as a great way to quickly set up and manage your Python environment. Anaconda is an open-source distribution that includes a Python interpreter, hundreds of useful Python packages for data science (including pandas, numpy, and scipy), and tools like code editors.</p>
-<p>To install Anaconda, simply go to the <a class="reference external" href="https://www.anaconda.com/distribution/#download-section">Anaconda Download page</a>, and click Download. We recommend the suggested defaults (i.e., install for “Just Me”, use the default destination folder, and do not add Anaconda to your PATH environment). With these settings, you will NOT need administrator privileges to install Anaconda on your Urban computer.</p>
-<p>Once you have successfully installed Anaconda, you can open the Anaconda Navigator. This is a graphical interface that lets you launch applications to run Python code. To launch the Anaconda Navigator, search for it from the Start menu.</p>
-<p>For more information, see the getting started guides for <a class="reference external" href="https://docs.anaconda.com/anaconda/user-guide/getting-started/">Anaconda</a> and <a class="reference external" href="https://docs.anaconda.com/navigator/getting-started/">Anaconda Navigator</a>.</p>
+<p>We recommend installing Python directly from the official website at <a class="reference external" href="https://www.python.org/downloads/">python.org</a>. Reach out to <a class="reference external" href="mailto:helpdesk&#37;&#52;&#48;urban&#46;org">helpdesk<span>&#64;</span>urban<span>&#46;</span>org</a> for the administrative permissions needed to do this.</p>
+<p>When you install Python, make sure to check the box that says “Add Python to PATH”. This will allow you to run Python from the command line.</p>
+<hr class="docutils" />
+<p><strong>NOTE</strong></p>
+<section id="we-now-recommend-against-using-anaconda-due-to-its-terms-of-service">
+<h2>We now recommend <strong>against</strong> using Anaconda due to its terms of service.<a class="headerlink" href="#we-now-recommend-against-using-anaconda-due-to-its-terms-of-service" title="Permalink to this headline">#</a></h2>
+<p>To confirm Python and <code class="docutils literal notranslate"><span class="pre">pip</span></code> (a package management tool) are both installed correctly, open a command prompt or terminal and run the following in the command line:
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">--version</span></code> and <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">--version</span></code>.</p>
 </section>
 <section id="choosing-a-code-editor">
 <h2>Choosing a Code Editor<a class="headerlink" href="#choosing-a-code-editor" title="Permalink to this headline">#</a></h2>
-<p>There are a number of different code editors or integrated development environments (IDEs) for Python. The most popular ones among users at Urban include the following:</p>
+<p>There are a number of different code editors or integrated development environments (IDEs) for Python. We recommend using <a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> (or VS Code), which can be installed  from the <a class="reference external" href="https://code.visualstudio.com/download">official website</a>. VS Code can be used for standard .py files, as well as for Quarto and IPython notebooks (.qmd and .ipynb files).</p>
+<p>VSCode includes support for debugging, syntax highlighting, code completion, and more. It also offers thousands of extensions (including <a class="reference external" href="https://code.visualstudio.com/docs/languages/python">Python-specific extensions</a>, a <a class="reference external" href="https://quarto.org/docs/tools/vscode.html">Quarto extension</a>, and an <a class="reference external" href="https://aws.amazon.com/visualstudiocode/">AWS extension</a>).</p>
+<hr class="docutils" />
+<p><strong>SUMMARY OF INSTALLATIONS THAT REQUIRE HELPDESK ASSISTANCE</strong></p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a> comes installed with Anaconda, and is similar to RMarkdown. Jupyter notebooks are web-based applications that let you edit and run blocks of code along with markdown text, equations, and visualizations in a single notebook file.</p></li>
-<li><p><a class="reference external" href="https://www.spyder-ide.org/">Spyder</a> also comes installed with Anaconda and is most similar to RStudio for R. It offers editing, analysis, and debugging support for Python.</p></li>
-<li><p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a> (or VS Code) can be installed through Anaconda, and includes support for debugging, syntax highlighting, code completion, and more. It also offers thousands of extensions (including <a class="reference external" href="https://code.visualstudio.com/docs/languages/python">Python-specific extensions</a>, a <a class="reference external" href="https://quarto.org/docs/tools/vscode.html">Quarto extension</a>, and an <a class="reference external" href="https://aws.amazon.com/visualstudiocode/">AWS extension</a>).</p></li>
+<li><p>Python</p></li>
+<li><p>Visual Studio Code</p></li>
+<li><p>Quarto Command Line Interface (if you plan to use Quarto; install from <span class="xref myst">here</span>)</p></li>
 </ul>
 </section>
+<hr class="docutils" />
 <section id="installing-packages">
 <h2>Installing Packages<a class="headerlink" href="#installing-packages" title="Permalink to this headline">#</a></h2>
-<p>Anaconda comes with a package management system called <code class="docutils literal notranslate"><span class="pre">conda</span></code>. To install a package, open your command prompt and run</p>
-<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">package-name</span></code></p>
+<p>We recommend using the package management tool <code class="docutils literal notranslate"><span class="pre">pip</span></code> that comes with Base Python. To install a package, you can run <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">package-name</span></code> from the command line.</p>
 <p>Note that this must be done from the command line and <strong>not</strong> the Python session (in contrast to package management in R).</p>
-<p>Base Python has its own package management tool called <code class="docutils literal notranslate"><span class="pre">pip</span></code>. If a package is not available with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code>, you can try running</p>
-<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">package-name</span></code></p>
-<p>You should always try running <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span></code> first, as this will do a better job of resolving package dependency issues.</p>
+<p>If you are working on a computer that already has Anaconda installed, you can still use <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> (the open-source alternative to <code class="docutils literal notranslate"><span class="pre">conda</span></code>) to install packages. To do this, you can run:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">config</span> <span class="pre">--add</span> <span class="pre">channels</span> <span class="pre">conda-forge</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">package-name</span></code></p></li>
+</ul>
+</section>
+<section id="running-code-interactively">
+<h2>Running Code Interactively<a class="headerlink" href="#running-code-interactively" title="Permalink to this headline">#</a></h2>
+<p>To run Python code in Quarto notebooks or IPython notebooks (.ipynb files), we recommend installing the ipykernel package. You can do this by running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">ipykernel</span></code> from the command line.)</p>
+<p>We also recommend installing the following from the <code class="docutils literal notranslate"><span class="pre">Extensions</span></code> section of VS Code:</p>
+<ul class="simple">
+<li><p>Python</p></li>
+<li><p>Jupyter</p></li>
+<li><p>Quarto</p></li>
+<li><p>R (if you plan on running R code alongside Python code in your Quarto notebooks)</p></li>
+</ul>
 </section>
 <section id="using-virtual-environments">
 <h2>Using Virtual Environments<a class="headerlink" href="#using-virtual-environments" title="Permalink to this headline">#</a></h2>
-<p>To avoid running into version issues between multiple projects that rely on different Python versions or different versions of packages, you might want to try using virtual environments. A virtual environment is a way to create an isolated space so you can, for example, run Python 2.7 for one project and Python 3.7 for another on the same computer. <code class="docutils literal notranslate"><span class="pre">conda</span></code> includes robust support for creating and managing different environments. For more detail, see <a class="reference external" href="https://ui-research.github.io/virtual-envs/">this guide</a> on using virtual environments at Urban or the official <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">conda documentation</a>.</p>
+<p>To avoid running into version issues between multiple projects that rely on different Python versions or different versions of packages, you might want to try using virtual environments. A virtual environment is a way to create an isolated space so you can, for example, run Python 2.7 for one project and Python 3.7 for another on the same computer.</p>
+<p>We recommend using the <code class="docutils literal notranslate"><span class="pre">venv</span></code> package, which can be installed by running <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">venv</span></code> on the command line. <code class="docutils literal notranslate"><span class="pre">venv</span></code> includes robust support for creating and managing different environments. For more detail, see <a class="reference external" href="https://ui-research.github.io/reproducibility-at-urban/virtual-environments.html">this guide</a> on using virtual environments at Urban or the official <a class="reference external" href="https://docs.python.org/3/tutorial/venv.html">venv documentation</a>.</p>
 </section>
 </section>
 
