@@ -35,7 +35,7 @@ We recommend using the package management tool `pip` that comes with Base Python
 
 Note that this must be done from the command line and **not** the Python session (in contrast to package management in R).
 
-If you are working on a computer that already has Anaconda installed (and predates the TOS changes), you can still use `conda-forge` (the open-source alternative to `conda`) to install packages. To do this, you can run:
+If you are working on a computer that already has Anaconda installed, you can still use `conda-forge` (the open-source alternative to `conda`) to install packages. To do this, you can run:
 - `conda config --add channels conda-forge`
 - `conda install package-name`
 
