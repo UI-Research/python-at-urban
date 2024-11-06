@@ -7,7 +7,7 @@ When you install Python, make sure to check the box that says "Add Python to PAT
 ---
 **NOTE**
 
-We now recommend against using Anaconda due to recent changes in the terms of service.
+We now recommend **against** using Anaconda due to its terms of service.
 ---
 
 
