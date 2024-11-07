@@ -2,17 +2,19 @@
 
 We recommend installing Python directly from the official website at [python.org](https://www.python.org/downloads/). Reach out to helpdesk@urban.org for the administrative permissions needed to do this. 
 
-When you install Python, make sure to check the box that says "Add Python to PATH". This will allow you to run Python from the command line.
+If you are setting up a new computer to use Python at Urban, we recommend asking Helpdesk to install up the following at the same time: 
+- Python
+- Visual Studio Code
+- Quarto Command Line Interface (if you plan to use Quarto; install from [here]((https://quarto.org/docs/get-started/)))
 
----
-**NOTE**
-
-We now recommend **against** using Anaconda due to its terms of service.
----
-
+When installing Python, make sure to check the box that says "Add Python to PATH". This will allow you to run Python from the command line.
 
 To confirm Python and `pip` (a package management tool) are both installed correctly, open a command prompt or terminal and run the following in the command line:
 `python --version` and `pip --version`.
+
+**Note**: We do **NOT** recommend using Anaconda due to its terms of service. Please refer to [Anaconda's official guidance](https://www.anaconda.com/blog/update-on-anacondas-terms-of-service-for-academia-and-research) if you have specific questions about acceptable use cases.  
+
+---
 
 ## Choosing a Code Editor  
 
@@ -20,13 +22,6 @@ There are a number of different code editors or integrated development environme
 
 VSCode includes support for debugging, syntax highlighting, code completion, and more. It also offers thousands of extensions (including [Python-specific extensions](https://code.visualstudio.com/docs/languages/python), a [Quarto extension](https://quarto.org/docs/tools/vscode.html), and an [AWS extension](https://aws.amazon.com/visualstudiocode/)).  
 
-
----
-**SUMMARY OF INSTALLATIONS THAT REQUIRE HELPDESK ASSISTANCE**
-
-- Python
-- Visual Studio Code
-- Quarto Command Line Interface (if you plan to use Quarto; install from [here]((https://quarto.org/docs/get-started/)))
 ---
 
 ## Installing Packages 
