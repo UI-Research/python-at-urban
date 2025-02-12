@@ -26,8 +26,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/ipynb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/main.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ipynb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -486,7 +486,7 @@ title="Print to PDF"
 <h4>Listing buckets and objects<a class="headerlink" href="#listing-buckets-and-objects" title="Permalink to this headline">#</a></h4>
 <p>To list buckets and objects in S3, you first you need to instantiate a client resource which represents the Amazon S3 service.</p>
 <p>Then, you can use the syntax below to list all of the buckets that you have access to. If your desired bucket doesn’t show up, contact the TECH team to update the permissions associated with your credentials.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">boto3</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">boto3</span>
 <span class="n">s3</span> <span class="o">=</span> <span class="n">boto3</span><span class="o">.</span><span class="n">client</span><span class="p">(</span><span class="s2">&quot;s3&quot;</span><span class="p">)</span>
 
 <span class="n">response</span> <span class="o">=</span> <span class="n">s3</span><span class="o">.</span><span class="n">list_buckets</span><span class="p">()</span>
@@ -523,7 +523,7 @@ title="Print to PDF"
 <h4>Using Pandas<a class="headerlink" href="#using-pandas" title="Permalink to this headline">#</a></h4>
 <p>Recent versions of Pandas let you read and write files to S3 with simplified syntax using the s3fs package under-the-hood. You can install s3fs using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">s3fs</span></code>.</p>
 <p>The code below would read the file <code class="docutils literal notranslate"><span class="pre">example.csv</span></code> from S3 as a Pandas dataframe.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span> 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;s3://my-bucket/my-prefix/example.csv&quot;</span><span class="p">)</span>
 </pre></div>
 </div>

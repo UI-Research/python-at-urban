@@ -26,8 +26,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/ipynb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/main.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/ipynb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -598,22 +598,22 @@ title="Print to PDF"
 <p>First, let’s import some packages that we’ll need throughout the lesson (which you may need to install from the command line using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">package_name</span></code>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
-<span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
-<span class="kn">from</span> <span class="nn">selenium.webdriver.chrome.service</span> <span class="kn">import</span> <span class="n">Service</span> 
-<span class="kn">from</span> <span class="nn">webdriver_manager.chrome</span> <span class="kn">import</span> <span class="n">ChromeDriverManager</span>
-<span class="kn">from</span> <span class="nn">selenium.webdriver.chrome.options</span> <span class="kn">import</span> <span class="n">Options</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">bs4</span><span class="w"> </span><span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">selenium</span><span class="w"> </span><span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">selenium.webdriver.common.by</span><span class="w"> </span><span class="kn">import</span> <span class="n">By</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">selenium.webdriver.chrome.service</span><span class="w"> </span><span class="kn">import</span> <span class="n">Service</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">webdriver_manager.chrome</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChromeDriverManager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">selenium.webdriver.chrome.options</span><span class="w"> </span><span class="kn">import</span> <span class="n">Options</span>
 
 <span class="c1">## NOTE: Some users may want to try a Firefox Driver instead;</span>
 <span class="c1">## Can comment above two lines and uncomment the below two lines</span>
 <span class="c1"># from selenium.webdriver.firefox.service import Service</span>
 <span class="c1"># from webdriver_manager.firefox import GeckoDriverManager</span>
-<span class="kn">from</span> <span class="nn">selenium.webdriver.support</span> <span class="kn">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">EC</span>
-<span class="kn">from</span> <span class="nn">selenium.webdriver.support.ui</span> <span class="kn">import</span> <span class="n">Select</span><span class="p">,</span> <span class="n">WebDriverWait</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">selenium.webdriver.support</span><span class="w"> </span><span class="kn">import</span> <span class="n">expected_conditions</span> <span class="k">as</span> <span class="n">EC</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">selenium.webdriver.support.ui</span><span class="w"> </span><span class="kn">import</span> <span class="n">Select</span><span class="p">,</span> <span class="n">WebDriverWait</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
 </pre></div>
 </div>
 </div>
@@ -645,7 +645,7 @@ title="Print to PDF"
 <p>A function is a block of code that can execute a particular action. The reason we use a function is to avoid copy and pasting the same code multiple times if we want to repeatedly execute that action. Functions can take in arguments from the user and can return a value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">square_number</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">square_number</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
 
 <span class="n">square_number</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -664,7 +664,7 @@ title="Print to PDF"
 <p>Use the function when you need to click a button on the page.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">click_button</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>   
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">click_button</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>   
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    This function waits until a button is clickable and then clicks on it.`</span>
 
@@ -691,7 +691,7 @@ title="Print to PDF"
 <p>Use this function to select a value in a dropdown menu</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">select_dropdown</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span>  <span class="n">by</span><span class="o">=</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">select_dropdown</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span>  <span class="n">by</span><span class="o">=</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="n">index</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    This function clicks on the correct dropdown option in a dropdown object.</span>
 <span class="sd">    It first waits until the element becomes selectable before locating the proper drop down menu. Then it selects the proper option.</span>
@@ -725,7 +725,7 @@ title="Print to PDF"
 <p>Use this function to enter text in a text box. the <code class="docutils literal notranslate"><span class="pre">enter_text</span></code> function is accompanied by the <code class="docutils literal notranslate"><span class="pre">is_textbox_empty</span></code> function to test is there is already a value in the text box. Later in the boot camp when we start to loop through variables, in some cases we’ll want to skip over the text box if there’s already text, in others we’ll want to make sure to clear the value first before we enter something else.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">enter_text</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">enter_text</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">):</span>
     <span class="n">element_clickable</span> <span class="o">=</span> <span class="n">EC</span><span class="o">.</span><span class="n">element_to_be_clickable</span><span class="p">((</span><span class="n">by</span><span class="p">,</span> <span class="n">identifier</span><span class="p">))</span>
     <span class="n">element</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">element_clickable</span><span class="p">)</span>
      <span class="c1"># Clear the text from the text box (zip code wasn&#39;t overwritting)</span>
@@ -737,7 +737,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_textbox_empty</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="n">textbox_id</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_textbox_empty</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="n">textbox_id</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    This function checks if a text box is empty</span>
 <span class="sd">    Use this for the income variable so that we don&#39;t rewrite it</span>
@@ -756,7 +756,7 @@ title="Print to PDF"
 <section id="sometimes-to-move-forward-you-have-to-wait">
 <h2>Sometimes to move forward, you have to wait<a class="headerlink" href="#sometimes-to-move-forward-you-have-to-wait" title="Permalink to this headline">#</a></h2>
 <p>Let’s dive into the <code class="docutils literal notranslate"><span class="pre">click_button</span></code> function so we have some intuition as to what’s going on. There are really only 3 lines, which speaks to how powerful the <code class="docutils literal notranslate"><span class="pre">selenium</span></code> package is.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">click_button</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>   
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">click_button</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">driver</span><span class="p">,</span> <span class="n">by</span><span class="o">=</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">15</span><span class="p">):</span>   
     
     <span class="n">element_clickable</span> <span class="o">=</span> <span class="n">EC</span><span class="o">.</span><span class="n">element_to_be_clickable</span><span class="p">((</span><span class="n">by</span><span class="p">,</span> <span class="n">identifier</span><span class="p">))</span>
     <span class="n">element</span> <span class="o">=</span> <span class="n">WebDriverWait</span><span class="p">(</span><span class="n">driver</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span><span class="o">.</span><span class="n">until</span><span class="p">(</span><span class="n">element_clickable</span><span class="p">)</span>
@@ -776,7 +776,7 @@ title="Print to PDF"
 <h3>Function Steps<a class="headerlink" href="#function-steps" title="Permalink to this headline">#</a></h3>
 <ol class="simple">
 <li><p>The first line identifies the element we want to click based on the <code class="docutils literal notranslate"><span class="pre">identifier</span></code> and <code class="docutils literal notranslate"><span class="pre">by</span></code> arguments we discussed before.</p></li>
-<li><p>The second line uses what we call an <strong>“implicit wait”</strong>, a hugely powerful part of <code class="docutils literal notranslate"><span class="pre">selenium</span></code>. The driver waits until the element we want is “clickable” on the webpage, which is crucial for dynamic web pages where elements might take time to load, especially when we repeatedly call the same page. What’s nice about implicit waits is that they wait <strong>only as long as they need to</strong>, or until a timeout is reached (in this case if it takes an element longer than 15 seconds to load, which means something is probably wrong). On the other hand, <strong>explicit waits</strong> pause the driver for some user-specified amount of time. We generally prefer implicit waits because they’re more efficient, though we’ll see how both have their place.</p></li>
+<li><p>The second line uses what we call an <strong>“explicit wait”</strong>, a hugely powerful part of <code class="docutils literal notranslate"><span class="pre">selenium</span></code>. The driver waits until the element we want is “clickable” on the webpage, which is crucial for dynamic web pages where elements might take time to load, especially when we repeatedly call the same page. What’s nice about implicit waits is that they wait <strong>only as long as they need to</strong>, or until a timeout is reached (in this case if it takes an element longer than 15 seconds to load, which means something is probably wrong). On the other hand, <strong>implicit waits</strong> pause the driver for some user-specified amount of time. We generally prefer implicit waits because they’re more efficient, though we’ll see how both have their place.</p></li>
 <li><p>Finally, once the element is clickable, the third line actually executes the action to click the button.</p></li>
 </ol>
 </section>
